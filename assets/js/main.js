@@ -31,7 +31,9 @@
      */
     function setupScrollReveal() {
         const targets = document.querySelectorAll(
-            '.section-header, .service-card, .feature-card, .portfolio-card, .testimonial-card, .cta-box'
+            '.section-header, .service-card, .feature-card, .portfolio-card, ' +
+            '.testimonial-card, .cta-box, .web-type-card, .process-step, ' +
+            '.pricing-card, .faq-item, .page-hero-features'
         );
         if (!targets.length) return;
 
