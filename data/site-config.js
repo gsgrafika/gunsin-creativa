@@ -31,6 +31,13 @@ const SITE = {
     ],
     email: "gunsinbawamanfaat@gmail.com",
 
+        // ---------- JAM OPERASIONAL ----------
+    jamOperasional: [
+        { hari: "Senin - Jumat", jam: "08.00 - 20.00" },
+        { hari: "Sabtu",         jam: "08.00 - 17.00" },
+        { hari: "Minggu",        jam: "By Appointment" }
+    ],
+
     // ---------- LOKASI ----------
     alamat: "Jl. Sunan Ampel III No.24, Rejomulyo, Kec. Kota, Kota Kediri, Jawa Timur 64129",
     alamatSingkat: "Kota Kediri, Jawa Timur",

@@ -34,7 +34,8 @@
             '.section-header, .service-card, .feature-card, .portfolio-card, ' +
             '.testimonial-card, .cta-box, .web-type-card, .process-step, ' +
             '.pricing-card, .faq-item, .page-hero-features, ' +
-            '.gallery-item, .price-item, .portfolio-3d-card'
+            '.gallery-item, .price-item, .portfolio-3d-card, ' +
+            '.contact-card, .contact-form-card, .map-wrap'
         );
         if (!targets.length) return;
 
