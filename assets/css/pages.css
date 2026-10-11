@@ -253,9 +253,27 @@
 .service-card:hover::before { transform: scaleX(1); }
 
 .service-icon {
-    font-size: 2.5rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 56px;
+    height: 56px;
+    background: color-mix(in srgb, var(--accent-primary) 12%, transparent);
+    border-radius: var(--radius-md);
+    color: var(--accent-secondary);
     margin-bottom: var(--space-md);
-    display: inline-block;
+    transition: all var(--transition-base);
+}
+
+.service-icon svg {
+    width: 28px;
+    height: 28px;
+}
+
+.service-card:hover .service-icon {
+    background: var(--accent-primary);
+    color: white;
+    transform: scale(1.08) rotate(-4deg);
 }
 
 .service-card h3 {
@@ -302,8 +320,6 @@
 }
 
 .feature-icon {
-    font-size: 2rem;
-    margin-bottom: var(--space-md);
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -311,6 +327,13 @@
     height: 56px;
     background: color-mix(in srgb, var(--accent-secondary) 15%, transparent);
     border-radius: var(--radius-md);
+    color: var(--accent-secondary);
+    margin-bottom: var(--space-md);
+}
+
+.feature-icon svg {
+    width: 26px;
+    height: 26px;
 }
 
 .feature-card h3 {
@@ -541,33 +564,172 @@
 }
 
 /* ============================================================
-   RESPONSIVE
+   RESPONSIVE - Diperhalus untuk semua ukuran layar
    ============================================================ */
-@media (max-width: 900px) {
-    .hero-inner { grid-template-columns: 1fr; }
-    .hero-visual { height: 300px; order: -1; }
-    .hero-blob { width: 260px; height: 260px; }
-    .hero-floating-card { padding: var(--space-sm) var(--space-md); min-width: 180px; }
-    .hero-floating-card strong { font-size: 0.8rem; }
+
+/* ---------- Tablet Landscape / Desktop Kecil ---------- */
+@media (max-width: 1024px) {
+    :root {
+        --space-3xl: 3.5rem;
+        --space-2xl: 2.5rem;
+    }
+
+    .hero-inner {
+        grid-template-columns: 1fr;
+        gap: var(--space-2xl);
+    }
+
+    .hero-visual {
+        height: 320px;
+        order: -1;
+        margin-bottom: var(--space-lg);
+    }
+
+    .hero-blob {
+        width: 280px;
+        height: 280px;
+    }
+
+    .hero-subtitle { max-width: 100%; }
+}
+
+/* ---------- Tablet Portrait ---------- */
+@media (max-width: 768px) {
+    :root {
+        --space-3xl: 3rem;
+        --space-2xl: 2rem;
+        --space-xl: 1.5rem;
+    }
+
+    .container {
+        padding: 0 var(--space-md);
+    }
+
+    /* HERO */
+    .hero { padding: var(--space-2xl) 0; }
+    .hero-title {
+        font-size: clamp(1.75rem, 8vw, 2.25rem);
+        line-height: 1.15;
+    }
+    .hero-subtitle {
+        font-size: 1rem;
+        margin-bottom: var(--space-lg);
+    }
+    .hero-badge {
+        font-size: 0.8rem;
+        padding: 0.35rem 0.85rem;
+    }
+    .hero-cta {
+        flex-direction: column;
+        width: 100%;
+        gap: var(--space-sm);
+    }
+    .hero-cta .btn {
+        width: 100%;
+        justify-content: center;
+    }
+    .hero-stats {
+        gap: var(--space-md);
+        padding-top: var(--space-md);
+    }
+    .hero-stat strong { font-size: 1.35rem; }
+    .hero-stat span { font-size: 0.75rem; }
+
+    /* VISUAL */
+    .hero-visual { height: 260px; }
+    .hero-blob { width: 220px; height: 220px; }
+    .hero-floating-card {
+        padding: 0.6rem 1rem;
+        min-width: 150px;
+        border-radius: var(--radius-md);
+    }
+    .hero-floating-card strong { font-size: 0.78rem; }
+    .hero-floating-card small { font-size: 0.68rem; }
     .float-icon { font-size: 1.25rem; }
 
+    .card-web    { top: 5%;  left: 0; }
+    .card-design { top: 40%; right: 0; }
+    .card-3d     { bottom: 5%; left: 8%; }
+
+    /* SECTION */
+    .section-header { margin-bottom: var(--space-xl); }
+    .section-title { font-size: clamp(1.5rem, 6vw, 1.9rem); }
+    .section-subtitle { font-size: 0.95rem; }
+
+    /* SERVICES */
+    .services-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-md);
+    }
+    .service-card { padding: var(--space-lg); }
+
+    /* FEATURES */
+    .features-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-md);
+    }
+    .feature-card { padding: var(--space-lg); }
+
+    /* PORTFOLIO */
+    .portfolio-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-md);
+    }
+
+    /* TESTIMONIALS */
+    .testimonials-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-md);
+    }
+    .testimonial-card { padding: var(--space-lg); }
+
+    /* CTA */
     .cta-box {
         grid-template-columns: 1fr;
         text-align: center;
+        padding: var(--space-xl);
     }
-
-    .cta-actions { justify-content: center; }
+    .cta-actions {
+        justify-content: center;
+        flex-direction: column;
+        width: 100%;
+    }
+    .cta-actions .btn { width: 100%; }
 }
 
-@media (max-width: 600px) {
-    .hero { padding: var(--space-2xl) 0; }
-    .hero-stats {
-        flex-wrap: wrap;
-        gap: var(--space-md);
+/* ---------- Mobile Kecil ---------- */
+@media (max-width: 480px) {
+    :root {
+        --space-3xl: 2.5rem;
+        --space-2xl: 1.75rem;
     }
-    .hero-stat-divider { display: none; }
-    .hero-stat { flex: 1 1 40%; }
 
     .hero-floating-card { display: none; }
-    .hero-blob { width: 220px; height: 220px; }
+    .hero-visual { height: 200px; }
+    .hero-blob { width: 180px; height: 180px; }
+
+    .hero-stat { flex: 1 1 calc(50% - var(--space-md)); }
+    .hero-stat-divider { display: none; }
+
+    .section-title { font-size: 1.4rem; }
+
+    .cta-content h2 { font-size: 1.3rem; }
+    .cta-content p { font-size: 0.9rem; }
+}
+
+/* ---------- Cegah overflow horizontal ---------- */
+html, body {
+    overflow-x: hidden;
+    max-width: 100%;
+}
+
+/* ---------- Sentuhan halus di layar sentuh ---------- */
+@media (hover: none) {
+    .service-card:hover,
+    .portfolio-card:hover,
+    .feature-card:hover,
+    .testimonial-card:hover {
+        transform: none;
+    }
+    .service-card:hover::before { transform: scaleX(0); }
 }

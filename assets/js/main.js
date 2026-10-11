@@ -16,7 +16,9 @@
 
         container.innerHTML = SITE.layanan.map(item => `
             <a href="${item.href}" class="service-card">
-                <div class="service-icon">${item.ikon}</div>
+                <div class="service-icon">
+                    ${item.ikonSvg}
+                </div>
                 <h3>${item.nama}</h3>
                 <p>${item.deskripsi}</p>
                 <span class="service-link">Selengkapnya →</span>
