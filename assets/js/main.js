@@ -76,10 +76,37 @@
         });
     }
 
+    /**
+     * Handle link internal yang rusak (404)
+     * Khusus untuk halaman 404, arahkan ke beranda setelah 10 detik
+     */
+    function setup404Redirect() {
+        if (window.location.pathname !== '/404.html' && 
+            !document.title.toLowerCase().includes('tidak ditemukan')) return;
+
+        let countdown = 10;
+        const counter = document.createElement('p');
+        counter.style.cssText = 'margin-top: 2rem; color: var(--text-muted); font-size: 0.9rem;';
+        counter.textContent = `Dialihkan otomatis ke Beranda dalam ${countdown} detik...`;
+        
+        const container = document.querySelector('main .container');
+        if (container) container.appendChild(counter);
+
+        const interval = setInterval(() => {
+            countdown--;
+            counter.textContent = `Dialihkan otomatis ke Beranda dalam ${countdown} detik...`;
+            if (countdown <= 0) {
+                clearInterval(interval);
+                window.location.href = 'index.html';
+            }
+        }, 1000);
+    }
+
     function init() {
         renderServices();
         setupScrollReveal();
         setupSmoothScroll();
+        setup404Redirect();
     }
 
     if (document.readyState === 'loading') {

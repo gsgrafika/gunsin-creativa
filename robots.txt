@@ -1,0 +1,12 @@
+# robots.txt untuk Gunsin Creativa
+# https://gunsincreativa.com/
+
+User-agent: *
+Allow: /
+
+# Blokir akses ke folder internal
+Disallow: /data/
+Disallow: /components/
+
+# Sitemap lokasi
+Sitemap: https://gunsincreativa.com/sitemap.xml
