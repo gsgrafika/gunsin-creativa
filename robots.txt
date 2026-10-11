@@ -1,5 +1,5 @@
 # robots.txt untuk Gunsin Creativa
-# https://gunsincreativa.com/
+# https://www.gunsincreativa.my.id/
 
 User-agent: *
 Allow: /
@@ -9,4 +9,4 @@ Disallow: /data/
 Disallow: /components/
 
 # Sitemap lokasi
-Sitemap: https://gunsincreativa.com/sitemap.xml
+Sitemap: https://www.gunsincreativa.my.id/sitemap.xml

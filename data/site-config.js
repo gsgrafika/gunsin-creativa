@@ -103,7 +103,7 @@ const SITE = {
         defaultTitle: "Gunsin Creativa - Solusi Digital untuk Sekolah, UMKM & Bisnis",
         defaultDescription: "Jasa web developer, desain grafis, visualisasi 3D Sketchup, dan merchandise custom di Kediri. Melayani sekolah, UMKM, dan bisnis di seluruh Indonesia.",
         keywords: "jasa web kediri, desain grafis kediri, sketchup kediri, merchandise custom, jasa desain logo, banner, umkm, sekolah",
-        url: "https://gunsincreativa.com", // ganti setelah punya domain
+        url: "https://www.gunsincreativa.my.id", // ganti setelah punya domain
         ogImage: "assets/img/og-image.jpg"
     }
 };
