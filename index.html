@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gunsin Creativa - Tes Struktur</title>
+    <title>Gunsin Creativa - Tes Header & Footer</title>
 
-    <!-- ⭐ INLINE SCRIPT: Terapkan tema SEBELUM render (anti-flash) -->
+    <!-- ⭐ Anti-flash: terapkan tema sebelum render -->
     <script>
         (function() {
-            const savedTheme = localStorage.getItem('gunsin-theme');
-            const systemPrefers = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-            const theme = savedTheme || systemPrefers;
+            const saved = localStorage.getItem('gunsin-theme');
+            const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            const theme = saved || (systemDark ? 'dark' : 'light');
             document.documentElement.setAttribute('data-theme', theme);
         })();
     </script>
@@ -21,50 +21,32 @@
     <link rel="stylesheet" href="assets/css/pages.css">
 </head>
 <body>
-    <div style="
-        display: flex;
-        justify-content: flex-end;
-        padding: var(--space-lg);
-        max-width: var(--container-max);
-        margin: 0 auto;
-    ">
-        <!-- ⭐ TOMBOL TOGGLE TEMA -->
-        <button class="theme-toggle" data-theme-toggle aria-label="Ganti tema">
-            <svg class="icon-sun" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="12" cy="12" r="4"/>
-                <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/>
-            </svg>
-            <svg class="icon-moon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="display: none;">
-                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
-            </svg>
-        </button>
-    </div>
+    <!-- ⭐ HEADER akan di-inject ke sini -->
+    <header id="site-header"></header>
 
-    <div style="max-width: 800px; margin: 2rem auto; padding: 2rem; text-align: center;">
-        <h1 style="color: var(--accent-secondary); margin-bottom: 1rem;">
-            Halo, Gunsin Creativa! 🎨
-        </h1>
-        <p style="color: var(--text-secondary); margin-bottom: 2rem;">
-            Klik tombol di atas untuk mencoba toggle Dark/Light mode.
-            Pilihan Anda akan tersimpan saat halaman di-refresh.
-        </p>
-
-        <div style="
-            background: var(--bg-elevated);
-            border: 1px solid var(--border-color);
-            border-radius: var(--radius-lg);
-            padding: 2rem;
-            box-shadow: var(--shadow-md);
-        ">
-            <p>Ini adalah kartu dengan warna dari <code>--bg-elevated</code>.</p>
-            <p style="margin-top: 1rem;">
-                <a href="#" style="color: var(--accent-primary);">Ini contoh link</a>
+    <main style="min-height: 60vh; padding: 4rem 0;">
+        <div class="container" style="text-align: center;">
+            <h1 style="color: var(--accent-secondary); margin-bottom: 1rem;">
+                Tes Header & Footer
+            </h1>
+            <p style="color: var(--text-secondary); margin-bottom: 2rem;">
+                Jika Anda melihat header di atas dengan logo, menu, dan tombol tema — 
+                berarti sistem injection bekerja dengan baik.
+            </p>
+            <p style="color: var(--text-muted); font-size: 0.9rem;">
+                Coba klik tombol menu di kanan atas (di layar kecil) untuk menguji menu mobile.
             </p>
         </div>
-    </div>
+    </main>
 
+    <!-- ⭐ FOOTER akan di-inject ke sini -->
+    <footer id="site-footer"></footer>
+
+    <!-- Urutan script PENTING: site-config dulu, baru komponen -->
     <script src="data/site-config.js"></script>
     <script src="assets/js/theme.js"></script>
+    <script src="components/header.js"></script>
+    <script src="components/footer.js"></script>
     <script src="assets/js/main.js"></script>
 </body>
 </html>

@@ -2,9 +2,10 @@
  * ============================================================
  * SISTEM TEMA DARK/LIGHT MODE
  * ============================================================
- * - Toggle tema saat tombol diklik
+ * - Toggle tema saat tombol diklik (via event delegation)
  * - Simpan preferensi ke localStorage
  * - Ikuti perubahan preferensi sistem secara real-time
+ * - refreshIcons() untuk update ikon setelah header di-inject
  * ============================================================
  */
 
@@ -15,36 +16,22 @@
     const THEME_DARK = 'dark';
     const THEME_LIGHT = 'light';
 
-    /**
-     * Ambil tema yang seharusnya aktif.
-     * Prioritas: localStorage > preferensi sistem > default (dark).
-     */
     function getCurrentTheme() {
         const saved = localStorage.getItem(STORAGE_KEY);
         if (saved === THEME_DARK || saved === THEME_LIGHT) return saved;
-
         const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
         return systemDark ? THEME_DARK : THEME_LIGHT;
     }
 
-    /**
-     * Terapkan tema ke <html>.
-     */
     function applyTheme(theme) {
         document.documentElement.setAttribute('data-theme', theme);
         updateToggleIcons(theme);
     }
 
-    /**
-     * Simpan preferensi ke localStorage.
-     */
     function saveTheme(theme) {
         localStorage.setItem(STORAGE_KEY, theme);
     }
 
-    /**
-     * Ganti tema saat ini.
-     */
     function toggleTheme() {
         const current = document.documentElement.getAttribute('data-theme') || getCurrentTheme();
         const next = current === THEME_DARK ? THEME_LIGHT : THEME_DARK;
@@ -54,22 +41,26 @@
 
     /**
      * Update semua ikon toggle di halaman.
-     * Ikon: matahari saat light mode, bulan saat dark mode.
+     * Dipanggil juga oleh header.js setelah header di-inject.
      */
     function updateToggleIcons(theme) {
+        if (!theme) {
+            theme = document.documentElement.getAttribute('data-theme') || getCurrentTheme();
+        }
+
         const buttons = document.querySelectorAll('[data-theme-toggle]');
         buttons.forEach(btn => {
             const iconSun = btn.querySelector('.icon-sun');
             const iconMoon = btn.querySelector('.icon-moon');
 
             if (theme === THEME_DARK) {
-                // Sedang gelap → tampilkan ikon matahari (untuk beralih ke terang)
+                // Mode gelap aktif → tampilkan matahari (klik = jadi terang)
                 if (iconSun) iconSun.style.display = 'block';
                 if (iconMoon) iconMoon.style.display = 'none';
                 btn.setAttribute('aria-label', 'Aktifkan mode terang');
                 btn.setAttribute('title', 'Mode terang');
             } else {
-                // Sedang terang → tampilkan ikon bulan (untuk beralih ke gelap)
+                // Mode terang aktif → tampilkan bulan (klik = jadi gelap)
                 if (iconSun) iconSun.style.display = 'none';
                 if (iconMoon) iconMoon.style.display = 'block';
                 btn.setAttribute('aria-label', 'Aktifkan mode gelap');
@@ -79,18 +70,21 @@
     }
 
     /**
-     * Pasang event listener ke semua tombol toggle.
+     * ⭐ Event delegation: pasang SATU listener di document.
+     * Bekerja untuk tombol yang ada sekarang MAUPUN yang baru ditambahkan.
      */
-    function bindToggleButtons() {
-        const buttons = document.querySelectorAll('[data-theme-toggle]');
-        buttons.forEach(btn => {
-            btn.addEventListener('click', toggleTheme);
+    function bindGlobalClick() {
+        document.addEventListener('click', (e) => {
+            const btn = e.target.closest('[data-theme-toggle]');
+            if (btn) {
+                e.preventDefault();
+                toggleTheme();
+            }
         });
     }
 
     /**
      * Dengarkan perubahan preferensi sistem.
-     * Hanya berlaku jika user belum pernah memilih secara manual.
      */
     function watchSystemPreference() {
         const media = window.matchMedia('(prefers-color-scheme: dark)');
@@ -101,24 +95,26 @@
         });
     }
 
-    /**
-     * Inisialisasi saat DOM siap.
-     */
     function init() {
         const current = document.documentElement.getAttribute('data-theme') || getCurrentTheme();
         applyTheme(current);
-        bindToggleButtons();
+        bindGlobalClick();
         watchSystemPreference();
+
+        // Update ikon beberapa kali untuk mengantisipasi header/footer yang di-inject belakangan
+        // (fallback jika header.js lupa memanggil refreshIcons)
+        setTimeout(() => updateToggleIcons(), 0);
+        setTimeout(() => updateToggleIcons(), 100);
     }
 
-    // Ekspos API kecil untuk digunakan dari tempat lain jika perlu
+    // ⭐ API publik
     window.GunsinTheme = {
         toggle: toggleTheme,
         get: getCurrentTheme,
-        set: (theme) => { applyTheme(theme); saveTheme(theme); }
+        set: (theme) => { applyTheme(theme); saveTheme(theme); },
+        refreshIcons: updateToggleIcons  // ← ini yang akan dipanggil header.js
     };
 
-    // Jalankan
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', init);
     } else {
