@@ -3,9 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gunsin Creativa - Tes Header & Footer</title>
+    <title>Gunsin Creativa - Solusi Digital untuk Sekolah, UMKM & Bisnis</title>
 
-    <!-- ⭐ Anti-flash: terapkan tema sebelum render -->
+    <meta name="description" content="Jasa web developer, desain grafis, visualisasi 3D Sketchup, dan merchandise custom di Kediri. Melayani sekolah, UMKM, dan bisnis di seluruh Indonesia.">
+    <meta name="keywords" content="jasa web kediri, desain grafis kediri, sketchup kediri, merchandise custom, jasa desain logo, banner, umkm, sekolah">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Gunsin Creativa - Solusi Digital untuk Sekolah, UMKM & Bisnis">
+    <meta property="og:description" content="Jasa web developer, desain grafis, visualisasi 3D Sketchup, dan merchandise custom.">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="id_ID">
+
+    <!-- Anti-flash tema -->
     <script>
         (function() {
             const saved = localStorage.getItem('gunsin-theme');
@@ -21,28 +30,276 @@
     <link rel="stylesheet" href="assets/css/pages.css">
 </head>
 <body>
-    <!-- ⭐ HEADER akan di-inject ke sini -->
     <header id="site-header"></header>
 
-    <main style="min-height: 60vh; padding: 4rem 0;">
-        <div class="container" style="text-align: center;">
-            <h1 style="color: var(--accent-secondary); margin-bottom: 1rem;">
-                Tes Header & Footer
-            </h1>
-            <p style="color: var(--text-secondary); margin-bottom: 2rem;">
-                Jika Anda melihat header di atas dengan logo, menu, dan tombol tema — 
-                berarti sistem injection bekerja dengan baik.
-            </p>
-            <p style="color: var(--text-muted); font-size: 0.9rem;">
-                Coba klik tombol menu di kanan atas (di layar kecil) untuk menguji menu mobile.
-            </p>
-        </div>
+    <main>
+        <!-- ============================================================
+             1. HERO
+             ============================================================ -->
+        <section class="hero">
+            <div class="container hero-inner">
+                <div class="hero-content">
+                    <span class="hero-badge">
+                        <span class="badge-dot"></span>
+                        Open untuk Proyek Baru
+                    </span>
+                    <h1 class="hero-title">
+                        Wujudkan <span class="text-accent">Brand Digital</span><br>
+                        Anda Bersama Kami.
+                    </h1>
+                    <p class="hero-subtitle">
+                        Gunsin Creativa membantu sekolah, UMKM, dan bisnis tampil profesional 
+                        dengan website modern, desain grafis memukau, dan visualisasi 3D yang meyakinkan.
+                    </p>
+                    <div class="hero-cta">
+                        <a href="https://wa.me/6285113133060?text=Halo%20Gunsin%20Creativa%2C%20saya%20ingin%20konsultasi"
+                           class="btn btn-primary btn-lg" target="_blank" rel="noopener">
+                            Konsultasi Gratis →
+                        </a>
+                        <a href="#layanan" class="btn btn-outline btn-lg">
+                            Lihat Layanan
+                        </a>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="hero-stat">
+                            <strong>50+</strong>
+                            <span>Proyek Selesai</span>
+                        </div>
+                        <div class="hero-stat-divider"></div>
+                        <div class="hero-stat">
+                            <strong>30+</strong>
+                            <span>Klien Puas</span>
+                        </div>
+                        <div class="hero-stat-divider"></div>
+                        <div class="hero-stat">
+                            <strong>2+</strong>
+                            <span>Tahun Pengalaman</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hero-visual">
+                    <div class="hero-blob"></div>
+                    <div class="hero-floating-card card-web">
+                        <span class="float-icon">🌐</span>
+                        <div>
+                            <strong>Web Development</strong>
+                            <small>Website Modern</small>
+                        </div>
+                    </div>
+                    <div class="hero-floating-card card-design">
+                        <span class="float-icon">🎨</span>
+                        <div>
+                            <strong>Graphic Design</strong>
+                            <small>Branding Kreatif</small>
+                        </div>
+                    </div>
+                    <div class="hero-floating-card card-3d">
+                        <span class="float-icon">🏠</span>
+                        <div>
+                            <strong>Sketchup 3D</strong>
+                            <small>Visualisasi Rumah</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================
+             2. LAYANAN (otomatis dari SITE.layanan)
+             ============================================================ -->
+        <section class="services" id="layanan">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-label">Layanan Kami</span>
+                    <h2 class="section-title">Apa yang Bisa Kami Bantu?</h2>
+                    <p class="section-subtitle">
+                        Dari website sampai merchandise, semua kebutuhan digital bisnis Anda ada di satu tempat.
+                    </p>
+                </div>
+
+                <div class="services-grid" id="services-grid">
+                    <!-- Diisi oleh JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================
+             3. KEUNGGULAN
+             ============================================================ -->
+        <section class="why-us">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-label">Kenapa Kami?</span>
+                    <h2 class="section-title">Keunggulan Gunsin Creativa</h2>
+                </div>
+
+                <div class="features-grid">
+                    <article class="feature-card">
+                        <div class="feature-icon">⚡</div>
+                        <h3>Cepat & Tepat Waktu</h3>
+                        <p>Kami menghargai deadline Anda. Setiap proyek dikerjakan dengan timeline yang jelas.</p>
+                    </article>
+                    <article class="feature-card">
+                        <div class="feature-icon">💎</div>
+                        <h3>Kualitas Premium</h3>
+                        <p>Hasil kerja rapi, detail, dan siap pakai. Revisi wajar untuk memastikan Anda puas.</p>
+                    </article>
+                    <article class="feature-card">
+                        <div class="feature-icon">🤝</div>
+                        <h3>Harga Ramah UMKM</h3>
+                        <p>Paket fleksibel yang bisa disesuaikan dengan budget sekolah dan UMKM.</p>
+                    </article>
+                    <article class="feature-card">
+                        <div class="feature-icon">📞</div>
+                        <h3>Support After-Sales</h3>
+                        <p>Kami dampingi setelah proyek selesai. Ada kendala? Tinggal hubungi kami.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================
+             4. PORTOFOLIO PREVIEW
+             ============================================================ -->
+        <section class="portfolio">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-label">Portofolio</span>
+                    <h2 class="section-title">Karya Terbaru Kami</h2>
+                    <p class="section-subtitle">
+                        Beberapa proyek pilihan yang kami kerjakan untuk klien dari berbagai industri.
+                    </p>
+                </div>
+
+                <div class="portfolio-grid">
+                    <article class="portfolio-card">
+                        <div class="portfolio-img" style="background: linear-gradient(135deg, #7c3aed 0%, #a3e635 100%);">
+                            <span class="portfolio-emoji">🌐</span>
+                        </div>
+                        <div class="portfolio-body">
+                            <span class="portfolio-tag">Web Development</span>
+                            <h3>Website Profil Sekolah</h3>
+                            <p>Website modern untuk SMA dengan halaman berita, galeri, dan PPDB online.</p>
+                        </div>
+                    </article>
+
+                    <article class="portfolio-card">
+                        <div class="portfolio-img" style="background: linear-gradient(135deg, #a3e635 0%, #7c3aed 100%);">
+                            <span class="portfolio-emoji">🎨</span>
+                        </div>
+                        <div class="portfolio-body">
+                            <span class="portfolio-tag">Graphic Design</span>
+                            <h3>Branding UMKM Kuliner</h3>
+                            <p>Logo, banner, dan desain menu untuk brand kuliner lokal Kediri.</p>
+                        </div>
+                    </article>
+
+                    <article class="portfolio-card">
+                        <div class="portfolio-img" style="background: linear-gradient(135deg, #6366f1 0%, #a3e635 100%);">
+                            <span class="portfolio-emoji">🏠</span>
+                        </div>
+                        <div class="portfolio-body">
+                            <span class="portfolio-tag">Sketchup 3D</span>
+                            <h3>Visualisasi Rumah Tinggal</h3>
+                            <p>Render 3D rumah 2 lantai untuk keperluan presentasi ke klien.</p>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="section-cta">
+                    <a href="kontak.html" class="btn btn-outline btn-lg">
+                        Diskusikan Proyek Anda →
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================
+             5. TESTIMONI
+             ============================================================ -->
+        <section class="testimonials">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-label">Testimoni</span>
+                    <h2 class="section-title">Apa Kata Klien Kami</h2>
+                </div>
+
+                <div class="testimonials-grid">
+                    <figure class="testimonial-card">
+                        <div class="stars">★★★★★</div>
+                        <blockquote>
+                            "Hasil websitenya rapi dan cepat. Siswa-siswa senang dengan tampilan barunya. 
+                            Recommended untuk sekolah yang mau go digital."
+                        </blockquote>
+                        <figcaption>
+                            <div class="avatar" style="background: #7c3aed;">BS</div>
+                            <div>
+                                <strong>Bu Sari</strong>
+                                <small>Kepala Sekolah SMA</small>
+                            </div>
+                        </figcaption>
+                    </figure>
+
+                    <figure class="testimonial-card">
+                        <div class="stars">★★★★★</div>
+                        <blockquote>
+                            "Desain logo dan banner kami langsung jadi dalam 3 hari. 
+                            Hasilnya sesuai banget sama konsep warung kami."
+                        </blockquote>
+                        <figcaption>
+                            <div class="avatar" style="background: #a3e635; color: #0a0a1a;">AR</div>
+                            <div>
+                                <strong>Pak Andi</strong>
+                                <small>Owner Warung Kopi</small>
+                            </div>
+                        </figcaption>
+                    </figure>
+
+                    <figure class="testimonial-card">
+                        <div class="stars">★★★★★</div>
+                        <blockquote>
+                            "Render 3D rumah saya bikin klien puas dan langsung deal. 
+                            Komunikasi enak, revisi cepat. Terima kasih!"
+                        </blockquote>
+                        <figcaption>
+                            <div class="avatar" style="background: #6366f1;">RF</div>
+                            <div>
+                                <strong>Mas Rifqi</strong>
+                                <small>Kontraktor</small>
+                            </div>
+                        </figcaption>
+                    </figure>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================
+             6. CTA FINAL
+             ============================================================ -->
+        <section class="cta-final">
+            <div class="container">
+                <div class="cta-box">
+                    <div class="cta-content">
+                        <h2>Siap Wujudkan Ide Anda?</h2>
+                        <p>Konsultasi gratis, tanpa komitmen. Ceritakan kebutuhan Anda, kami bantu carikan solusinya.</p>
+                    </div>
+                    <div class="cta-actions">
+                        <a href="https://wa.me/6285113133060?text=Halo%20Gunsin%20Creativa%2C%20saya%20ingin%20konsultasi"
+                           class="btn btn-secondary btn-lg" target="_blank" rel="noopener">
+                            💬 Chat WhatsApp
+                        </a>
+                        <a href="kontak.html" class="btn btn-outline btn-lg">
+                            Lihat Kontak
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
 
-    <!-- ⭐ FOOTER akan di-inject ke sini -->
     <footer id="site-footer"></footer>
 
-    <!-- Urutan script PENTING: site-config dulu, baru komponen -->
     <script src="data/site-config.js"></script>
     <script src="assets/js/theme.js"></script>
     <script src="components/header.js"></script>
