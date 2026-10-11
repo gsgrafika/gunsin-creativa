@@ -87,10 +87,28 @@
 
 .brand-logo {
     display: inline-flex;
-    width: 40px;
-    height: 40px;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
     flex-shrink: 0;
+    position: relative;
 }
+
+.brand-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: opacity var(--transition-fast);
+}
+
+/* Tampilkan logo terang hanya di light mode */
+[data-theme="light"] .logo-light { display: block; }
+[data-theme="light"] .logo-dark  { display: none; }
+
+/* Tampilkan logo gelap hanya di dark mode */
+[data-theme="dark"] .logo-light { display: none; }
+[data-theme="dark"] .logo-dark  { display: block; }
 
 .brand-text {
     display: flex;

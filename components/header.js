@@ -48,12 +48,14 @@
             <div class="container header-inner">
                 <a href="index.html" class="brand" aria-label="${SITE.nama} - Beranda">
                     <span class="brand-logo">
-                        <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                            <rect x="2" y="2" width="36" height="36" rx="8" fill="var(--accent-primary)"/>
-                            <text x="50%" y="54%" text-anchor="middle" dominant-baseline="middle"
-                                  font-family="system-ui, sans-serif" font-weight="800"
-                                  font-size="20" fill="white">G</text>
-                        </svg>
+                        <img src="assets/img/brand/logo-light.webp"
+                             alt="Logo ${SITE.nama}"
+                             class="logo-light"
+                             width="42" height="42">
+                        <img src="assets/img/brand/logo-dark.webp"
+                             alt="Logo ${SITE.nama}"
+                             class="logo-dark"
+                             width="42" height="42">
                     </span>
                     <span class="brand-text">
                         <span class="brand-name">${SITE.nama}</span>
