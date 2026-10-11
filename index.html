@@ -4,22 +4,51 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gunsin Creativa - Tes Struktur</title>
-    
+
+    <!-- ⭐ INLINE SCRIPT: Terapkan tema SEBELUM render (anti-flash) -->
+    <script>
+        (function() {
+            const savedTheme = localStorage.getItem('gunsin-theme');
+            const systemPrefers = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+            const theme = savedTheme || systemPrefers;
+            document.documentElement.setAttribute('data-theme', theme);
+        })();
+    </script>
+
     <link rel="stylesheet" href="assets/css/reset.css">
     <link rel="stylesheet" href="assets/css/variables.css">
     <link rel="stylesheet" href="assets/css/components.css">
     <link rel="stylesheet" href="assets/css/pages.css">
 </head>
 <body>
-    <div style="max-width: 800px; margin: 4rem auto; padding: 2rem; text-align: center;">
+    <div style="
+        display: flex;
+        justify-content: flex-end;
+        padding: var(--space-lg);
+        max-width: var(--container-max);
+        margin: 0 auto;
+    ">
+        <!-- ⭐ TOMBOL TOGGLE TEMA -->
+        <button class="theme-toggle" data-theme-toggle aria-label="Ganti tema">
+            <svg class="icon-sun" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="12" cy="12" r="4"/>
+                <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/>
+            </svg>
+            <svg class="icon-moon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="display: none;">
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+            </svg>
+        </button>
+    </div>
+
+    <div style="max-width: 800px; margin: 2rem auto; padding: 2rem; text-align: center;">
         <h1 style="color: var(--accent-secondary); margin-bottom: 1rem;">
             Halo, Gunsin Creativa! 🎨
         </h1>
         <p style="color: var(--text-secondary); margin-bottom: 2rem;">
-            Jika teks ini berwarna hijau neon di atas background gelap, 
-            berarti sistem tema kita sudah bekerja dengan benar.
+            Klik tombol di atas untuk mencoba toggle Dark/Light mode.
+            Pilihan Anda akan tersimpan saat halaman di-refresh.
         </p>
-        
+
         <div style="
             background: var(--bg-elevated);
             border: 1px solid var(--border-color);
@@ -34,7 +63,6 @@
         </div>
     </div>
 
-    <!-- Skrip nanti kita isi -->
     <script src="data/site-config.js"></script>
     <script src="assets/js/theme.js"></script>
     <script src="assets/js/main.js"></script>
