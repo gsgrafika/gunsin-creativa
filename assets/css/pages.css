@@ -1135,6 +1135,133 @@ html, body {
     line-height: 1.7;
 }
 
+/* ============================================================
+   GALERI (untuk halaman Graphic Design)
+   ============================================================ */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--space-md);
+}
+
+.gallery-item {
+    aspect-ratio: 4 / 3;
+    border-radius: var(--radius-lg);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-sm);
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all var(--transition-base);
+    border: 1px solid var(--border-color);
+}
+
+.gallery-item::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, transparent 40%, rgba(0,0,0,0.7) 100%);
+    pointer-events: none;
+}
+
+.gallery-item:hover {
+    transform: scale(1.03);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--accent-secondary);
+}
+
+.gallery-emoji {
+    font-size: 3rem;
+    filter: drop-shadow(0 4px 12px rgba(0,0,0,0.3));
+    position: relative;
+    z-index: 1;
+}
+
+.gallery-label {
+    position: absolute;
+    bottom: var(--space-md);
+    left: var(--space-md);
+    right: var(--space-md);
+    color: white;
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-align: center;
+    z-index: 2;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+/* ============================================================
+   PRICELIST (format list untuk Graphic Design)
+   ============================================================ */
+.pricelist-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: var(--space-md);
+    margin-top: var(--space-lg);
+}
+
+.price-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-md);
+    padding: var(--space-lg);
+    background: var(--bg-elevated);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    transition: all var(--transition-base);
+}
+
+.price-item:hover {
+    border-color: var(--accent-primary);
+    transform: translateX(4px);
+    box-shadow: var(--shadow-md);
+}
+
+.price-item-info h4 {
+    font-family: var(--font-display);
+    font-size: 1rem;
+    margin-bottom: 0.25rem;
+    color: var(--text-primary);
+}
+
+.price-item-info p {
+    color: var(--text-muted);
+    font-size: 0.82rem;
+    line-height: 1.4;
+}
+
+.price-item-value {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: var(--accent-secondary);
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+@media (max-width: 480px) {
+    .pricelist-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .price-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--space-sm);
+    }
+
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .gallery-emoji { font-size: 2rem; }
+    .gallery-label { font-size: 0.75rem; }
+}
+
 /* ---------- RESPONSIVE ---------- */
 @media (max-width: 768px) {
     .page-hero {

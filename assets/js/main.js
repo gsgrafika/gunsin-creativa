@@ -33,7 +33,8 @@
         const targets = document.querySelectorAll(
             '.section-header, .service-card, .feature-card, .portfolio-card, ' +
             '.testimonial-card, .cta-box, .web-type-card, .process-step, ' +
-            '.pricing-card, .faq-item, .page-hero-features'
+            '.pricing-card, .faq-item, .page-hero-features, ' +
+            '.gallery-item, .price-item'
         );
         if (!targets.length) return;
 
