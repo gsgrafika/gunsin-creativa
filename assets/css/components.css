@@ -59,8 +59,20 @@
     z-index: 100;
     background: var(--bg-primary);
     border-bottom: 1px solid var(--border-color);
-    backdrop-filter: blur(10px);
-    background: color-mix(in srgb, var(--bg-primary) 85%, transparent);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    transition: box-shadow var(--transition-fast);
+}
+
+/* Light mode: beri bayangan tegas agar terpisah dari hero gelap */
+[data-theme="light"] .site-header {
+    background: rgba(255, 255, 255, 0.92);
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.06), 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+/* Dark mode: tetap transparan halus */
+[data-theme="dark"] .site-header {
+    background: rgba(10, 10, 26, 0.85);
 }
 
 .header-inner {
