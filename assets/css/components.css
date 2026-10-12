@@ -61,18 +61,20 @@
     border-bottom: 1px solid var(--border-color);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    transition: box-shadow var(--transition-fast);
+    transition: box-shadow var(--transition-fast), background var(--transition-base);
 }
 
-/* Light mode: beri bayangan tegas agar terpisah dari hero gelap */
+/* Light mode: navbar putih dengan shadow tegas */
 [data-theme="light"] .site-header {
     background: rgba(255, 255, 255, 0.92);
     box-shadow: 0 1px 0 rgba(0, 0, 0, 0.06), 0 4px 12px rgba(0, 0, 0, 0.06);
 }
 
-/* Dark mode: tetap transparan halus */
+/* Dark mode: ungu gelap dengan sentuhan brand */
 [data-theme="dark"] .site-header {
-    background: rgba(10, 10, 26, 0.85);
+    background: rgba(26, 16, 56, 0.85);
+    border-bottom-color: rgba(124, 58, 237, 0.2);
+    box-shadow: 0 1px 0 rgba(124, 58, 237, 0.15), 0 4px 16px rgba(0, 0, 0, 0.25);
 }
 
 .header-inner {
