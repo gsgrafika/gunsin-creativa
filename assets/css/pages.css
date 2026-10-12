@@ -1,8 +1,12 @@
 /* ============================================================
-   HALAMAN: BERANDA (Landing Page)
+   PAGES.CSS — Gunsin Creativa
+   Berisi style untuk semua halaman
    ============================================================ */
 
-/* ---------- SECTION HEADER (reusable) ---------- */
+
+/* ============================================================
+   SECTION HEADER (reusable untuk semua section)
+   ============================================================ */
 .section-header {
     text-align: center;
     max-width: 640px;
@@ -39,18 +43,18 @@
     margin-top: var(--space-2xl);
 }
 
+
 /* ============================================================
-   1. HERO (REDESIGN)
+   1. HERO
    ============================================================ */
 .hero {
     position: relative;
     padding: var(--space-3xl) 0 0;
     overflow: hidden;
     isolation: isolate;
-    background: #0a0a1a; /* fallback dark */
+    background: #0a0a1a;
 }
 
-/* Background image dengan overlay */
 .hero-bg {
     position: absolute;
     inset: 0;
@@ -63,7 +67,6 @@
     background-repeat: no-repeat;
 }
 
-/* Pola aksen halus di atas background */
 .hero-bg::after {
     content: '';
     position: absolute;
@@ -98,6 +101,7 @@
     font-weight: 600;
     margin-bottom: var(--space-lg);
     backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
 }
 
 .badge-dot {
@@ -110,8 +114,8 @@
 }
 
 @keyframes pulse {
-    0% { box-shadow: 0 0 0 0 rgba(163, 230, 53, 0.7); }
-    70% { box-shadow: 0 0 0 10px rgba(163, 230, 53, 0); }
+    0%   { box-shadow: 0 0 0 0 rgba(163, 230, 53, 0.7); }
+    70%  { box-shadow: 0 0 0 10px rgba(163, 230, 53, 0); }
     100% { box-shadow: 0 0 0 0 rgba(163, 230, 53, 0); }
 }
 
@@ -154,6 +158,7 @@
     color: #ffffff;
     background: rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
 }
 
 .hero-cta .btn-outline:hover {
@@ -209,97 +214,9 @@
     background: rgba(255, 255, 255, 0.15);
 }
 
-/* ---------- RESPONSIVE HERO ---------- */
-@media (max-width: 900px) {
-    .hero-services-grid {
-        grid-template-columns: 1fr;
-        gap: var(--space-md);
-    }
-}
-
-@media (max-width: 768px) {
-    .hero {
-        padding: var(--space-2xl) 0 0;
-    }
-
-    .hero-content {
-        padding-bottom: var(--space-xl);
-    }
-
-    .hero-title {
-        font-size: clamp(1.85rem, 7vw, 2.5rem);
-    }
-
-    .hero-subtitle {
-        font-size: 1rem;
-    }
-
-    .hero-cta {
-        flex-direction: column;
-        width: 100%;
-    }
-
-    .hero-cta .btn {
-        width: 100%;
-        justify-content: center;
-    }
-
-    .hero-stats {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: var(--space-sm);
-        padding-top: var(--space-lg);
-        align-items: center;
-        text-align: center;
-    }
-
-    .hero-stat {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        min-width: 0;
-        flex: none;
-    }
-
-    .hero-stat strong {
-        font-size: 1.65rem;
-    }
-
-    .hero-stat strong span {
-        font-size: 1.15rem;
-    }
-
-    .hero-stat span.stat-label {
-        font-size: 0.7rem;
-        margin-top: 0.35rem;
-        line-height: 1.3;
-    }
-
-    .hero-stat-divider {
-        display: none;
-    }
-
-    .hero-services {
-        padding: var(--space-xl) 0 var(--space-2xl);
-    }
-}
-
-@media (max-width: 480px) {
-    .hero-stats {
-        gap: var(--space-xs);
-    }
-
-    .hero-stat strong {
-        font-size: 1.5rem;
-    }
-
-    .hero-stat span.stat-label {
-        font-size: 0.65rem;
-    }
-}
 
 /* ============================================================
-   2. SERVICES
+   2. SERVICES (ALTERNATIF B — Image Background + Overlay)
    ============================================================ */
 .services {
     padding: var(--space-3xl) 0;
@@ -308,82 +225,213 @@
 
 .services-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     gap: var(--space-lg);
+    align-items: stretch;
 }
 
+/* ---------- CARD ---------- */
 .service-card {
-    display: block;
-    padding: var(--space-xl);
-    background: var(--bg-elevated);
-    border: 1px solid var(--border-color);
-    border-radius: var(--radius-lg);
-    color: var(--text-primary);
-    transition: all var(--transition-base);
     position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    min-height: 400px;
+    border-radius: var(--radius-lg);
     overflow: hidden;
-}
-
-.service-card::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 3px;
-    background: var(--gradient-brand);
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform var(--transition-base);
+    border: 1px solid var(--border-color);
+    background: var(--bg-elevated);
+    transition: transform var(--transition-base),
+                border-color var(--transition-base),
+                box-shadow var(--transition-base);
+    isolation: isolate;
 }
 
 .service-card:hover {
-    transform: translateY(-4px);
+    transform: translateY(-6px);
     border-color: var(--accent-primary);
-    box-shadow: var(--shadow-lg);
-    color: var(--text-primary);
+    box-shadow:
+        0 12px 32px rgba(0, 0, 0, 0.35),
+        0 0 0 1px var(--accent-primary);
 }
 
-.service-card:hover::before { transform: scaleX(1); }
+/* ---------- BACKGROUND IMAGE ---------- */
+.service-card-bg {
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #1e1e3f;
+    transition: transform var(--transition-slow);
+}
 
-.service-icon {
+/* Fallback gradient kalau gambar gagal load */
+.service-card-bg[style*="url('')"],
+.service-card-bg[style*="url(\"\")"] {
+    background: linear-gradient(135deg, #7c3aed 0%, #a3e635 100%);
+}
+
+.service-card:hover .service-card-bg {
+    transform: scale(1.06);
+}
+
+/* ---------- OVERLAY GRADIENT ---------- */
+.service-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: linear-gradient(
+        180deg,
+        rgba(10, 10, 26, 0.2) 0%,
+        rgba(10, 10, 26, 0.55) 40%,
+        rgba(10, 10, 26, 0.92) 80%,
+        rgba(10, 10, 26, 0.98) 100%
+    );
+    transition: background var(--transition-base);
+    pointer-events: none;
+}
+
+.service-card:hover::before {
+    background: linear-gradient(
+        180deg,
+        rgba(10, 10, 26, 0.3) 0%,
+        rgba(20, 10, 45, 0.6) 40%,
+        rgba(20, 10, 45, 0.94) 80%,
+        rgba(20, 10, 45, 0.99) 100%
+    );
+}
+
+/* ---------- ICON BADGE (glass effect) ---------- */
+.service-icon-badge {
+    position: absolute;
+    top: var(--space-lg);
+    left: var(--space-lg);
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 46px;
+    height: 46px;
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    color: var(--accent-secondary);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    transition: all var(--transition-base);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+}
+
+.service-icon-badge svg {
+    width: 22px;
+    height: 22px;
+    stroke-width: 1.75;
+}
+
+.service-card:hover .service-icon-badge {
+    background: linear-gradient(135deg, #7c3aed 0%, #a3e635 100%);
+    color: #ffffff;
+    border-color: transparent;
+    transform: rotate(-6deg) scale(1.08);
+}
+
+/* ---------- CONTENT (bottom-aligned) ---------- */
+.service-card-content {
+    position: relative;
+    z-index: 1;
+    padding: var(--space-xl) var(--space-lg) var(--space-lg);
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    color: #ffffff;
+}
+
+.service-title {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0;
+    line-height: 1.25;
+    letter-spacing: -0.01em;
+}
+
+.service-desc {
+    font-size: 0.85rem;
+    line-height: 1.5;
+    color: rgba(255, 255, 255, 0.72);
+    margin: 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* ---------- PRICE ROW ---------- */
+.service-price-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-md);
+    margin-top: var(--space-sm);
+    padding-top: var(--space-md);
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.service-price {
+    display: flex;
+    flex-direction: column;
+    gap: 0.1rem;
+    min-width: 0;
+}
+
+.price-label {
+    font-size: 0.62rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: rgba(255, 255, 255, 0.55);
+    line-height: 1;
+}
+
+.price-value {
+    font-family: var(--font-display);
+    font-size: 1rem;
+    font-weight: 800;
+    color: var(--accent-secondary);
+    letter-spacing: -0.01em;
+    line-height: 1.2;
+    white-space: nowrap;
+}
+
+/* ---------- CTA (round arrow button) ---------- */
+.service-cta {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 56px;
-    height: 56px;
-    background: color-mix(in srgb, var(--accent-primary) 12%, transparent);
-    border-radius: var(--radius-md);
-    color: var(--accent-secondary);
-    margin-bottom: var(--space-md);
-    transition: all var(--transition-base);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--accent-secondary);
+    color: #0a0a1a;
+    text-decoration: none;
+    flex-shrink: 0;
+    transition: all var(--transition-fast);
 }
 
-.service-icon svg {
-    width: 28px;
-    height: 28px;
+.service-cta:hover {
+    background: #ffffff;
+    transform: translateX(3px) scale(1.05);
+    color: #0a0a1a;
 }
 
-.service-card:hover .service-icon {
-    background: var(--accent-primary);
-    color: white;
-    transform: scale(1.08) rotate(-4deg);
+.service-cta svg {
+    transition: transform var(--transition-fast);
 }
 
-.service-card h3 {
-    font-size: 1.15rem;
-    margin-bottom: var(--space-sm);
-}
-
-.service-card p {
-    color: var(--text-secondary);
-    font-size: 0.9rem;
-    margin-bottom: var(--space-md);
-}
-
-.service-link {
-    color: var(--accent-secondary);
-    font-size: 0.875rem;
-    font-weight: 600;
-}
 
 /* ============================================================
    3. WHY US
@@ -437,6 +485,7 @@
     color: var(--text-secondary);
     font-size: 0.9rem;
 }
+
 
 /* ============================================================
    4. PORTFOLIO
@@ -506,6 +555,7 @@
     color: var(--text-secondary);
     font-size: 0.9rem;
 }
+
 
 /* ============================================================
    5. TESTIMONIALS
@@ -581,6 +631,7 @@
     color: var(--text-muted);
 }
 
+
 /* ============================================================
    6. CTA FINAL
    ============================================================ */
@@ -641,6 +692,7 @@
     border-color: white;
 }
 
+
 /* ============================================================
    SCROLL REVEAL
    ============================================================ */
@@ -655,31 +707,16 @@
     transform: translateY(0);
 }
 
+
 /* ============================================================
-   RESPONSIVE - Diperhalus untuk semua ukuran layar
+   RESPONSIVE — BERANDA
    ============================================================ */
 
-/* ---------- Tablet Landscape / Desktop Kecil ---------- */
+/* ---------- Tablet Landscape ---------- */
 @media (max-width: 1024px) {
     :root {
         --space-3xl: 3.5rem;
         --space-2xl: 2.5rem;
-    }
-
-    .hero-inner {
-        grid-template-columns: 1fr;
-        gap: var(--space-2xl);
-    }
-
-    .hero-visual {
-        height: 320px;
-        order: -1;
-        margin-bottom: var(--space-lg);
-    }
-
-    .hero-blob {
-        width: 280px;
-        height: 280px;
     }
 
     .hero-subtitle { max-width: 100%; }
@@ -698,7 +735,14 @@
     }
 
     /* HERO */
-    .hero { padding: var(--space-2xl) 0; }
+    .hero {
+        padding: var(--space-2xl) 0 0;
+    }
+
+    .hero-content {
+        padding-bottom: var(--space-xl);
+    }
+
     .hero-title {
         font-size: clamp(2rem, 8.5vw, 2.75rem);
         line-height: 1.1;
@@ -710,60 +754,128 @@
         line-height: 1.55;
         margin-bottom: var(--space-lg);
     }
+
     .hero-badge {
         font-size: 0.8rem;
         padding: 0.35rem 0.85rem;
     }
+
     .hero-cta {
         flex-direction: column;
         width: 100%;
         gap: var(--space-sm);
     }
+
     .hero-cta .btn {
         width: 100%;
         justify-content: center;
     }
+
     .hero-stats {
-        gap: var(--space-md);
-        padding-top: var(--space-md);
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: var(--space-sm);
+        padding-top: var(--space-lg);
+        align-items: center;
+        text-align: center;
     }
-    .hero-stat strong { font-size: 1.35rem; }
-    .hero-stat span { font-size: 0.75rem; }
 
-    /* VISUAL */
-    .hero-visual { height: 260px; }
-    .hero-blob { width: 220px; height: 220px; }
-    .hero-floating-card {
-        padding: 0.6rem 1rem;
-        min-width: 150px;
-        border-radius: var(--radius-md);
+    .hero-stat {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        min-width: 0;
+        flex: none;
     }
-    .hero-floating-card strong { font-size: 0.78rem; }
-    .hero-floating-card small { font-size: 0.68rem; }
-    .float-icon { font-size: 1.25rem; }
 
-    .card-web    { top: 5%;  left: 0; }
-    .card-design { top: 40%; right: 0; }
-    .card-3d     { bottom: 5%; left: 8%; }
+    .hero-stat strong {
+        font-size: 1.65rem;
+    }
+
+    .hero-stat strong span {
+        font-size: 1.15rem;
+    }
+
+    .hero-stat span.stat-label {
+        font-size: 0.7rem;
+        margin-top: 0.35rem;
+        line-height: 1.3;
+    }
+
+    .hero-stat-divider {
+        display: none;
+    }
 
     /* SECTION */
-    .section-header { margin-bottom: var(--space-xl); }
-    .section-title { font-size: clamp(1.5rem, 6vw, 1.9rem); }
-    .section-subtitle { font-size: 0.95rem; }
+    .section-header {
+        margin-bottom: var(--space-xl);
+    }
 
-    /* SERVICES */
+    .section-title {
+        font-size: clamp(1.5rem, 6vw, 1.9rem);
+    }
+
+    .section-subtitle {
+        font-size: 0.95rem;
+    }
+
+    /* SERVICES (Alternatif B) */
+    .services {
+        padding: var(--space-2xl) 0;
+    }
+
     .services-grid {
         grid-template-columns: 1fr;
         gap: var(--space-md);
     }
-    .service-card { padding: var(--space-lg); }
+
+    .service-card {
+        min-height: 340px;
+    }
+
+    .service-card-content {
+        padding: var(--space-lg) var(--space-md) var(--space-md);
+    }
+
+    .service-title {
+        font-size: 1.15rem;
+    }
+
+    .service-desc {
+        font-size: 0.82rem;
+    }
+
+    .price-value {
+        font-size: 0.95rem;
+    }
+
+    .service-icon-badge {
+        width: 42px;
+        height: 42px;
+        top: var(--space-md);
+        left: var(--space-md);
+        border-radius: 12px;
+    }
+
+    .service-icon-badge svg {
+        width: 20px;
+        height: 20px;
+    }
+
+    .service-cta {
+        width: 36px;
+        height: 36px;
+    }
 
     /* FEATURES */
     .features-grid {
         grid-template-columns: 1fr;
         gap: var(--space-md);
     }
-    .feature-card { padding: var(--space-lg); }
+
+    .feature-card {
+        padding: var(--space-lg);
+    }
 
     /* PORTFOLIO */
     .portfolio-grid {
@@ -776,7 +888,10 @@
         grid-template-columns: 1fr;
         gap: var(--space-md);
     }
-    .testimonial-card { padding: var(--space-lg); }
+
+    .testimonial-card {
+        padding: var(--space-lg);
+    }
 
     /* CTA */
     .cta-box {
@@ -784,12 +899,16 @@
         text-align: center;
         padding: var(--space-xl);
     }
+
     .cta-actions {
         justify-content: center;
         flex-direction: column;
         width: 100%;
     }
-    .cta-actions .btn { width: 100%; }
+
+    .cta-actions .btn {
+        width: 100%;
+    }
 }
 
 /* ---------- Mobile Kecil ---------- */
@@ -799,42 +918,45 @@
         --space-2xl: 1.75rem;
     }
 
-    .hero-floating-card { display: none; }
-    .hero-visual { height: 200px; }
-    .hero-blob { width: 180px; height: 180px; }
-
-    .hero-stat { flex: 1 1 calc(50% - var(--space-md)); }
-    .hero-stat-divider { display: none; }
-
-    .section-title { font-size: 1.4rem; }
-
-    .cta-content h2 { font-size: 1.3rem; }
-    .cta-content p { font-size: 0.9rem; }
-}
-
-/* ---------- Cegah overflow horizontal ---------- */
-html {
-    overflow-x: clip;
-}
-
-body {
-    overflow-x: clip;
-    max-width: 100%;
-}
-
-/* ---------- Sentuhan halus di layar sentuh ---------- */
-@media (hover: none) {
-    .service-card:hover,
-    .portfolio-card:hover,
-    .feature-card:hover,
-    .testimonial-card:hover {
-        transform: none;
+    .hero-stats {
+        gap: var(--space-xs);
     }
-    .service-card:hover::before { transform: scaleX(0); }
+
+    .hero-stat strong {
+        font-size: 1.5rem;
+    }
+
+    .hero-stat span.stat-label {
+        font-size: 0.65rem;
+    }
+
+    .section-title {
+        font-size: 1.4rem;
+    }
+
+    .cta-content h2 {
+        font-size: 1.3rem;
+    }
+
+    .cta-content p {
+        font-size: 0.9rem;
+    }
+
+    .service-card {
+        min-height: 320px;
+    }
 }
+
+/* ---------- Tablet Tengah (grid 2 kolom) ---------- */
+@media (min-width: 769px) and (max-width: 1100px) {
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
 
 /* ============================================================
-   HALAMAN: WEB DEVELOP (dan halaman layanan lainnya)
+   HALAMAN: LAYANAN (Web Develop, Graphic Design, Sketchup)
    ============================================================ */
 
 /* ---------- SECTION (reusable) ---------- */
@@ -1235,7 +1357,7 @@ body {
 }
 
 /* ============================================================
-   GALERI (untuk halaman Graphic Design)
+   GALERI (Halaman Graphic Design)
    ============================================================ */
 .gallery-grid {
     display: grid;
@@ -1293,7 +1415,7 @@ body {
 }
 
 /* ============================================================
-   PRICELIST (format list untuk Graphic Design)
+   PRICELIST (Halaman Graphic Design)
    ============================================================ */
 .pricelist-grid {
     display: grid;
@@ -1342,27 +1464,8 @@ body {
     flex-shrink: 0;
 }
 
-@media (max-width: 480px) {
-    .pricelist-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .price-item {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: var(--space-sm);
-    }
-
-    .gallery-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .gallery-emoji { font-size: 2rem; }
-    .gallery-label { font-size: 0.75rem; }
-}
-
 /* ============================================================
-   PORTOFOLIO 3D (untuk halaman Sketchup)
+   PORTOFOLIO 3D (Halaman Sketchup)
    ============================================================ */
 .portfolio-3d-grid {
     display: grid;
@@ -1405,6 +1508,7 @@ body {
     padding: 0.3rem 0.75rem;
     background: rgba(0, 0, 0, 0.5);
     backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     color: white;
     border-radius: var(--radius-full);
     font-size: 0.7rem;
@@ -1425,13 +1529,6 @@ body {
 .portfolio-3d-body p {
     color: var(--text-secondary);
     font-size: 0.875rem;
-}
-
-@media (max-width: 480px) {
-    .portfolio-3d-grid {
-        grid-template-columns: 1fr;
-    }
-    .portfolio-emoji { font-size: 3rem; }
 }
 
 /* ============================================================
@@ -1642,7 +1739,10 @@ body {
     min-height: 450px;
 }
 
-/* ---------- RESPONSIVE ---------- */
+
+/* ============================================================
+   RESPONSIVE — HALAMAN LAYANAN & KONTAK
+   ============================================================ */
 @media (max-width: 900px) {
     .contact-grid {
         grid-template-columns: 1fr;
@@ -1654,25 +1754,6 @@ body {
     }
 }
 
-@media (max-width: 480px) {
-    .contact-card {
-        padding: var(--space-md);
-        gap: var(--space-sm);
-    }
-    .contact-card-icon {
-        width: 40px;
-        height: 40px;
-    }
-    .contact-card-icon svg {
-        width: 18px;
-        height: 18px;
-    }
-    .contact-form-card {
-        padding: var(--space-lg);
-    }
-}
-
-/* ---------- RESPONSIVE ---------- */
 @media (max-width: 768px) {
     .page-hero {
         padding: var(--space-xl) 0 var(--space-2xl);
@@ -1682,6 +1763,7 @@ body {
         flex-direction: column;
         width: 100%;
     }
+
     .page-hero-cta .btn { width: 100%; }
 
     .page-hero-features {
@@ -1697,5 +1779,75 @@ body {
 
     .process-grid {
         grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .pricelist-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .price-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--space-sm);
+    }
+
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .gallery-emoji { font-size: 2rem; }
+    .gallery-label { font-size: 0.75rem; }
+
+    .portfolio-3d-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .portfolio-emoji { font-size: 3rem; }
+
+    .contact-card {
+        padding: var(--space-md);
+        gap: var(--space-sm);
+    }
+
+    .contact-card-icon {
+        width: 40px;
+        height: 40px;
+    }
+
+    .contact-card-icon svg {
+        width: 18px;
+        height: 18px;
+    }
+
+    .contact-form-card {
+        padding: var(--space-lg);
+    }
+}
+
+
+/* ============================================================
+   PENCEGAHAN OVERFLOW HORIZONTAL
+   ============================================================ */
+html {
+    overflow-x: clip;
+}
+
+body {
+    overflow-x: clip;
+    max-width: 100%;
+}
+
+
+/* ============================================================
+   SENTUHAN HALUS DI LAYAR SENTUH
+   ============================================================ */
+@media (hover: none) {
+    .service-card:hover,
+    .portfolio-card:hover,
+    .feature-card:hover,
+    .testimonial-card:hover {
+        transform: none;
     }
 }

@@ -15,14 +15,34 @@
         if (!container || typeof SITE === 'undefined') return;
 
         container.innerHTML = SITE.layanan.map(item => `
-            <a href="${item.href}" class="service-card">
-                <div class="service-icon">
+            <article class="service-card">
+                <div class="service-card-bg"
+                     style="background-image: url('${item.gambar}')"
+                     role="img"
+                     aria-label="${item.nama}"></div>
+
+                <div class="service-icon-badge">
                     ${item.ikonSvg}
                 </div>
-                <h3>${item.nama}</h3>
-                <p>${item.deskripsi}</p>
-                <span class="service-link">Selengkapnya →</span>
-            </a>
+
+                <div class="service-card-content">
+                    <h3 class="service-title">${item.nama}</h3>
+                    <p class="service-desc">${item.deskripsi}</p>
+
+                    <div class="service-price-row">
+                        <div class="service-price">
+                            <span class="price-label">Mulai dari</span>
+                            <span class="price-value">Rp ${item.hargaMulai}</span>
+                        </div>
+                        <a href="${item.href}" class="service-cta" aria-label="Selengkapnya tentang ${item.nama}">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="5" y1="12" x2="19" y2="12"/>
+                                <polyline points="12 5 19 12 12 19"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </article>
         `).join('');
     }
 
