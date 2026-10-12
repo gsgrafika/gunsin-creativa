@@ -1851,3 +1851,39 @@ body {
         transform: none;
     }
 }
+
+/* ============================================================
+   SERVICE CARD — FORCE KONTRAS DI SEMUA TEMA
+   Card pakai overlay gelap, jadi semua teks di dalamnya
+   harus tetap terang meski di light mode.
+   ============================================================ */
+
+/* Judul: selalu putih */
+.service-card .service-title {
+    color: #ffffff !important;
+}
+
+/* Deskripsi: selalu putih transparan */
+.service-card .service-desc {
+    color: rgba(255, 255, 255, 0.72) !important;
+}
+
+/* Label "Mulai dari": abu-abu transparan terang */
+.service-card .price-label {
+    color: rgba(255, 255, 255, 0.6) !important;
+}
+
+/* Harga: hijau lime cerah, terkunci */
+.service-card .price-value {
+    color: #bef264 !important;
+}
+
+/* Icon badge: hijau lime cerah */
+.service-card .service-icon-badge {
+    color: #bef264 !important;
+}
+
+/* Garis pemisah sebelum harga */
+.service-card .service-price-row {
+    border-top-color: rgba(255, 255, 255, 0.15) !important;
+}

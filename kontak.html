@@ -19,15 +19,6 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content="https://www.gunsincreativa.my.id/assets/img/og-image.jpg">
 
-    <script>
-        (function() {
-            const saved = localStorage.getItem('gunsin-theme');
-            const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-            const theme = saved || (systemDark ? 'dark' : 'light');
-            document.documentElement.setAttribute('data-theme', theme);
-        })();
-    </script>
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -282,10 +273,9 @@
     <footer id="site-footer"></footer>
 
     <script src="data/site-config.js"></script>
-    <script src="assets/js/theme.js"></script>
-    <script src="components/header.js"></script>
-    <script src="components/footer.js"></script>
-    <script src="assets/js/main.js"></script>
+    <script src="components/header.js" defer></script>
+    <script src="components/footer.js" defer></script>
+    <script src="assets/js/main.js" defer></script>
     <script src="assets/js/contact.js"></script>
 </body>
 </html>

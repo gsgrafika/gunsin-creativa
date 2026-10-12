@@ -70,16 +70,6 @@
                 </nav>
 
                 <div class="header-actions">
-                    <button class="theme-toggle" data-theme-toggle aria-label="Ganti tema">
-                        <svg class="icon-sun" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="12" cy="12" r="4"/>
-                            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/>
-                        </svg>
-                        <svg class="icon-moon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="display:none;">
-                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
-                        </svg>
-                    </button>
-
                     <a href="https://wa.me/${SITE.whatsappLink[0].nomor}?text=Halo%20${encodeURIComponent(SITE.nama)}%2C%20saya%20ingin%20bertanya"
                        class="btn btn-primary btn-sm header-cta"
                        target="_blank" rel="noopener">

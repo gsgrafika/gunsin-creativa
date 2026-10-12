@@ -10,45 +10,6 @@
     padding: 0 var(--space-lg);
 }
 
-/* ---------- TOMBOL TEMA (Dark/Light Toggle) ---------- */
-.theme-toggle {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 42px;
-    height: 42px;
-    border-radius: var(--radius-full);
-    background: var(--bg-elevated);
-    border: 1px solid var(--border-color);
-    color: var(--text-primary);
-    transition: all var(--transition-fast);
-    cursor: pointer;
-    flex-shrink: 0;
-}
-
-.theme-toggle:hover {
-    background: var(--bg-hover);
-    border-color: var(--accent-primary);
-    transform: scale(1.05);
-}
-
-.theme-toggle:active {
-    transform: scale(0.95);
-}
-
-.theme-toggle svg {
-    width: 20px;
-    height: 20px;
-    stroke: currentColor;
-    fill: none;
-    stroke-width: 2;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-}
-
-.theme-toggle .icon-sun  { color: var(--accent-secondary); }
-.theme-toggle .icon-moon { color: var(--accent-primary); }
-
 /* ============================================================
    HEADER
    ============================================================ */
