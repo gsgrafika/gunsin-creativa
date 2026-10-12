@@ -434,7 +434,7 @@
 
 
 /* ============================================================
-   3. WHY US
+   3. WHY US (REDESIGN: Horizontal Compact)
    ============================================================ */
 .why-us {
     padding: var(--space-3xl) 0;
@@ -442,12 +442,18 @@
 
 .features-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: var(--space-lg);
+    grid-template-columns: repeat(4, 1fr); /* ⭐ paksa 4 kolom di desktop */
+    gap: var(--space-md);
 }
 
 .feature-card {
-    padding: var(--space-xl);
+    display: grid;
+    grid-template-columns: 48px 1fr;
+    grid-template-rows: auto auto;
+    column-gap: var(--space-md);
+    row-gap: 0.35rem;
+    align-items: start;
+    padding: var(--space-md) var(--space-lg);
     background: var(--bg-secondary);
     border-radius: var(--radius-lg);
     border: 1px solid var(--border-color);
@@ -457,38 +463,98 @@
 .feature-card:hover {
     border-color: var(--accent-secondary);
     transform: translateY(-4px);
+    background: var(--bg-elevated);
 }
 
 .feature-icon {
-    display: inline-flex;
+    grid-column: 1;
+    grid-row: 1 / span 2;
+    display: flex;
     align-items: center;
     justify-content: center;
-    width: 56px;
-    height: 56px;
+    width: 48px;
+    height: 48px;
     background: color-mix(in srgb, var(--accent-secondary) 15%, transparent);
     border-radius: var(--radius-md);
     color: var(--accent-secondary);
-    margin-bottom: var(--space-md);
+    flex-shrink: 0;
+    transition: all var(--transition-base);
+}
+
+.feature-card:hover .feature-icon {
+    background: linear-gradient(135deg, #7c3aed 0%, #a3e635 100%);
+    color: #ffffff;
+    transform: scale(1.05) rotate(-4deg);
 }
 
 .feature-icon svg {
-    width: 26px;
-    height: 26px;
+    width: 22px;
+    height: 22px;
+    stroke-width: 1.75;
 }
 
 .feature-card h3 {
-    font-size: 1.1rem;
-    margin-bottom: var(--space-sm);
+    grid-column: 2;
+    grid-row: 1;
+    align-self: end;
+    font-family: var(--font-display);
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1.25;
+    margin: 0;
+    color: var(--text-primary);
 }
 
 .feature-card p {
+    grid-column: 2;
+    grid-row: 2;
     color: var(--text-secondary);
-    font-size: 0.9rem;
+    font-size: 0.85rem;
+    line-height: 1.5;
+    margin: 0;
 }
 
+/* ---------- Tablet: 2 kolom ---------- */
+@media (max-width: 1100px) {
+    .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* ---------- Mobile: 1 kolom ---------- */
+@media (max-width: 640px) {
+    .features-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-sm);
+    }
+
+    .feature-card {
+        grid-template-columns: 44px 1fr;
+        padding: var(--space-md);
+        column-gap: var(--space-sm);
+    }
+
+    .feature-icon {
+        width: 44px;
+        height: 44px;
+    }
+
+    .feature-icon svg {
+        width: 20px;
+        height: 20px;
+    }
+
+    .feature-card h3 {
+        font-size: 0.95rem;
+    }
+
+    .feature-card p {
+        font-size: 0.8rem;
+    }
+}
 
 /* ============================================================
-   4. PORTFOLIO
+   4. PORTFOLIO (REDESIGN)
    ============================================================ */
 .portfolio {
     padding: var(--space-3xl) 0;
@@ -497,65 +563,154 @@
 
 .portfolio-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: var(--space-lg);
 }
 
-.portfolio-card {
+/* ---------- ITEM (link wrapper) ---------- */
+.portfolio-item {
+    display: flex;
+    flex-direction: column;
     background: var(--bg-elevated);
+    border: 1px solid var(--border-color);
     border-radius: var(--radius-lg);
     overflow: hidden;
-    border: 1px solid var(--border-color);
+    text-decoration: none;
+    color: var(--text-primary);
     transition: all var(--transition-base);
+    isolation: isolate;
 }
 
-.portfolio-card:hover {
+.portfolio-item:hover {
     transform: translateY(-6px);
-    box-shadow: var(--shadow-lg);
     border-color: var(--accent-primary);
+    box-shadow:
+        0 12px 32px rgba(0, 0, 0, 0.35),
+        0 0 0 1px var(--accent-primary);
+    color: var(--text-primary);
+}
+
+/* ---------- IMAGE WRAPPER ---------- */
+.portfolio-img-wrap {
+    position: relative;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    background: linear-gradient(135deg, #7c3aed 0%, #a3e635 100%);
 }
 
 .portfolio-img {
-    aspect-ratio: 16 / 10;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    overflow: hidden;
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--transition-slow);
 }
 
-.portfolio-emoji {
-    font-size: 4rem;
-    filter: drop-shadow(0 4px 12px rgba(0,0,0,0.3));
+.portfolio-item:hover .portfolio-img {
+    transform: scale(1.06);
 }
 
-.portfolio-body {
-    padding: var(--space-lg);
-}
-
+/* ---------- TAG (glass badge overlay) ---------- */
 .portfolio-tag {
-    display: inline-block;
-    padding: 0.2rem 0.65rem;
-    background: color-mix(in srgb, var(--accent-primary) 15%, transparent);
-    color: var(--accent-primary);
-    border-radius: var(--radius-full);
-    font-size: 0.7rem;
+    position: absolute;
+    top: var(--space-md);
+    left: var(--space-md);
+    padding: 0.35rem 0.75rem;
+    background: rgba(10, 10, 26, 0.75);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: #ffffff;
+    font-size: 0.68rem;
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
-    margin-bottom: var(--space-sm);
+    letter-spacing: 0.08em;
+    border-radius: var(--radius-full);
+    z-index: 2;
+    line-height: 1;
 }
 
-.portfolio-body h3 {
-    font-size: 1.1rem;
-    margin-bottom: var(--space-sm);
+/* ---------- BODY (title + arrow) ---------- */
+.portfolio-body {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-md);
+    padding: var(--space-md) var(--space-lg);
 }
 
-.portfolio-body p {
-    color: var(--text-secondary);
-    font-size: 0.9rem;
+.portfolio-title {
+    font-family: var(--font-display);
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0;
+    line-height: 1.35;
+    letter-spacing: -0.01em;
+    flex: 1;
+    min-width: 0;
 }
 
+.portfolio-arrow {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: color-mix(in srgb, var(--accent-secondary) 15%, transparent);
+    color: var(--accent-secondary);
+    flex-shrink: 0;
+    transition: all var(--transition-fast);
+}
+
+.portfolio-item:hover .portfolio-arrow {
+    background: var(--accent-secondary);
+    color: #0a0a1a;
+    transform: translateX(4px);
+}
+
+/* ---------- RESPONSIVE ---------- */
+
+/* Tablet: tetap 3 kolom, gap lebih rapat */
+@media (max-width: 1024px) {
+    .portfolio-grid {
+        gap: var(--space-md);
+    }
+
+    .portfolio-body {
+        padding: var(--space-sm) var(--space-md);
+    }
+
+    .portfolio-title {
+        font-size: 0.95rem;
+    }
+}
+
+/* Mobile: 1 kolom */
+@media (max-width: 640px) {
+    .portfolio {
+        padding: var(--space-2xl) 0;
+    }
+
+    .portfolio-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-md);
+    }
+
+    .portfolio-body {
+        padding: var(--space-md);
+    }
+
+    .portfolio-title {
+        font-size: 0.95rem;
+    }
+
+    .portfolio-arrow {
+        width: 32px;
+        height: 32px;
+    }
+}
 
 /* ============================================================
    5. TESTIMONIALS

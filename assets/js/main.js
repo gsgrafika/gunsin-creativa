@@ -46,6 +46,37 @@
         `).join('');
     }
 
+        /**
+     * Render kartu portofolio di beranda dari SITE.portofolio
+     */
+    function renderPortfolio() {
+        const container = document.getElementById('portfolio-grid');
+        if (!container || typeof SITE === 'undefined' || !SITE.portofolio) return;
+
+        container.innerHTML = SITE.portofolio.map(item => `
+            <a href="${item.link}" class="portfolio-item">
+                <div class="portfolio-img-wrap">
+                    <img class="portfolio-img"
+                         src="${item.gambar}"
+                         alt="${item.judul}"
+                         loading="lazy"
+                         width="600" height="450"
+                         onerror="this.style.display='none'">
+                    <span class="portfolio-tag">${item.kategori}</span>
+                </div>
+                <div class="portfolio-body">
+                    <h3 class="portfolio-title">${item.judul}</h3>
+                    <span class="portfolio-arrow" aria-hidden="true">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="5" y1="12" x2="19" y2="12"/>
+                            <polyline points="12 5 19 12 12 19"/>
+                        </svg>
+                    </span>
+                </div>
+            </a>
+        `).join('');
+    }
+
     /**
      * Animasi fade-in saat elemen masuk viewport
      */
@@ -55,7 +86,8 @@
             '.testimonial-card, .cta-box, .web-type-card, .process-step, ' +
             '.pricing-card, .faq-item, .page-hero-features, ' +
             '.gallery-item, .price-item, .portfolio-3d-card, ' +
-            '.contact-card, .contact-form-card, .map-wrap'
+            '.contact-card, .contact-form-card, .map-wrap, ' +
+            '.portfolio-item'
         );
         if (!targets.length) return;
 
@@ -124,6 +156,7 @@
 
     function init() {
         renderServices();
+        renderPortfolio();
         setupScrollReveal();
         setupSmoothScroll();
         setup404Redirect();

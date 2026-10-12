@@ -106,6 +106,31 @@ const SITE = {
         }
     ],
 
+        // ---------- PORTOFOLIO (3 karya terbaik untuk beranda) ----------
+    portofolio: [
+        {
+            id: 1,
+            judul: "Website Cahaya Buana Digital Printing",
+            kategori: "Web Development",
+            gambar: "assets/img/portfolio/web-cbp.webp",
+            link: "https://cbuanaprinting.com/"
+        },
+        {
+            id: 2,
+            judul: "Branding UMKM Pisang Kembung",
+            kategori: "Graphic Design",
+            gambar: "assets/img/portfolio/branding-umkm.webp",
+            link: "graphic-design.html"
+        },
+        {
+            id: 3,
+            judul: "Visualisasi Rumah 2 Lantai",
+            kategori: "Sketchup 3D",
+            gambar: "assets/img/portfolio/rumah-2lantai.webp",
+            link: "sketchup.html"
+        }
+    ],
+
     // ---------- SEO ----------
     seo: {
         defaultTitle: "Gunsin Creativa - Solusi Digital untuk Sekolah, UMKM & Bisnis",
