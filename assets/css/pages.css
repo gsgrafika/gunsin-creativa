@@ -1366,10 +1366,6 @@
         font-size: 0.82rem;
     }
 
-    .price-value {
-        font-size: 0.95rem;
-    }
-
     .service-icon-badge {
         width: 42px;
         height: 42px;
@@ -2568,5 +2564,55 @@ body {
 
     .portfolio-title {
         font-size: 0.95rem !important;
+    }
+}
+
+/* ============================================================
+   FIX: UKURAN HARGA DI CARD LAYANAN & PRICING
+   Fix bug harga kecil karena konflik rule .price-value
+   ============================================================ */
+
+/* Harga di service card (beranda) — BESAR & MENCOLOK */
+.service-card .price-value {
+    font-size: 1.75rem !important;
+    font-weight: 800 !important;
+    line-height: 1 !important;
+    letter-spacing: -0.02em !important;
+    color: #bef264 !important;
+}
+
+/* Harga di pricing card (halaman layanan: web-develop, dll) */
+.pricing-card .price-value {
+    font-size: 2rem !important;
+    font-weight: 800 !important;
+    line-height: 1 !important;
+    color: var(--text-primary) !important;
+}
+
+/* Harga di pricelist Graphic Design (pakai .price-item-value) */
+.price-item-value {
+    font-size: 1.25rem !important;
+    font-weight: 800 !important;
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 768px) {
+    /* Service card mobile: sedikit lebih kecil tapi tetap besar */
+    .service-card .price-value {
+        font-size: 1.4rem !important;
+    }
+
+    .pricing-card .price-value {
+        font-size: 1.75rem !important;
+    }
+
+    .price-item-value {
+        font-size: 1.15rem !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .service-card .price-value {
+        font-size: 1.25rem !important;
     }
 }
