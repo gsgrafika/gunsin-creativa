@@ -2540,3 +2540,33 @@ body {
 .service-card .service-price-row {
     border-top-color: rgba(255, 255, 255, 0.15) !important;
 }
+
+/* ============================================================
+   FIX: PORTFOLIO MOBILE — 1 KOLOM
+   Force override untuk memastikan portfolio menumpuk vertikal
+   di layar kecil.
+   ============================================================ */
+@media (max-width: 768px) {
+    .portfolio-grid {
+        grid-template-columns: 1fr !important;
+        gap: var(--space-md) !important;
+    }
+
+    .portfolio-item {
+        width: 100% !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .portfolio-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    .portfolio-body {
+        padding: var(--space-sm) var(--space-md) !important;
+    }
+
+    .portfolio-title {
+        font-size: 0.95rem !important;
+    }
+}
