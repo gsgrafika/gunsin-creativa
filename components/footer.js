@@ -113,8 +113,8 @@
                 </div>
 
                 <div class="footer-bottom">
-                    <p>&copy; ${year} ${SITE.nama}. Semua hak dilindungi.</p>
-                    <p class="footer-credit">selalu siap melayani</p>
+                    <p><b>&copy; ${year} ${SITE.nama}</b>. All Rights Reserved.<br> Hak cipta dan sumber daya dilindungi undang-undang. Dilarang keras menyalin konten / kode tanpa izin tertulis.</p>
+                    <p class="footer-credit"><a href="kontak.html">KONTAK</p>
                 </div>
             </div>
         `;
