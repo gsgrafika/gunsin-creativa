@@ -3890,87 +3890,6 @@ form .form-note {
 }
 
 /* ============================================================
-   HYBRID THEME — Sections yang SELALU GELAP
-   ============================================================
-   Section berikut tidak ikut berubah saat light mode karena
-   menggunakan image/gradient gelap sebagai background:
-   - Hero (index)
-   - EduStarz
-   - Artist Promo
-   - Page Hero (halaman layanan)
-   ============================================================ */
-
-.hero,
-.edustarz,
-.artist-promo,
-.page-hero {
-    /* Force dark variables secara lokal */
-    --bg-primary:    #0a0a1a;
-    --bg-secondary:  #14142b;
-    --bg-elevated:   #1e1e3f;
-    --bg-hover:      #2a2a52;
-    --text-primary:   #f1f5f9;
-    --text-secondary: #94a3b8;
-    --text-muted:     #64748b;
-    --text-inverse:   #0a0a1a;
-    --border-color:   #2a2a52;
-    --border-subtle:  #1e1e3f;
-
-    color-scheme: dark;
-}
-
-/* Force text color pada konten utama */
-.hero .hero-title,
-.page-hero .page-hero-title {
-    color: #ffffff;
-}
-
-.hero .hero-subtitle,
-.page-hero .page-hero-subtitle {
-    color: rgba(241, 245, 249, 0.75);
-}
-
-/* Hero stats */
-.hero .hero-stat strong {
-    color: #ffffff;
-}
-
-.hero .hero-stat span.stat-label {
-    color: rgba(241, 245, 249, 0.6);
-}
-
-/* Breadcrumb di page-hero */
-.page-hero .breadcrumb,
-.page-hero .breadcrumb a {
-    color: rgba(241, 245, 249, 0.7);
-}
-
-.page-hero .breadcrumb a:hover {
-    color: var(--accent-secondary);
-}
-
-/* Edustarz eyebrow */
-.edustarz .edustarz-eyebrow {
-    color: #f87171;
-}
-
-/* Edustarz title */
-.edustarz .edustarz-title {
-    color: #f1f5f9;
-}
-
-/* Artist promo — text color */
-.artist-promo .edustarz-title {
-    color: #f1f5f9;
-}
-
-/* CTA Box — gradient tetap, tapi text selalu putih */
-.cta-box .cta-content h2,
-.cta-box .cta-content p {
-    color: #ffffff;
-}
-
-/* ============================================================
    LIGHT MODE — Section yang ikut tema
    ============================================================ */
 
@@ -4084,4 +4003,788 @@ form .form-note {
     background: rgba(255, 255, 255, 0.15);
     border-color: rgba(255, 255, 255, 0.5);
     color: #ffffff;
+}
+
+/* ============================================================
+   LIGHT MODE — FULL OVERRIDE (Semua Section Terang)
+   ============================================================ */
+
+/* ============================================================
+   1. HERO (beranda)
+   ============================================================ */
+[data-theme="light"] .hero {
+    background: #f8fafc;
+}
+
+/* Overlay putih transparan di atas image */
+[data-theme="light"] .hero-bg {
+    background-image:
+        linear-gradient(135deg,
+            rgba(248, 250, 252, 0.94) 0%,
+            rgba(241, 245, 249, 0.9) 50%,
+            rgba(248, 250, 252, 0.95) 100%),
+        url('../img/hero-bg.webp');
+}
+
+[data-theme="light"] .hero-bg::after {
+    background-image:
+        radial-gradient(circle at 15% 30%, rgba(124, 58, 237, 0.15) 0%, transparent 45%),
+        radial-gradient(circle at 85% 70%, rgba(163, 230, 53, 0.12) 0%, transparent 45%);
+}
+
+[data-theme="light"] .hero-title {
+    color: #0f172a;
+}
+
+[data-theme="light"] .hero-title .text-accent {
+    background: linear-gradient(135deg, #6d28d9 0%, #65a30d 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+[data-theme="light"] .hero-subtitle {
+    color: #475569;
+}
+
+[data-theme="light"] .hero-subtitle strong {
+    color: #0f172a;
+    font-weight: 700;
+}
+
+[data-theme="light"] .hero-badge {
+    background: rgba(124, 58, 237, 0.08);
+    color: #6d28d9;
+    border-color: rgba(124, 58, 237, 0.25);
+}
+
+[data-theme="light"] .hero-badge .badge-dot {
+    background: #6d28d9;
+    box-shadow: 0 0 0 0 rgba(109, 40, 217, 0.6);
+}
+
+[data-theme="light"] .hero-cta .btn-outline {
+    border-color: #cbd5e1;
+    color: #0f172a;
+    background: rgba(255, 255, 255, 0.8);
+}
+
+[data-theme="light"] .hero-cta .btn-outline:hover {
+    background: #f1f5f9;
+    border-color: #6d28d9;
+    color: #6d28d9;
+}
+
+[data-theme="light"] .hero-stats {
+    border-top-color: #e2e8f0;
+}
+
+[data-theme="light"] .hero-stat strong {
+    color: #0f172a;
+}
+
+[data-theme="light"] .hero-stat strong span {
+    color: #6d28d9;
+}
+
+[data-theme="light"] .hero-stat span.stat-label {
+    color: #64748b;
+}
+
+[data-theme="light"] .hero-stat-divider {
+    background: #e2e8f0;
+}
+
+/* ============================================================
+   2. PAGE HERO (halaman layanan)
+   ============================================================ */
+[data-theme="light"] .page-hero {
+    background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
+}
+
+[data-theme="light"] .page-hero::before {
+    background: #7c3aed;
+    opacity: 0.08;
+}
+
+[data-theme="light"] .breadcrumb,
+[data-theme="light"] .breadcrumb a {
+    color: #64748b;
+}
+
+[data-theme="light"] .breadcrumb a:hover {
+    color: #6d28d9;
+}
+
+[data-theme="light"] .page-hero-title {
+    color: #0f172a;
+}
+
+[data-theme="light"] .page-hero-title .text-accent {
+    background: linear-gradient(135deg, #6d28d9 0%, #65a30d 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+[data-theme="light"] .page-hero-subtitle {
+    color: #475569;
+}
+
+[data-theme="light"] .page-hero-features {
+    background: #ffffff;
+    border-color: #e2e8f0;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+[data-theme="light"] .ph-feature {
+    color: #475569;
+}
+
+[data-theme="light"] .ph-feature svg {
+    color: #65a30d;
+}
+
+/* ============================================================
+   3. EDUSTARZ — Background terang, teks gelap
+   ============================================================ */
+[data-theme="light"] .edustarz {
+    background:
+        radial-gradient(circle at 20% 20%, rgba(124, 58, 237, 0.06) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(163, 230, 53, 0.08) 0%, transparent 50%),
+        #ffffff;
+}
+
+[data-theme="light"] .edustarz::before,
+[data-theme="light"] .edustarz::after {
+    background: linear-gradient(90deg, transparent 0%, #7c3aed 50%, transparent 100%);
+    opacity: 0.25;
+}
+
+[data-theme="light"] .edustarz-eyebrow {
+    color: #dc2626;
+}
+
+[data-theme="light"] .edustarz-eyebrow::before {
+    background: #dc2626;
+}
+
+[data-theme="light"] .edustarz-title {
+    color: #0f172a;
+}
+
+[data-theme="light"] .edustarz-title .edustarz-price-highlight {
+    background: linear-gradient(135deg, #6d28d9 0%, #65a30d 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+[data-theme="light"] .edustarz-desc,
+[data-theme="light"] .edustarz-desc-2 {
+    color: #475569;
+}
+
+[data-theme="light"] .edustarz-desc strong,
+[data-theme="light"] .edustarz-desc-2 strong {
+    color: #0f172a;
+}
+
+[data-theme="light"] .edustarz-features li {
+    color: #475569;
+}
+
+[data-theme="light"] .edustarz-features li strong {
+    color: #0f172a;
+}
+
+[data-theme="light"] .edustarz-features svg {
+    color: #65a30d;
+}
+
+[data-theme="light"] .edustarz-note {
+    background: rgba(101, 163, 13, 0.06);
+    border-color: rgba(101, 163, 13, 0.25);
+    color: #475569;
+}
+
+[data-theme="light"] .edustarz-note svg {
+    color: #65a30d;
+}
+
+[data-theme="light"] .edustarz-note strong {
+    color: #65a30d;
+}
+
+/* Price box floating di atas foto — tetap gelap karena foto gelap */
+/* (tidak diubah, sudah terbaca dengan baik) */
+
+/* ============================================================
+   4. ARTIST PROMO
+   ============================================================ */
+[data-theme="light"] .artist-promo {
+    background:
+        radial-gradient(circle at 15% 20%, rgba(236, 72, 153, 0.06) 0%, transparent 50%),
+        radial-gradient(circle at 85% 80%, rgba(163, 230, 53, 0.06) 0%, transparent 50%),
+        #f8fafc;
+}
+
+[data-theme="light"] .artist-promo::before,
+[data-theme="light"] .artist-promo::after {
+    background: linear-gradient(90deg, transparent 0%, #7c3aed 50%, transparent 100%);
+    opacity: 0.25;
+}
+
+[data-theme="light"] .artist-promo .edustarz-title {
+    color: #0f172a;
+}
+
+[data-theme="light"] .artist-promo .edustarz-desc {
+    color: #475569;
+}
+
+[data-theme="light"] .artist-promo .edustarz-desc strong {
+    color: #0f172a;
+}
+
+[data-theme="light"] .artist-promo .edustarz-features li {
+    color: #475569;
+}
+
+[data-theme="light"] .artist-promo .edustarz-features li strong {
+    color: #0f172a;
+}
+
+[data-theme="light"] .artist-promo .edustarz-features svg {
+    color: #65a30d;
+}
+
+[data-theme="light"] .artist-price-highlight {
+    background: linear-gradient(135deg, rgba(236, 72, 153, 0.08) 0%, rgba(101, 163, 13, 0.08) 100%);
+    border-color: rgba(101, 163, 13, 0.4);
+}
+
+[data-theme="light"] .artist-price-value {
+    color: #0f172a;
+}
+
+[data-theme="light"] .artist-price-currency,
+[data-theme="light"] .artist-price-ribu,
+[data-theme="light"] .artist-price-side-value {
+    color: #65a30d;
+}
+
+[data-theme="light"] .artist-price-note {
+    color: #64748b;
+}
+
+[data-theme="light"] .artist-price-sub {
+    color: #64748b;
+}
+
+[data-theme="light"] .artist-price-divider {
+    background: rgba(101, 163, 13, 0.3);
+}
+
+[data-theme="light"] .artist-tnc-link {
+    background: rgba(101, 163, 13, 0.08);
+    border-color: rgba(101, 163, 13, 0.3);
+    color: #65a30d;
+}
+
+[data-theme="light"] .artist-tnc-link:hover {
+    background: rgba(101, 163, 13, 0.15);
+    border-color: #65a30d;
+    color: #65a30d;
+}
+
+/* ============================================================
+   5. CTA BOX — Gradient brand tetap, text selalu putih
+   ============================================================ */
+/* (tidak diubah, sudah brand color) */
+
+/* ============================================================
+   6. SERVICE CARD (beranda) — overlay lebih terang
+   ============================================================ */
+[data-theme="light"] .service-card::before {
+    background: linear-gradient(
+        180deg,
+        rgba(15, 23, 42, 0.1) 0%,
+        rgba(15, 23, 42, 0.5) 40%,
+        rgba(15, 23, 42, 0.88) 80%,
+        rgba(15, 23, 42, 0.96) 100%
+    );
+}
+
+/* Service card selalu teks putih (karena di atas foto gelap) */
+/* (tidak diubah) */
+
+/* ============================================================
+   7. WHY WEBSITE section (halaman web-develop)
+   ============================================================ */
+[data-theme="light"] .why-website {
+    background: #ffffff;
+}
+
+[data-theme="light"] .why-website .edustarz-eyebrow {
+    color: #dc2626;
+}
+
+[data-theme="light"] .why-website .edustarz-eyebrow::before {
+    background: #dc2626;
+}
+
+[data-theme="light"] .why-website .edustarz-title {
+    color: #0f172a;
+}
+
+[data-theme="light"] .why-website .edustarz-features li {
+    color: #475569;
+}
+
+[data-theme="light"] .why-website .edustarz-features li strong {
+    color: #0f172a;
+}
+
+[data-theme="light"] .why-website .edustarz-features svg {
+    color: #65a30d;
+}
+
+/* ============================================================
+   8. TECH BADGES
+   ============================================================ */
+[data-theme="light"] .tech-badges {
+    background: #f8fafc;
+    border-color: #e2e8f0;
+}
+
+[data-theme="light"] .tech-badges-label {
+    color: #64748b;
+}
+
+[data-theme="light"] .tech-badge {
+    background: #ffffff;
+    border-color: #e2e8f0;
+    color: #475569;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+[data-theme="light"] .tech-badge:hover {
+    border-color: #65a30d;
+    color: #0f172a;
+    background: #f8fafc;
+}
+
+[data-theme="light"] .tech-badge svg {
+    color: #65a30d;
+}
+
+/* ============================================================
+   9. WEB TYPE CARD (Jenis Website slider)
+   ============================================================ */
+[data-theme="light"] .web-type-card {
+    background:
+        linear-gradient(135deg,
+            color-mix(in srgb, #ffffff 98%, #7c3aed) 0%,
+            #ffffff 100%);
+    border-color: #e2e8f0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+[data-theme="light"] .web-type-card::before {
+    color: #6d28d9;
+    opacity: 0.12;
+}
+
+[data-theme="light"] .web-type-card:hover {
+    box-shadow:
+        0 16px 40px rgba(0, 0, 0, 0.08),
+        0 0 0 1px #6d28d9;
+}
+
+[data-theme="light"] .web-type-card h3 {
+    color: #0f172a;
+}
+
+[data-theme="light"] .web-type-card p {
+    color: #475569;
+}
+
+[data-theme="light"] .web-type-icon {
+    background: linear-gradient(135deg,
+        rgba(109, 40, 217, 0.1) 0%,
+        rgba(101, 163, 13, 0.1) 100%);
+    border-color: rgba(101, 163, 13, 0.25);
+    color: #65a30d;
+}
+
+/* ============================================================
+   10. PROCESS STEP
+   ============================================================ */
+[data-theme="light"] .process-step {
+    background: #ffffff;
+    border-color: #e2e8f0;
+}
+
+[data-theme="light"] .process-step:hover {
+    background: #f8fafc;
+    border-color: #65a30d;
+}
+
+[data-theme="light"] .process-number {
+    background: linear-gradient(135deg,
+        rgba(109, 40, 217, 0.1) 0%,
+        rgba(101, 163, 13, 0.1) 100%);
+    border-color: rgba(101, 163, 13, 0.3);
+    color: #65a30d;
+}
+
+[data-theme="light"] .process-body h3 {
+    color: #0f172a;
+}
+
+[data-theme="light"] .process-body p {
+    color: #475569;
+}
+
+/* ============================================================
+   11. SECTION LABEL
+   ============================================================ */
+[data-theme="light"] .section-label {
+    background: rgba(101, 163, 13, 0.12);
+    color: #4d7c0f;
+}
+
+/* ============================================================
+   12. FAQ
+   ============================================================ */
+[data-theme="light"] .faq-list {
+    border-top-color: #e2e8f0;
+}
+
+[data-theme="light"] .faq-item {
+    border-bottom-color: #e2e8f0;
+}
+
+[data-theme="light"] .faq-item summary {
+    color: #0f172a;
+}
+
+[data-theme="light"] .faq-item summary:hover {
+    color: #65a30d;
+}
+
+[data-theme="light"] .faq-item summary::after {
+    color: #0f172a;
+}
+
+[data-theme="light"] .faq-item[open] summary {
+    color: #65a30d;
+}
+
+[data-theme="light"] .faq-item[open] summary::after {
+    color: #65a30d;
+}
+
+[data-theme="light"] .faq-item p {
+    color: #475569;
+}
+
+/* ============================================================
+   13. CONTACT PAGE
+   ============================================================ */
+[data-theme="light"] .contact-card {
+    background: #ffffff;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+[data-theme="light"] .contact-card:hover {
+    border-color: #6d28d9;
+}
+
+[data-theme="light"] .contact-form-card {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+}
+
+/* ============================================================
+   14. PORTFOLIO
+   ============================================================ */
+[data-theme="light"] .portfolio {
+    background: #f8fafc;
+}
+
+[data-theme="light"] .portfolio-item {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+[data-theme="light"] .portfolio-item:hover {
+    box-shadow:
+        0 12px 32px rgba(0, 0, 0, 0.08),
+        0 0 0 1px #6d28d9;
+}
+
+[data-theme="light"] .portfolio-title {
+    color: #0f172a;
+}
+
+[data-theme="light"] .portfolio-arrow {
+    background: rgba(101, 163, 13, 0.12);
+    color: #65a30d;
+}
+
+/* ============================================================
+   15. TESTIMONIALS
+   ============================================================ */
+[data-theme="light"] .testimonial-card {
+    background: #f8fafc;
+}
+
+[data-theme="light"] .testimonial-card blockquote {
+    color: #475569;
+}
+
+[data-theme="light"] .testimonial-card strong {
+    color: #0f172a;
+}
+
+[data-theme="light"] .testimonial-card small {
+    color: #64748b;
+}
+
+[data-theme="light"] .testimonial-card figcaption {
+    border-top-color: #e2e8f0;
+}
+
+/* ============================================================
+   16. FEATURE CARD (Why Us)
+   ============================================================ */
+[data-theme="light"] .feature-card {
+    background: #ffffff;
+    border-color: #e2e8f0;
+}
+
+[data-theme="light"] .feature-card:hover {
+    background: #f8fafc;
+    border-color: #65a30d;
+}
+
+[data-theme="light"] .feature-card h3 {
+    color: #0f172a;
+}
+
+[data-theme="light"] .feature-card p {
+    color: #475569;
+}
+
+[data-theme="light"] .feature-icon {
+    background: rgba(101, 163, 13, 0.12);
+    color: #65a30d;
+}
+
+/* ============================================================
+   17. PRICING CARD
+   ============================================================ */
+[data-theme="light"] .pricing-card {
+    background: #ffffff;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+[data-theme="light"] .pricing-card:hover {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+[data-theme="light"] .pricing-featured {
+    box-shadow:
+        0 0 0 1px #6d28d9,
+        0 10px 30px rgba(109, 40, 217, 0.12);
+}
+
+[data-theme="light"] .pricing-name {
+    color: #0f172a;
+}
+
+[data-theme="light"] .pricing-desc {
+    color: #64748b;
+}
+
+[data-theme="light"] .pricing-features li {
+    color: #475569;
+}
+
+[data-theme="light"] .pricing-duration {
+    background: rgba(101, 163, 13, 0.08);
+    border-color: rgba(101, 163, 13, 0.25);
+    color: #475569;
+}
+
+[data-theme="light"] .pricing-duration svg,
+[data-theme="light"] .pricing-duration strong {
+    color: #65a30d;
+}
+
+[data-theme="light"] .pricing-tabs {
+    background: #ffffff;
+    border-color: #e2e8f0;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+}
+
+[data-theme="light"] .pricing-tab {
+    color: #64748b;
+}
+
+[data-theme="light"] .pricing-tab:hover {
+    color: #0f172a;
+    background: #f1f5f9;
+}
+
+[data-theme="light"] .pricing-tab.active {
+    color: #ffffff;
+    background: #6d28d9;
+}
+
+/* Tooltip di light mode */
+[data-theme="light"] .feature-tooltip {
+    background: #0f172a;
+    color: #f1f5f9;
+    border-color: #65a30d;
+}
+
+[data-theme="light"] .feature-tooltip::after {
+    background: #0f172a;
+    border-color: #65a30d;
+}
+
+/* ============================================================
+   18. GALERI (Graphic Design)
+   ============================================================ */
+[data-theme="light"] .gallery-item {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+/* ============================================================
+   19. PRICELIST (Graphic Design)
+   ============================================================ */
+[data-theme="light"] .price-item {
+    background: #ffffff;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+[data-theme="light"] .price-item-info h4 {
+    color: #0f172a;
+}
+
+[data-theme="light"] .price-item-info p {
+    color: #64748b;
+}
+
+[data-theme="light"] .price-item-value {
+    color: #65a30d;
+}
+
+/* ============================================================
+   20. PORTOFOLIO 3D (Sketchup)
+   ============================================================ */
+[data-theme="light"] .portfolio-3d-card {
+    background: #ffffff;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+[data-theme="light"] .portfolio-3d-body h3 {
+    color: #0f172a;
+}
+
+[data-theme="light"] .portfolio-3d-body p {
+    color: #475569;
+}
+
+/* ============================================================
+   21. FORM INPUTS
+   ============================================================ */
+[data-theme="light"] .form-group input,
+[data-theme="light"] .form-group select,
+[data-theme="light"] .form-group textarea {
+    background: #ffffff;
+    border-color: #cbd5e1;
+    color: #0f172a;
+}
+
+[data-theme="light"] .form-group input:focus,
+[data-theme="light"] .form-group select:focus,
+[data-theme="light"] .form-group textarea:focus {
+    border-color: #6d28d9;
+    box-shadow: 0 0 0 3px rgba(109, 40, 217, 0.15);
+}
+
+[data-theme="light"] .form-group label {
+    color: #0f172a;
+}
+
+/* ============================================================
+   22. TNC (Promo Artist page)
+   ============================================================ */
+[data-theme="light"] .tnc-intro {
+    background: linear-gradient(135deg, rgba(236, 72, 153, 0.06) 0%, rgba(101, 163, 13, 0.06) 100%);
+    border-color: rgba(101, 163, 13, 0.3);
+}
+
+[data-theme="light"] .tnc-intro p {
+    color: #475569;
+}
+
+[data-theme="light"] .tnc-intro strong {
+    color: #65a30d;
+}
+
+[data-theme="light"] .tnc-item {
+    background: #ffffff;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+[data-theme="light"] .tnc-body h2 {
+    color: #0f172a;
+}
+
+[data-theme="light"] .tnc-body p,
+[data-theme="light"] .tnc-body ul li {
+    color: #475569;
+}
+
+[data-theme="light"] .tnc-body strong {
+    color: #0f172a;
+}
+
+[data-theme="light"] .tnc-body code {
+    background: rgba(101, 163, 13, 0.1);
+    border-color: rgba(101, 163, 13, 0.25);
+    color: #65a30d;
+}
+
+[data-theme="light"] .tnc-body a {
+    color: #65a30d;
+}
+
+/* ============================================================
+   23. PROCESS STEP timeline dashed
+   ============================================================ */
+[data-theme="light"] .process-step:not(:last-child)::after {
+    opacity: 0.7;
+    filter: hue-rotate(-20deg) saturate(1.2);
+}
+
+/* ============================================================
+   24. MISC
+   ============================================================ */
+[data-theme="light"] .section-subtitle {
+    color: #475569;
+}
+
+[data-theme="light"] .section-title {
+    color: #0f172a;
+}
+
+[data-theme="light"] .section-title .text-accent {
+    background: linear-gradient(135deg, #6d28d9 0%, #65a30d 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
