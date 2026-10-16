@@ -777,3 +777,107 @@
     }
     html { scroll-behavior: auto; }
 }
+
+/* ============================================================
+   BACK TO TOP BUTTON
+   ============================================================ */
+.back-to-top {
+    position: fixed;
+    bottom: var(--space-lg);
+    right: var(--space-lg);
+    z-index: 90;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+
+    background: linear-gradient(135deg, #7c3aed 0%, #6d28d9 100%);
+    color: #ffffff;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+
+    box-shadow:
+        0 8px 24px rgba(124, 58, 237, 0.4),
+        0 0 0 1px rgba(255, 255, 255, 0.08) inset;
+
+    /* Tersembunyi default */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(16px) scale(0.9);
+    pointer-events: none;
+
+    transition:
+        opacity 250ms ease,
+        transform 250ms ease,
+        visibility 250ms ease,
+        background 200ms ease,
+        box-shadow 200ms ease;
+}
+
+.back-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0) scale(1);
+    pointer-events: auto;
+}
+
+.back-to-top:hover {
+    background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+    transform: translateY(-4px) scale(1.05);
+    box-shadow:
+        0 12px 32px rgba(124, 58, 237, 0.55),
+        0 0 0 1px rgba(255, 255, 255, 0.15) inset;
+}
+
+.back-to-top:active {
+    transform: translateY(-2px) scale(0.98);
+}
+
+.back-to-top svg {
+    width: 22px;
+    height: 22px;
+    flex-shrink: 0;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 768px) {
+    .back-to-top {
+        bottom: var(--space-md);
+        right: var(--space-md);
+        width: 44px;
+        height: 44px;
+    }
+
+    .back-to-top svg {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .back-to-top {
+        bottom: 16px;
+        right: 16px;
+        width: 42px;
+        height: 42px;
+    }
+
+    .back-to-top svg {
+        width: 18px;
+        height: 18px;
+    }
+}
+
+/* ---------- Hormati preferensi reduce motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+    .back-to-top {
+        transition-duration: 0.01ms;
+    }
+
+    .back-to-top.visible {
+        transform: none;
+    }
+}
