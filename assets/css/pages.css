@@ -3774,3 +3774,117 @@ section.section-alt:has(.faq-list) {
         object-position: center center;
     }
 }
+
+/* ============================================================
+   HALAMAN KONTAK — POLISH + FIX MAP ASPECT RATIO
+   ============================================================ */
+
+/* ---------- Map: paksa landscape di semua ukuran ---------- */
+.map-wrap iframe {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    height: auto;
+    min-height: 0;
+}
+
+@media (max-width: 768px) {
+    .map-wrap iframe {
+        aspect-ratio: 16 / 10;
+    }
+}
+
+/* ---------- Contact card: featured (WhatsApp) ---------- */
+.contact-card-featured {
+    border-color: color-mix(in srgb, #25D366 40%, transparent);
+    background:
+        linear-gradient(135deg,
+            color-mix(in srgb, var(--bg-elevated) 95%, #25D366) 0%,
+            var(--bg-elevated) 100%);
+    box-shadow: 0 8px 24px rgba(37, 211, 102, 0.08);
+}
+
+.contact-card-featured:hover {
+    border-color: #25D366;
+    box-shadow: 0 12px 32px rgba(37, 211, 102, 0.15);
+}
+
+/* ---------- Contact link primary (WhatsApp) ---------- */
+.contact-link-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.5rem 0.9rem;
+    background: color-mix(in srgb, #25D366 12%, transparent);
+    border: 1px solid color-mix(in srgb, #25D366 35%, transparent);
+    border-radius: var(--radius-full);
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: #25D366;
+    text-decoration: none;
+    transition: all var(--transition-fast);
+    margin-top: var(--space-sm);
+}
+
+.contact-link-primary:hover {
+    background: #25D366;
+    color: #ffffff;
+    border-color: #25D366;
+    transform: translateX(3px);
+    box-shadow: 0 6px 16px rgba(37, 211, 102, 0.3);
+}
+
+/* ---------- Contact card: hover halus ---------- */
+.contact-card {
+    transition: all var(--transition-base);
+}
+
+/* ---------- Form card: sticky hanya desktop ---------- */
+@media (max-width: 900px) {
+    .contact-form-wrap {
+        position: static;
+    }
+}
+
+/* ---------- Form submit button ---------- */
+#contact-form .btn-block {
+    width: 100%;
+    margin-top: var(--space-md);
+}
+
+/* ---------- Section header left-align (khusus kontak) ---------- */
+.contact-info .section-header {
+    margin-bottom: var(--space-lg);
+}
+
+.contact-info .section-header .section-title {
+    text-align: left;
+    margin-bottom: var(--space-sm);
+    font-size: clamp(1.5rem, 3vw, 1.85rem);
+}
+
+/* ---------- Form note ---------- */
+#contact-form + .form-note,
+form .form-note {
+    text-align: center;
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    margin-top: var(--space-md);
+    line-height: 1.5;
+}
+
+/* ---------- Responsive fine-tuning ---------- */
+@media (max-width: 640px) {
+    .contact-card-featured {
+        border-color: color-mix(in srgb, #25D366 50%, transparent);
+    }
+
+    .contact-link-primary {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .map-wrap iframe {
+        aspect-ratio: 4 / 3;
+    }
+}
