@@ -969,3 +969,23 @@
         box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
     }
 }
+
+/* ============================================================
+   FOOTER LOGO — SWAP SESUAI TEMA
+   ============================================================ */
+
+/* Light mode: pakai logo versi gelap */
+[data-theme="light"] .footer-brand-logo .logo-light { display: block; }
+[data-theme="light"] .footer-brand-logo .logo-dark  { display: none; }
+
+/* Dark mode: pakai logo versi terang */
+[data-theme="dark"] .footer-brand-logo .logo-light { display: none; }
+[data-theme="dark"] .footer-brand-logo .logo-dark  { display: block; }
+
+/* Pastikan ukuran konsisten */
+.footer-brand-logo img {
+    width: 42px;
+    height: 42px;
+    object-fit: contain;
+    flex-shrink: 0;
+}

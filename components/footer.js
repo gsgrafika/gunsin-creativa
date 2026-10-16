@@ -38,8 +38,14 @@
                     <!-- Kolom 1: Brand -->
                     <div class="footer-col footer-brand">
                         <a href="index.html" class="footer-brand-logo" aria-label="${SITE.nama} - Beranda">
+                            <img src="assets/img/brand/logo-light.webp"
+                                 alt="Logo ${SITE.nama}"
+                                 class="logo-light"
+                                 width="42" height="42"
+                                 loading="lazy">
                             <img src="assets/img/brand/logo-dark.webp"
                                  alt="Logo ${SITE.nama}"
+                                 class="logo-dark"
                                  width="42" height="42"
                                  loading="lazy">
                             <div class="footer-brand-text">
