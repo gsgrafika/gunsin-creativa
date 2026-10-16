@@ -186,6 +186,66 @@
         </section>
 
         <!-- ============================================================
+             TECH BADGES — Tools & Teknologi yang Kami Gunakan
+             ============================================================ -->
+        <section class="tech-badges" aria-label="Tools dan teknologi yang kami gunakan">
+            <div class="container">
+                <p class="tech-badges-label">Tools &amp; Teknologi yang Kami Gunakan</p>
+            </div>
+
+            <div class="tech-badges-viewport">
+                <div class="tech-badges-track" id="techTrack">
+
+                    <div class="tech-badge">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                        <span>WordPress</span>
+                    </div>
+
+                    <div class="tech-badge">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M17.5 19a4.5 4.5 0 1 0 0-9 6 6 0 1 0-11.5 1.5A4 4 0 0 0 6.5 19z"/></svg>
+                        <span>Cloudflare CDN</span>
+                    </div>
+
+                    <div class="tech-badge">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="m12 2 9 5v10l-9 5-9-5V7z"/><path d="m12 12 9-5M12 12 3 7M12 12v10"/></svg>
+                        <span>SketchUp 3D</span>
+                    </div>
+
+                    <div class="tech-badge">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg>
+                        <span>Figma Design</span>
+                    </div>
+
+                    <div class="tech-badge">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"/></svg>
+                        <span>Adobe Suite</span>
+                    </div>
+
+                    <div class="tech-badge">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18M8 4v16"/></svg>
+                        <span>Canva Pro</span>
+                    </div>
+
+                    <div class="tech-badge">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                        <span>HTML · CSS · JS</span>
+                    </div>
+
+                    <div class="tech-badge">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+                        <span>Google Analytics</span>
+                    </div>
+
+                    <div class="tech-badge">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="18" r="3"/><circle cx="6" cy="6" r="3"/><path d="M6 21V9a9 9 0 0 0 9 9"/></svg>
+                        <span>GitHub</span>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================
              3. PROMO ARTIST LANDING PAGE
              ============================================================ -->
         <section class="artist-promo" id="artist">
@@ -775,7 +835,8 @@
             <div class="container container-narrow">
                 <div class="section-header">
                     <span class="section-label">FAQ</span>
-                    <h2 class="section-title">Pertanyaan Umum</h2>
+                    <h2 class="section-title">Pertanyaan Umum Seputar Web Development</h2>
+                    <p class="section-subtitle">Temukan jawaban dari pertanyan yang sering ditanyakan mengenai paket pengembangan website</p>
                 </div>
 
                 <div class="faq-list">
@@ -862,6 +923,69 @@
                 });
             });
         });
+    })();
+    </script>
+    <script>
+    /* ============================================================
+       TECH BADGES — Auto-Slide (step by step, bukan continuous)
+       ============================================================ */
+    (function () {
+        const track = document.getElementById('techTrack');
+        if (!track) return;
+
+        const items = track.children;
+        const total = items.length;
+        let index = 0;
+        let intervalId;
+
+        function getStepWidth() {
+            const firstItem = items[0];
+            if (!firstItem) return 0;
+            const gap = parseFloat(getComputedStyle(track).gap) || 16;
+            return firstItem.offsetWidth + gap;
+        }
+
+        function getMaxIndex() {
+            const step = getStepWidth();
+            if (!step) return 0;
+            const viewport = track.parentElement.offsetWidth;
+            const visibleCount = Math.max(1, Math.floor(viewport / step));
+            return Math.max(0, total - visibleCount);
+        }
+
+        function step() {
+            const stepWidth = getStepWidth();
+            const maxIndex = getMaxIndex();
+
+            index++;
+            if (index > maxIndex) index = 0;
+
+            track.style.transform = `translateX(-${index * stepWidth}px)`;
+        }
+
+        function start() {
+            intervalId = setInterval(step, 2500); // 2.5 detik per langkah
+        }
+
+        function stop() {
+            clearInterval(intervalId);
+        }
+
+        // Pause saat hover
+        track.parentElement.addEventListener('mouseenter', stop);
+        track.parentElement.addEventListener('mouseleave', start);
+
+        // Reset saat resize
+        let resizeTimer;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(() => {
+                index = 0;
+                track.style.transform = 'translateX(0)';
+            }, 200);
+        });
+
+        start();
     })();
     </script>
 </body>
