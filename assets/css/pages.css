@@ -3574,3 +3574,44 @@ section.section-alt:has(.faq-list) {
         );
     }
 }
+
+/* ============================================================
+   FIX MOBILE — Foto di Atas Konten (why-website & artist-promo)
+   ============================================================ */
+@media (max-width: 640px) {
+
+    /* ---------- KENAPA HARUS PUNYA WEBSITE ---------- */
+    .why-website .edustarz-visual {
+        order: -1;                       /* ⭐ foto ke urutan pertama */
+        max-width: 100%;
+        padding: 0;
+        margin-bottom: var(--space-md);
+    }
+
+    .why-website-content {
+        order: 0;
+    }
+
+    /* ---------- PROMO ARTIST ---------- */
+    .artist-promo-visual {
+        order: -1 !important;            /* ⭐ foto ke urutan pertama */
+        max-width: 100%;
+        padding: 0;
+        margin-bottom: var(--space-md);
+    }
+
+    .artist-promo-content {
+        order: 0 !important;
+    }
+
+    /* ---------- Sesuaikan ukuran foto mobile ---------- */
+    .why-website .edustarz-photo,
+    .artist-promo-visual .edustarz-photo {
+        border-radius: var(--radius-lg);
+    }
+
+    .why-website .edustarz-photo img,
+    .artist-promo-visual .edustarz-photo img {
+        object-position: center center;
+    }
+}
