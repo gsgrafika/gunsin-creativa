@@ -1,95 +1,80 @@
 /* ============================================================
    VARIABEL WARNA & TEMA
-   ============================================================
-   Palet diambil dari brand Gunsin Creativa:
-   - Ungu-biru dominan (katalog WhatsApp)
-   - Aksen hijau neon (highlight)
    ============================================================ */
 
 /* ---------- TEMA GELAP (default) ---------- */
 :root,
 [data-theme="dark"] {
-    /* Background */
-    --bg-primary:    #0a0a1a;   /* Hitam kebiruan - body */
-    --bg-secondary:  #14142b;   /* Section alt */
-    --bg-elevated:   #1e1e3f;   /* Kartu, modal, dropdown */
+    --bg-primary:    #0a0a1a;
+    --bg-secondary:  #14142b;
+    --bg-elevated:   #1e1e3f;
     --bg-hover:      #2a2a52;
 
-    /* Aksen Brand */
-    --accent-primary:   #7c3aed;  /* Ungu utama */
-    --accent-primary-h: #8b5cf6;  /* Ungu hover */
-    --accent-secondary: #a3e635;  /* Hijau neon */
+    --accent-primary:   #7c3aed;
+    --accent-primary-h: #8b5cf6;
+    --accent-secondary: #a3e635;
     --accent-secondary-h: #bef264;
 
-    /* Teks */
     --text-primary:   #f1f5f9;
     --text-secondary: #94a3b8;
     --text-muted:     #64748b;
     --text-inverse:   #0a0a1a;
 
-    /* Border & Divider */
     --border-color:   #2a2a52;
     --border-subtle:  #1e1e3f;
 
-    /* Status */
     --success: #22c55e;
     --warning: #f59e0b;
     --danger:  #ef4444;
 
-    /* Shadow */
     --shadow-sm: 0 1px 2px rgba(0,0,0,0.3);
     --shadow-md: 0 4px 12px rgba(0,0,0,0.4);
     --shadow-lg: 0 10px 30px rgba(0,0,0,0.5);
     --shadow-glow: 0 0 30px rgba(124,58,237,0.4);
 
-    /* Gradient */
     --gradient-brand: linear-gradient(135deg, #7c3aed 0%, #a3e635 100%);
     --gradient-bg:    linear-gradient(180deg, #0a0a1a 0%, #14142b 100%);
+
+    color-scheme: dark;
 }
 
 /* ---------- TEMA TERANG ---------- */
 [data-theme="light"] {
-    /* Background */
     --bg-primary:    #ffffff;
     --bg-secondary:  #f8fafc;
     --bg-elevated:   #ffffff;
     --bg-hover:      #f1f5f9;
 
-    /* Aksen Brand */
     --accent-primary:   #6d28d9;
     --accent-primary-h: #7c3aed;
     --accent-secondary: #65a30d;
     --accent-secondary-h: #84cc16;
 
-    /* Teks */
     --text-primary:   #0f172a;
     --text-secondary: #475569;
-    --text-muted:     #94a3b8;
+    --text-muted:     #64748b;
     --text-inverse:   #ffffff;
 
-    /* Border & Divider */
     --border-color:   #e2e8f0;
     --border-subtle:  #f1f5f9;
 
-    /* Status */
     --success: #16a34a;
     --warning: #d97706;
     --danger:  #dc2626;
 
-    /* Shadow */
     --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
     --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
     --shadow-lg: 0 10px 30px rgba(0,0,0,0.12);
     --shadow-glow: 0 0 30px rgba(124,58,237,0.2);
 
-    /* Gradient */
     --gradient-brand: linear-gradient(135deg, #6d28d9 0%, #65a30d 100%);
     --gradient-bg:    linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+
+    color-scheme: light;
 }
 
-/* ---------- VARIABEL GLOBAL (sama di semua tema) ---------- */
+/* ---------- VARIABEL GLOBAL ---------- */
 :root {
-    /* Spacing */
     --space-xs:  0.25rem;
     --space-sm:  0.5rem;
     --space-md:  1rem;
@@ -98,23 +83,19 @@
     --space-2xl: 3rem;
     --space-3xl: 4rem;
 
-    /* Border Radius */
     --radius-sm: 0.375rem;
     --radius-md: 0.5rem;
     --radius-lg: 0.75rem;
     --radius-xl: 1rem;
     --radius-full: 9999px;
 
-    /* Typography */
     --font-sans: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
     --font-display: "Space Grotesk", "Plus Jakarta Sans", system-ui, sans-serif;
     --font-mono: "JetBrains Mono", "Fira Code", monospace;
 
-    /* Layout */
     --container-max: 1200px;
     --container-narrow: 800px;
 
-    /* Transitions */
     --transition-fast: 150ms ease;
     --transition-base: 250ms ease;
     --transition-slow: 400ms ease;

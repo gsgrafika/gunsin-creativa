@@ -3888,3 +3888,200 @@ form .form-note {
         aspect-ratio: 4 / 3;
     }
 }
+
+/* ============================================================
+   HYBRID THEME — Sections yang SELALU GELAP
+   ============================================================
+   Section berikut tidak ikut berubah saat light mode karena
+   menggunakan image/gradient gelap sebagai background:
+   - Hero (index)
+   - EduStarz
+   - Artist Promo
+   - Page Hero (halaman layanan)
+   ============================================================ */
+
+.hero,
+.edustarz,
+.artist-promo,
+.page-hero {
+    /* Force dark variables secara lokal */
+    --bg-primary:    #0a0a1a;
+    --bg-secondary:  #14142b;
+    --bg-elevated:   #1e1e3f;
+    --bg-hover:      #2a2a52;
+    --text-primary:   #f1f5f9;
+    --text-secondary: #94a3b8;
+    --text-muted:     #64748b;
+    --text-inverse:   #0a0a1a;
+    --border-color:   #2a2a52;
+    --border-subtle:  #1e1e3f;
+
+    color-scheme: dark;
+}
+
+/* Force text color pada konten utama */
+.hero .hero-title,
+.page-hero .page-hero-title {
+    color: #ffffff;
+}
+
+.hero .hero-subtitle,
+.page-hero .page-hero-subtitle {
+    color: rgba(241, 245, 249, 0.75);
+}
+
+/* Hero stats */
+.hero .hero-stat strong {
+    color: #ffffff;
+}
+
+.hero .hero-stat span.stat-label {
+    color: rgba(241, 245, 249, 0.6);
+}
+
+/* Breadcrumb di page-hero */
+.page-hero .breadcrumb,
+.page-hero .breadcrumb a {
+    color: rgba(241, 245, 249, 0.7);
+}
+
+.page-hero .breadcrumb a:hover {
+    color: var(--accent-secondary);
+}
+
+/* Edustarz eyebrow */
+.edustarz .edustarz-eyebrow {
+    color: #f87171;
+}
+
+/* Edustarz title */
+.edustarz .edustarz-title {
+    color: #f1f5f9;
+}
+
+/* Artist promo — text color */
+.artist-promo .edustarz-title {
+    color: #f1f5f9;
+}
+
+/* CTA Box — gradient tetap, tapi text selalu putih */
+.cta-box .cta-content h2,
+.cta-box .cta-content p {
+    color: #ffffff;
+}
+
+/* ============================================================
+   LIGHT MODE — Section yang ikut tema
+   ============================================================ */
+
+/* Services card di light mode: biar tetap ada kontras */
+[data-theme="light"] .service-card::before {
+    background: linear-gradient(
+        180deg,
+        rgba(15, 23, 42, 0.15) 0%,
+        rgba(15, 23, 42, 0.55) 40%,
+        rgba(15, 23, 42, 0.9) 80%,
+        rgba(15, 23, 42, 0.97) 100%
+    );
+}
+
+/* Feature icon di light mode */
+[data-theme="light"] .feature-icon {
+    background: color-mix(in srgb, var(--accent-secondary) 15%, transparent);
+}
+
+/* Section label di light mode */
+[data-theme="light"] .section-label {
+    background: color-mix(in srgb, var(--accent-secondary) 20%, transparent);
+    color: #4d7c0f;
+}
+
+/* Pricing card di light mode */
+[data-theme="light"] .pricing-card {
+    background: var(--bg-elevated);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+[data-theme="light"] .pricing-card:hover {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+[data-theme="light"] .pricing-featured {
+    box-shadow:
+        0 0 0 1px var(--accent-primary),
+        0 10px 30px rgba(124, 58, 237, 0.15);
+}
+
+/* FAQ di light mode */
+[data-theme="light"] .faq-item summary::after {
+    color: var(--text-primary);
+}
+
+/* Form inputs di light mode */
+[data-theme="light"] .form-group input,
+[data-theme="light"] .form-group select,
+[data-theme="light"] .form-group textarea {
+    background: var(--bg-primary);
+    border-color: var(--border-color);
+}
+
+/* Tech badges di light mode */
+[data-theme="light"] .tech-badge {
+    background: var(--bg-elevated);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+}
+
+/* Web type card di light mode */
+[data-theme="light"] .web-type-card {
+    background:
+        linear-gradient(135deg,
+            color-mix(in srgb, var(--bg-elevated) 98%, var(--accent-primary)) 0%,
+            var(--bg-elevated) 100%);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+/* Process step di light mode */
+[data-theme="light"] .process-step {
+    background: var(--bg-elevated);
+}
+
+/* Timeline dashed — warna lebih tua di light mode */
+[data-theme="light"] .process-step:not(:last-child)::after {
+    opacity: 0.8;
+}
+
+/* Gallery item di light mode */
+[data-theme="light"] .gallery-item {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+/* Contact card di light mode */
+[data-theme="light"] .contact-card {
+    background: var(--bg-elevated);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+/* Contact form di light mode */
+[data-theme="light"] .contact-form-card {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+}
+
+/* Hero badge — di light mode tetap hijau accent, tapi di hero gelap */
+.hero .hero-badge {
+    background: rgba(163, 230, 53, 0.12);
+    color: #a3e635;
+    border-color: rgba(163, 230, 53, 0.3);
+}
+
+/* Hero CTA outline */
+.hero .btn-outline {
+    border-color: rgba(255, 255, 255, 0.25);
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.hero .btn-outline:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.5);
+    color: #ffffff;
+}
