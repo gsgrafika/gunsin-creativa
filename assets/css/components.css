@@ -2,7 +2,10 @@
    KOMPONEN UMUM - Header, Footer, Tombol, Tema Toggle
    ============================================================ */
 
-/* ---------- CONTAINER ---------- */
+
+/* ============================================================
+   CONTAINER
+   ============================================================ */
 .container {
     width: 100%;
     max-width: var(--container-max);
@@ -10,10 +13,10 @@
     padding: 0 var(--space-lg);
 }
 
+
 /* ============================================================
    HEADER
    ============================================================ */
-
 .site-header {
     position: sticky;
     top: 0;
@@ -48,7 +51,10 @@
     min-height: 72px;
 }
 
-/* ---------- BRAND / LOGO ---------- */
+
+/* ============================================================
+   BRAND / LOGO
+   ============================================================ */
 .brand {
     display: flex;
     align-items: center;
@@ -77,11 +83,11 @@
     transition: opacity var(--transition-fast);
 }
 
-/* Tampilkan logo terang hanya di light mode */
+/* Logo terang hanya di light mode */
 [data-theme="light"] .logo-light { display: block; }
 [data-theme="light"] .logo-dark  { display: none; }
 
-/* Tampilkan logo gelap hanya di dark mode */
+/* Logo gelap hanya di dark mode */
 [data-theme="dark"] .logo-light { display: none; }
 [data-theme="dark"] .logo-dark  { display: block; }
 
@@ -103,13 +109,20 @@
     margin-top: 2px;
 }
 
-/* ---------- NAVIGASI ---------- */
+
+/* ============================================================
+   NAVIGASI UTAMA
+   ============================================================ */
 .main-nav { display: flex; }
 
 .nav-list {
     display: flex;
     gap: var(--space-sm);
     align-items: center;
+}
+
+.nav-item {
+    position: relative;
 }
 
 .nav-link {
@@ -121,6 +134,7 @@
     font-weight: 500;
     transition: all var(--transition-fast);
     white-space: nowrap;
+    text-decoration: none;
 }
 
 .nav-link:hover {
@@ -133,7 +147,10 @@
     background: color-mix(in srgb, var(--accent-secondary) 12%, transparent);
 }
 
-/* ---------- HEADER ACTIONS ---------- */
+
+/* ============================================================
+   HEADER ACTIONS
+   ============================================================ */
 .header-actions {
     display: flex;
     align-items: center;
@@ -143,7 +160,10 @@
 
 .header-cta { display: inline-flex; }
 
-/* ---------- MOBILE MENU TOGGLE ---------- */
+
+/* ============================================================
+   MOBILE MENU TOGGLE (hamburger)
+   ============================================================ */
 .menu-toggle {
     display: none;
     flex-direction: column;
@@ -156,6 +176,7 @@
     background: var(--bg-elevated);
     border: 1px solid var(--border-color);
     transition: background var(--transition-fast);
+    cursor: pointer;
 }
 
 .menu-toggle:hover { background: var(--bg-hover); }
@@ -173,10 +194,10 @@
 .menu-toggle.open span:nth-child(2) { opacity: 0; }
 .menu-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
+
 /* ============================================================
    TOMBOL (Button)
    ============================================================ */
-
 .btn {
     display: inline-flex;
     align-items: center;
@@ -231,6 +252,174 @@
     color: var(--accent-primary);
 }
 
+
+/* ============================================================
+   MEGA MENU DROPDOWN
+   ============================================================ */
+.nav-trigger {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-family: var(--font-sans);
+}
+
+.nav-chevron {
+    width: 14px;
+    height: 14px;
+    transition: transform var(--transition-fast);
+    color: currentColor;
+    flex-shrink: 0;
+}
+
+.has-dropdown.open .nav-chevron {
+    transform: rotate(180deg);
+}
+
+.has-dropdown.open .nav-link {
+    color: var(--text-primary);
+    background: var(--bg-hover);
+}
+
+/* Dropdown panel */
+.mega-menu {
+    position: absolute;
+    top: calc(100% + 12px);
+    left: 50%;
+    transform: translateX(-50%) translateY(-8px);
+    min-width: 480px;
+    background: var(--bg-elevated);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    box-shadow:
+        0 24px 64px rgba(0, 0, 0, 0.5),
+        0 0 0 1px rgba(255, 255, 255, 0.03) inset;
+    padding: var(--space-md);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 200ms ease, transform 200ms ease, visibility 200ms ease;
+    z-index: 50;
+}
+
+/* Panah kecil di atas dropdown */
+.mega-menu::before {
+    content: '';
+    position: absolute;
+    top: -6px;
+    left: 50%;
+    transform: translateX(-50%) rotate(45deg);
+    width: 12px;
+    height: 12px;
+    background: var(--bg-elevated);
+    border-left: 1px solid var(--border-color);
+    border-top: 1px solid var(--border-color);
+}
+
+.has-dropdown.open .mega-menu {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateX(-50%) translateY(0);
+}
+
+.mega-menu-inner {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+}
+
+.mega-menu-label {
+    font-size: 0.68rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    padding: 0 var(--space-sm) var(--space-sm);
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: var(--space-xs);
+}
+
+.mega-menu-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.25rem;
+}
+
+/* Item individual di dalam dropdown */
+.mega-menu-item {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-md);
+    padding: var(--space-sm) var(--space-md);
+    border-radius: var(--radius-md);
+    text-decoration: none;
+    color: var(--text-primary);
+    transition: all var(--transition-fast);
+}
+
+.mega-menu-item:hover {
+    background: var(--bg-hover);
+    color: var(--text-primary);
+    transform: translateX(2px);
+}
+
+.mega-menu-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+    border-radius: 10px;
+    background: linear-gradient(135deg,
+        rgba(124, 58, 237, 0.15) 0%,
+        rgba(163, 230, 53, 0.15) 100%);
+    border: 1px solid rgba(163, 230, 53, 0.2);
+    color: var(--accent-secondary);
+    transition: all var(--transition-fast);
+}
+
+.mega-menu-icon svg {
+    width: 20px;
+    height: 20px;
+}
+
+.mega-menu-item:hover .mega-menu-icon {
+    background: linear-gradient(135deg, #7c3aed 0%, #a3e635 100%);
+    color: #ffffff;
+    border-color: transparent;
+    transform: rotate(-4deg) scale(1.05);
+}
+
+.mega-menu-text {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    min-width: 0;
+    flex: 1;
+}
+
+.mega-menu-text strong {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    line-height: 1.3;
+}
+
+.mega-menu-text small {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    line-height: 1.4;
+}
+
+.mega-menu-item:hover .mega-menu-text small {
+    color: var(--text-secondary);
+}
+
+
 /* ============================================================
    FOOTER
    ============================================================ */
@@ -239,7 +428,7 @@
     background: var(--bg-secondary);
     border-top: 1px solid var(--border-color);
     padding: var(--space-3xl) 0 var(--space-xl);
-    margin-top: var(--space-3xl);
+    margin-top: 0;
 }
 
 /* Garis aksen gradient di atas footer */
@@ -385,12 +574,10 @@
     color: var(--accent-secondary);
 }
 
-/* Navigasi & Layanan: geser saat hover */
 .footer-col:not(.footer-brand) .footer-links li:not(:has(svg)) a:hover {
     transform: translateX(4px);
 }
 
-/* Ikon kontak */
 .footer-links a svg {
     flex-shrink: 0;
     margin-top: 3px;
@@ -413,9 +600,7 @@
     font-size: 0.85rem;
 }
 
-.footer-bottom p {
-    margin: 0;
-}
+.footer-bottom p { margin: 0; }
 
 .footer-credit {
     display: inline-flex;
@@ -423,9 +608,11 @@
     gap: 0.3rem;
 }
 
+
 /* ============================================================
-   FOOTER — RESPONSIVE
+   RESPONSIVE — FOOTER & NAVBAR
    ============================================================ */
+
 @media (max-width: 1024px) {
     .footer-grid {
         grid-template-columns: 1fr 1fr;
@@ -441,53 +628,6 @@
     }
 }
 
-@media (max-width: 640px) {
-    .site-footer {
-        padding: var(--space-2xl) 0 var(--space-lg);
-    }
-
-    /* Grid 2 kolom untuk mobile */
-    .footer-grid {
-        grid-template-columns: 1fr 1fr;
-        column-gap: var(--space-lg);
-        row-gap: var(--space-xl);
-        margin-bottom: var(--space-xl);
-        padding-bottom: var(--space-xl);
-    }
-
-    /* Brand: full width (baris sendiri) */
-    .footer-brand {
-        grid-column: 1 / -1;
-    }
-
-    /* Kontak: full width (baris sendiri, di bawah Navigasi + Layanan) */
-    .footer-col:nth-child(4) {
-        grid-column: 1 / -1;
-    }
-
-    /* Judul kolom: sedikit lebih kecil di mobile */
-    .footer-col h4 {
-        margin-bottom: var(--space-md);
-        font-size: 0.78rem;
-        letter-spacing: 0.1em;
-    }
-
-    /* Footer bottom: center */
-    .footer-bottom {
-        flex-direction: column;
-        text-align: center;
-        gap: var(--space-sm);
-    }
-}
-
-/* ============================================================
-   RESPONSIVE
-   ============================================================ */
-
-@media (max-width: 1024px) {
-    .footer-grid { grid-template-columns: 1fr 1fr; }
-}
-
 @media (max-width: 768px) {
     .brand-tagline { display: none; }
     .header-cta { display: none; }
@@ -501,12 +641,25 @@
         background: var(--bg-primary);
         border-bottom: 1px solid var(--border-color);
         padding: var(--space-lg);
-        transform: translateY(-120%);
-        transition: transform var(--transition-base);
         box-shadow: var(--shadow-lg);
+        max-height: calc(100vh - 72px);
+        overflow-y: auto;
+
+        /* ⭐ KUNCI: sembunyikan total dengan visibility + opacity + transform */
+        visibility: hidden;
+        opacity: 0;
+        transform: translateY(-8px);
+        transition:
+            opacity var(--transition-base),
+            transform var(--transition-base),
+            visibility var(--transition-base);
     }
 
-    .main-nav.open { transform: translateY(0); }
+    .main-nav.open {
+        visibility: visible;
+        opacity: 1;
+        transform: translateY(0);
+    }
 
     .nav-list {
         flex-direction: column;
@@ -517,16 +670,105 @@
     .nav-link {
         padding: var(--space-md);
         font-size: 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+    }
+
+    /* Mega menu: jadi accordion */
+    .mega-menu {
+        position: static;
+        transform: none;
+        min-width: 0;
+        width: 100%;
+        box-shadow: none;
+        border: none;
+        border-radius: 0;
+        background: transparent;
+        padding: 0;
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 300ms ease;
+    }
+
+    .mega-menu::before {
+        display: none;
+    }
+
+    .has-dropdown.open .mega-menu {
+        transform: none;
+        max-height: 600px;
+    }
+
+    .mega-menu-label {
+        display: none;
+    }
+
+    .mega-menu-item {
+        padding: var(--space-sm) var(--space-md);
+        background: transparent;
+    }
+
+    .mega-menu-icon {
+        width: 36px;
+        height: 36px;
+    }
+
+    .mega-menu-icon svg {
+        width: 18px;
+        height: 18px;
+    }
+
+    .mega-menu-text strong {
+        font-size: 0.9rem;
+    }
+
+    .mega-menu-text small {
+        font-size: 0.75rem;
+    }
+}
+
+@media (max-width: 640px) {
+    .site-footer {
+        padding: var(--space-2xl) 0 var(--space-lg);
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr 1fr;
+        column-gap: var(--space-lg);
+        row-gap: var(--space-xl);
+        margin-bottom: var(--space-xl);
+        padding-bottom: var(--space-xl);
+    }
+
+    .footer-brand {
+        grid-column: 1 / -1;
+    }
+
+    .footer-col:nth-child(4) {
+        grid-column: 1 / -1;
+    }
+
+    .footer-col h4 {
+        margin-bottom: var(--space-md);
+        font-size: 0.78rem;
+        letter-spacing: 0.1em;
     }
 
     .footer-bottom {
         flex-direction: column;
         text-align: center;
+        gap: var(--space-sm);
     }
 }
 
+
 /* ============================================================
-   AKSESIBILITAS: Hormati preferensi "reduce motion"
+   AKSESIBILITAS: reduce motion
    ============================================================ */
 @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after {

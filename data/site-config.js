@@ -57,13 +57,61 @@ const SITE = {
     },
 
     // ---------- NAVIGASI ----------
-    // Urutan menu di header & footer
     navigasi: [
-        { label: "Beranda",       href: "index.html" },
-        { label: "Web Develop",   href: "web-develop.html" },
-        { label: "Graphic Design",href: "graphic-design.html" },
-        { label: "Sketchup 3D",   href: "sketchup.html" },
-        { label: "Kontak",        href: "kontak.html" }
+        { label: "Beranda", href: "index.html" },
+        {
+            label: "Layanan",
+            dropdown: [
+                {
+                    label: "Web Development",
+                    desc: "Website modern & SEO-friendly",
+                    href: "web-develop.html",
+                    icon: "globe"
+                },
+                {
+                    label: "Graphic Design",
+                    desc: "Logo, banner, dan branding",
+                    href: "graphic-design.html",
+                    icon: "palette"
+                },
+                {
+                    label: "Sketchup 3D",
+                    desc: "Visualisasi rumah & gedung",
+                    href: "sketchup.html",
+                    icon: "home"
+                }
+            ]
+        },
+        {
+            label: "Solusi",
+            dropdown: [
+                {
+                    label: "Untuk Sekolah",
+                    desc: "Website profil & PPDB online",
+                    href: "web-develop.html#sekolah",
+                    icon: "school"
+                },
+                {
+                    label: "Untuk UMKM",
+                    desc: "Toko online & branding",
+                    href: "web-develop.html#sekolah",
+                    icon: "store"
+                },
+                {
+                    label: "Untuk Bisnis",
+                    desc: "Company profile & sistem",
+                    href: "web-develop.html#sekolah",
+                    icon: "briefcase"
+                },
+                {
+                    label: "Untuk Pribadi",
+                    desc: "Portfolio & personal brand",
+                    href: "web-develop.html#sekolah",
+                    icon: "user"
+                }
+            ]
+        },
+        { label: "Kontak", href: "kontak.html" }
     ],
 
     // ---------- LAYANAN ----------
