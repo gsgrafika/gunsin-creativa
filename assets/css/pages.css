@@ -2348,55 +2348,100 @@
 
 
 /* ============================================================
-   FAQ
+   FAQ — Minimal Clean Style
    ============================================================ */
 .faq-list {
     display: flex;
     flex-direction: column;
-    gap: var(--space-md);
+    border-top: 1px solid var(--border-color);
 }
 
 .faq-item {
-    background: var(--bg-elevated);
-    border: 1px solid var(--border-color);
-    border-radius: var(--radius-md);
-    padding: var(--space-lg);
-    transition: all var(--transition-fast);
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid var(--border-color);
+    border-radius: 0;
+    padding: 0;
+    transition: none;
 }
-
-.faq-item[open] { border-color: var(--accent-primary); }
 
 .faq-item summary {
     cursor: pointer;
-    font-weight: 600;
-    font-size: 1rem;
     list-style: none;
     display: flex;
     justify-content: space-between;
     align-items: center;
     gap: var(--space-md);
+    padding: var(--space-lg) 0;
+    font-family: var(--font-sans);
+    font-size: 1.05rem;
+    font-weight: 500;
+    line-height: 1.4;
     color: var(--text-primary);
+    transition: color var(--transition-fast);
 }
 
 .faq-item summary::-webkit-details-marker { display: none; }
 
+.faq-item summary:hover {
+    color: var(--accent-secondary);
+}
+
+/* Icon toggle: + dan − (pakai pseudo-element) */
 .faq-item summary::after {
     content: '+';
     font-size: 1.5rem;
     font-weight: 300;
-    color: var(--accent-secondary);
-    transition: transform var(--transition-fast);
     line-height: 1;
+    color: var(--text-primary);
     flex-shrink: 0;
+    transition: transform var(--transition-fast), color var(--transition-fast);
+    width: 1.5rem;
+    text-align: center;
 }
 
-.faq-item[open] summary::after { transform: rotate(45deg); }
+.faq-item summary:hover::after {
+    color: var(--accent-secondary);
+}
 
+.faq-item[open] summary::after {
+    content: '−';                 /* simbol minus Unicode (bukan dash biasa) */
+    color: var(--accent-secondary);
+    transform: none;              /* tidak rotate, hanya ganti karakter */
+}
+
+.faq-item[open] summary {
+    color: var(--accent-secondary);
+}
+
+/* Body jawaban */
 .faq-item p {
-    margin-top: var(--space-md);
+    margin: 0;
+    padding: 0 0 var(--space-lg) 0;
     color: var(--text-secondary);
     font-size: 0.95rem;
     line-height: 1.7;
+    max-width: 75ch;
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 640px) {
+    .faq-item summary {
+        padding: var(--space-md) 0;
+        font-size: 0.95rem;
+        gap: var(--space-sm);
+    }
+
+    .faq-item summary::after {
+        font-size: 1.35rem;
+        width: 1.35rem;
+    }
+
+    .faq-item p {
+        padding-bottom: var(--space-md);
+        font-size: 0.88rem;
+        line-height: 1.65;
+    }
 }
 
 
@@ -3346,5 +3391,58 @@ body {
 @media (max-width: 480px) {
     .service-card .price-value {
         font-size: 1.25rem !important;
+    }
+}
+
+/* ============================================================
+   FIX GAP — Pricelist → CTA → FAQ → Footer
+   ============================================================ */
+
+/* 1. Kurangi padding bawah section pricelist */
+.pricing-section {
+    padding-bottom: var(--space-lg);
+}
+
+/* 2. Pricelist note: kurangi margin */
+.pricing-note {
+    margin-top: var(--space-md);
+}
+
+/* 3. CTA section: kurangi padding atas & bawah */
+.pricing-section + .section {
+    padding-top: var(--space-lg);
+    padding-bottom: var(--space-lg);
+}
+
+/* 4. FAQ section: kurangi padding bawah */
+.section-alt + .section-alt,
+section.section-alt:has(.faq-list) {
+    padding-bottom: var(--space-lg);
+}
+
+/* 5. Footer: hapus margin-top (sudah ada padding dari section atasnya) */
+.site-footer {
+    margin-top: 0;
+}
+
+/* ============================================================
+   RESPONSIVE — Gap lebih rapat di mobile
+   ============================================================ */
+@media (max-width: 768px) {
+    .pricing-section {
+        padding-bottom: var(--space-md);
+    }
+
+    .pricing-note {
+        margin-top: var(--space-sm);
+    }
+
+    .pricing-section + .section {
+        padding-top: var(--space-md);
+        padding-bottom: var(--space-md);
+    }
+
+    section.section-alt:has(.faq-list) {
+        padding-bottom: var(--space-md);
     }
 }
