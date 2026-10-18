@@ -121,7 +121,7 @@ const SITE = {
             nama: "Web Development",
             ikonSvg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>`,
             deskripsi: "Website modern, cepat, dan SEO-friendly untuk profil, toko online, atau sistem informasi sekolah.",
-            hargaMulai: "750.000",
+            hargaMulai: "675.000",
             gambar: "assets/img/layanan/web-develop.webp",
             href: "web-develop.html"
         },
