@@ -4455,3 +4455,50 @@ form .form-note {
         padding: var(--space-lg);
     }
 }
+
+/* ============================================================
+   HERO BADGES (Fitur Tambahan di bawah Subtitle)
+   ============================================================ */
+.hero-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-lg);
+    margin-top: calc(-1 * var(--space-sm)); /* Merapatkan sedikit ke subtitle */
+    margin-bottom: var(--space-xl);
+}
+
+.h-badge {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+}
+
+.h-badge svg {
+    width: 18px;
+    height: 18px;
+    color: var(--accent-secondary); /* Ikon berwarna hijau/aksen */
+    flex-shrink: 0;
+}
+
+@media (max-width: 480px) {
+    .hero-badges {
+        gap: var(--space-sm);
+        flex-direction: column; /* Menyusun ke bawah di layar sangat kecil */
+        align-items: flex-start;
+    }
+}
+
+/* ============================================================
+   LIGHT MODE FIX — Hero Badges
+   ============================================================ */
+[data-theme="light"] .h-badge {
+    color: #475569; /* Teks abu-abu gelap agar terbaca di background terang */
+}
+
+[data-theme="light"] .h-badge svg {
+    color: #65a30d; /* Warna ikon hijau yang lebih gelap (mengikuti tema light) */
+}
