@@ -4093,3 +4093,351 @@ form .form-note {
     background: #ffffff;
     box-shadow: 0 4px 12px rgba(0,0,0,0.05);
 }
+
+/* ============================================================
+   TESTIMONI REDESIGN (BENTO GRID + SLIDER)
+   ============================================================ */
+.testimonials-ref {
+    padding: var(--space-3xl) 0;
+    width: 100%;
+    overflow: hidden; /* Mengunci agar tidak ada elemen bocor ke kanan */
+}
+
+.testi-header-ref {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: var(--space-2xl);
+    gap: var(--space-lg);
+    flex-wrap: wrap;
+    width: 100%;
+    min-width: 0; /* Penting untuk flexbox */
+}
+
+.testi-header-ref .section-title {
+    margin-bottom: 0;
+    max-width: 600px;
+    word-wrap: break-word;
+}
+
+.testi-badges {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+    align-items: flex-end;
+}
+
+.badge-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.4rem 0.8rem;
+    background: var(--bg-elevated);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-full);
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.badge-pill .dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent-primary);
+}
+
+/* --- GRID UTAMA: 2 KOLOM SAMA BESAR --- */
+.testi-grid-ref {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-lg);
+    align-items: stretch;
+    width: 100%;
+    min-width: 0;
+}
+
+/* --- KIRI: WRAPPER SLIDER --- */
+.testi-left {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+    position: relative;
+    min-width: 0; /* Mencegah flexbox melebar */
+    width: 100%;
+}
+
+.testi-slider-wrapper {
+    overflow: hidden;
+    border-radius: var(--radius-xl);
+    flex-grow: 1;
+    width: 100%;
+    min-width: 0;
+}
+
+.testi-slider-track {
+    display: flex;
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    height: 100%;
+    width: 100%;
+}
+
+.testimonial-item {
+    flex: 0 0 100%; /* Memaksa lebar pas 100% dan tidak bisa mengecil/membesar */
+    max-width: 100%;
+    box-sizing: border-box;
+    background: var(--bg-elevated);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-xl);
+    padding: var(--space-xl);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow-wrap: break-word;
+    word-break: break-word;
+}
+
+.testi-counter {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--accent-primary);
+    margin-bottom: var(--space-lg);
+}
+
+.counter-line {
+    flex-grow: 1;
+    height: 1px;
+    background: var(--border-color);
+}
+
+.testimonial-item blockquote {
+    font-size: 1.25rem; /* Teks lebih besar */
+    font-weight: 500;
+    color: var(--text-primary);
+    line-height: 1.6;
+    margin-bottom: var(--space-lg);
+    flex-grow: 1;
+    overflow-wrap: break-word;
+}
+
+.testi-rating {
+    color: #f59e0b;
+    font-size: 1rem;
+    margin-bottom: var(--space-lg);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.testi-rating span {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    font-weight: 700;
+}
+
+.testi-author {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    padding-top: var(--space-lg);
+    border-top: 1px solid var(--border-color);
+}
+
+.testi-author .avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+}
+
+.author-info strong {
+    display: block;
+    font-size: 1.1rem;
+    color: var(--text-primary);
+    margin-bottom: 2px;
+}
+
+.author-info small {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+/* Tombol Navigasi Slider */
+.testi-controls {
+    display: flex;
+    gap: var(--space-sm);
+    justify-content: flex-end;
+}
+
+.testi-btn {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--bg-elevated);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.testi-btn:hover {
+    background: var(--accent-primary);
+    color: #ffffff;
+    border-color: var(--accent-primary);
+}
+
+.testi-btn svg {
+    width: 20px;
+    height: 20px;
+}
+
+/* --- KANAN: KARTU PROMO (RASIO 1:1) --- */
+.promo-card-right {
+    background: linear-gradient(135deg, #7c3aed 0%, #a3e635 100%);
+    border-radius: var(--radius-xl);
+    padding: var(--space-xl);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: #ffffff;
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 1 / 1;
+    min-width: 0;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.promo-card-right::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle at 80% 20%, rgba(255,255,255,0.2) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+.promo-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    position: relative;
+    z-index: 1;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.promo-date {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    opacity: 0.9;
+}
+
+.promo-content {
+    position: relative;
+    z-index: 1;
+}
+
+.promo-content h3 {
+    font-size: clamp(2.5rem, 4vw, 3.5rem);
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -0.03em;
+    color: #ffffff;
+    margin-bottom: 0.5rem;
+}
+
+.promo-content p {
+    font-size: 1.1rem;
+    font-weight: 500;
+    opacity: 0.9;
+}
+
+.promo-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    position: relative;
+    z-index: 1;
+}
+
+.promo-label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    opacity: 0.8;
+    margin-bottom: 0.25rem;
+}
+
+.promo-btn-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 56px;
+    height: 56px;
+    background: #ffffff;
+    color: #7c3aed;
+    border-radius: 50%;
+    transition: all var(--transition-fast);
+    flex-shrink: 0;
+}
+
+.promo-btn-arrow:hover {
+    transform: scale(1.1);
+    background: #f8fafc;
+}
+
+.promo-btn-arrow svg {
+    width: 24px;
+    height: 24px;
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 1024px) {
+    .testi-grid-ref {
+        grid-template-columns: 1fr; 
+    }
+    
+    .promo-card-right {
+        aspect-ratio: auto;
+        min-height: 400px;
+    }
+}
+
+@media (max-width: 768px) {
+    .testi-header-ref {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .testi-badges {
+        flex-direction: row;
+        align-items: flex-start;
+    }
+    
+    .testimonial-item {
+        padding: var(--space-lg); 
+    }
+
+    .testimonial-item blockquote {
+        font-size: 1.1rem; 
+    }
+    
+    .promo-card-right {
+        min-height: 300px;
+        padding: var(--space-lg);
+    }
+}
