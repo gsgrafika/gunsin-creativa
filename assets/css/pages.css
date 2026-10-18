@@ -2420,7 +2420,6 @@
     .pricing-tabs-sticky {
         top: 76px;                      /* ⭐ dari 60px → 76px */
     }
-}
 
     .pricing-tab {
         padding: 0.45rem 0.7rem;
@@ -4787,4 +4786,148 @@ form .form-note {
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
+}
+
+/* ============================================================
+   LIGHT MODE — FIX HERO SECTION (BERANDA)
+   ============================================================ */
+[data-theme="light"] .hero {
+    background: #f8fafc;
+}
+
+/* Overlay putih transparan di atas image agar tidak gelap */
+[data-theme="light"] .hero-bg {
+    background-image:
+        linear-gradient(135deg, rgba(248, 250, 252, 0.95) 0%, rgba(255, 255, 255, 0.90) 50%, rgba(248, 250, 252, 0.95) 100%),
+        url('../img/hero-bg.webp');
+}
+
+[data-theme="light"] .hero-bg::after {
+    background-image:
+        radial-gradient(circle at 15% 30%, rgba(124, 58, 237, 0.15) 0%, transparent 45%),
+        radial-gradient(circle at 85% 70%, rgba(163, 230, 53, 0.2) 0%, transparent 45%);
+}
+
+[data-theme="light"] .hero-title {
+    color: #0f172a;
+}
+
+[data-theme="light"] .hero-subtitle {
+    color: #475569;
+}
+
+[data-theme="light"] .hero-subtitle strong {
+    color: #0f172a;
+}
+
+[data-theme="light"] .hero-badge {
+    background: rgba(124, 58, 237, 0.08);
+    color: #6d28d9;
+    border-color: rgba(124, 58, 237, 0.25);
+}
+
+[data-theme="light"] .hero-stat strong {
+    color: #0f172a;
+}
+
+[data-theme="light"] .hero-stat span.stat-label {
+    color: #64748b;
+}
+
+[data-theme="light"] .hero-stats {
+    border-top-color: #e2e8f0;
+}
+
+[data-theme="light"] .hero-stat-divider {
+    background: #e2e8f0;
+}
+
+[data-theme="light"] .hero-cta .btn-outline {
+    border-color: #cbd5e1;
+    color: #0f172a;
+    background: rgba(255, 255, 255, 0.8);
+}
+
+[data-theme="light"] .hero-cta .btn-outline:hover {
+    background: #f1f5f9;
+    border-color: #6d28d9;
+    color: #6d28d9;
+}
+
+/* ============================================================
+   LIGHT MODE — FIX KONTRAS EDUSTARZ & ARTIST PROMO
+   ============================================================ */
+
+/* --- 1. Section EduStarz --- */
+[data-theme="light"] .edustarz {
+    background:
+        radial-gradient(circle at 20% 20%, rgba(124, 58, 237, 0.06) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(163, 230, 53, 0.08) 0%, transparent 50%),
+        #ffffff;
+}
+
+[data-theme="light"] .edustarz-eyebrow {
+    color: #dc2626; /* Merah lebih gelap agar terbaca di putih */
+}
+
+[data-theme="light"] .edustarz-eyebrow::before {
+    background: #dc2626;
+}
+
+[data-theme="light"] .edustarz-title .edustarz-price-highlight {
+    background: linear-gradient(135deg, #6d28d9 0%, #65a30d 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+[data-theme="light"] .edustarz-note {
+    background: rgba(101, 163, 13, 0.06);
+    border-color: rgba(101, 163, 13, 0.25);
+    color: #475569;
+}
+
+/* --- 2. Section Artist Promo --- */
+[data-theme="light"] .artist-promo {
+    background:
+        radial-gradient(circle at 15% 20%, rgba(236, 72, 153, 0.06) 0%, transparent 50%),
+        radial-gradient(circle at 85% 80%, rgba(163, 230, 53, 0.06) 0%, transparent 50%),
+        #f8fafc;
+}
+
+/* Kotak harga promo Artist */
+[data-theme="light"] .artist-price-highlight {
+    background: linear-gradient(135deg, rgba(236, 72, 153, 0.08) 0%, rgba(101, 163, 13, 0.08) 100%);
+    border-color: rgba(101, 163, 13, 0.4);
+}
+
+/* Mengubah teks putih/neon menjadi gelap/hijau tua */
+[data-theme="light"] .artist-price-value {
+    color: #0f172a;
+}
+
+[data-theme="light"] .artist-price-currency,
+[data-theme="light"] .artist-price-ribu,
+[data-theme="light"] .artist-price-side-value {
+    color: #65a30d;
+}
+
+[data-theme="light"] .artist-price-note,
+[data-theme="light"] .artist-price-sub {
+    color: #64748b;
+}
+
+[data-theme="light"] .artist-price-divider {
+    background: rgba(101, 163, 13, 0.3);
+}
+
+[data-theme="light"] .artist-tnc-link {
+    background: rgba(101, 163, 13, 0.08);
+    border-color: rgba(101, 163, 13, 0.3);
+    color: #65a30d;
+}
+
+[data-theme="light"] .artist-tnc-link:hover {
+    background: rgba(101, 163, 13, 0.15);
+    border-color: #65a30d;
 }

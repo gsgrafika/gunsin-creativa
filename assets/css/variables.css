@@ -89,9 +89,10 @@
     --radius-xl: 1rem;
     --radius-full: 9999px;
 
+/* TYPOGRAPHY */
     --font-sans: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
-    --font-display: "Space Grotesk", "Plus Jakarta Sans", system-ui, sans-serif;
-    --font-mono: "JetBrains Mono", "Fira Code", monospace;
+    --font-display: "Stack Sans Headline", system-ui, -apple-system, sans-serif;
+    --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 
     --container-max: 1200px;
     --container-narrow: 800px;
