@@ -154,12 +154,60 @@
         }, 1000);
     }
 
+        /**
+     * Tombol "Kembali ke Atas"
+     * Muncul saat user scroll melewati threshold tertentu
+     */
+    function setupBackToTop() {
+        // Buat tombol sekali saja
+        const btn = document.createElement('button');
+        btn.id = 'back-to-top';
+        btn.className = 'back-to-top';
+        btn.setAttribute('aria-label', 'Kembali ke atas');
+        btn.innerHTML = `
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="18 15 12 9 6 15"/>
+            </svg>
+        `;
+        document.body.appendChild(btn);
+
+        // Scroll ke atas saat diklik
+        btn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Toggle visibility berdasarkan scroll
+        let ticking = false;
+        function updateVisibility() {
+            const scrollY = window.pageYOffset || document.documentElement.scrollTop;
+            const threshold = 400; // muncul setelah 400px scroll
+
+            if (scrollY > threshold) {
+                btn.classList.add('visible');
+            } else {
+                btn.classList.remove('visible');
+            }
+            ticking = false;
+        }
+
+        window.addEventListener('scroll', () => {
+            if (!ticking) {
+                window.requestAnimationFrame(updateVisibility);
+                ticking = true;
+            }
+        }, { passive: true });
+
+        // Cek posisi awal (kalau user buka halaman di tengah)
+        updateVisibility();
+    }
+
     function init() {
         renderServices();
         renderPortfolio();
         setupScrollReveal();
         setupSmoothScroll();
         setup404Redirect();
+        setupBackToTop();
     }
 
     if (document.readyState === 'loading') {

@@ -108,7 +108,21 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Stack+Sans+Headline:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Anti-flash theme (harus sebelum CSS) -->
+    <script>
+        (function() {
+            try {
+                const saved = localStorage.getItem('gunsin-theme');
+                const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                const theme = saved || (systemDark ? 'dark' : 'light');
+                document.documentElement.setAttribute('data-theme', theme);
+            } catch (e) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+            }
+        })();
+    </script>
 
     <link rel="stylesheet" href="assets/css/reset.css">
     <link rel="stylesheet" href="assets/css/variables.css">
@@ -130,10 +144,6 @@
 
             <div class="container">
                 <div class="hero-content">
-                    <span class="hero-badge">
-                        <span class="badge-dot"></span>
-                        Open untuk Proyek Baru
-                    </span>
 
                     <h1 class="hero-title">
                         Kini Giliran <span class="text-accent">Anda</span><br>
@@ -141,11 +151,27 @@
                     </h1>
 
                     <p class="hero-subtitle">
-                        Gunsin Creativa menghadirkan solusi digital <i>end-to-end</i>, 
+                        Gunsin Creativa menghadirkan solusi digital end-to-end, 
                         mulai dari <strong>Website Modern, Identitas Visual Premium,</strong> hingga <strong>Visualisasi 3D.</strong> 
                         Kami membantu bisnis, instansi, sekolah, UMKM, bahkan perorangan 
                         dalam membangun kredibilitas serta memikat target pasar secara efektif.
                     </p>
+
+                    <!-- Hero Badges -->
+                    <div class="hero-badges">
+                        <div class="h-badge">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                            <span>Jaminan Uang Kembali</span>
+                        </div>
+                        <div class="h-badge">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                            <span>Kualitas Terjamin</span>
+                        </div>
+                        <div class="h-badge">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                            <span>Tepat Waktu</span>
+                        </div>
+                    </div>
 
                     <div class="hero-cta">
                         <a href="https://wa.me/6285113133060?text=Halo%20Gunsin%20Creativa%2C%20saya%20ingin%20konsultasi"
@@ -183,7 +209,7 @@
         <section class="services" id="layanan">
             <div class="container">
                 <div class="section-header">
-                    <h2 class="section-title">Apa yang Bisa Kami Bantu?</h2>
+                    <h2 class="section-title">Apa yang Bisa <span class="text-accent"> Kami Bantu?</span></h2>
                     <p class="section-subtitle">
                         Dari website sampai merchandise, semua kebutuhan digital bisnis Anda ada di satu tempat.
                     </p>
@@ -207,7 +233,7 @@
                         <span class="edustarz-eyebrow">PROMO TERBATAS</span>
 
                         <h2 class="edustarz-title">
-                            Hanya dengan <span class="edustarz-price-highlight">Rp 750.000</span>, Website Sekolah Langsung Online!
+                            Hanya dengan <span class="edustarz-price-highlight">Rp675.000</span>, Website Sekolah Langsung Online!
                         </h2>
 
                         <p class="edustarz-desc">
@@ -265,12 +291,12 @@
                             <div class="edustarz-pricebox">
                                 <div class="edustarz-pricebox-label">
                                     <span class="pricebox-tag">PROMO</span>
-                                    <span>Harga khusus</span>
+                                    <span>Paket EduFreez</span>
                                 </div>
                                 <div class="edustarz-pricebox-row">
                                     <div class="pricebox-left">
                                         <span class="pricebox-currency">Rp</span>
-                                        <span class="pricebox-value">750<span class="pricebox-ribu">rb</span></span>
+                                        <span class="pricebox-value">675<span class="pricebox-ribu">rb</span></span>
                                     </div>
                                     <div class="pricebox-right">
                                         <span class="pricebox-label">Aktif 1 Tahun</span>
@@ -282,7 +308,7 @@
 
                         <!-- CTA -->
                         <div class="edustarz-cta">
-                            <a href="https://wa.me/6285113133060?text=Halo%20Gunsin%20Creativa%2C%20saya%20tertarik%20paket%20EduStarz%20untuk%20website%20sekolah"
+                            <a href="web-develop.html#sekolah"
                                class="btn btn-primary btn-lg" target="_blank" rel="noopener">
                                 Ambil Penawaran Ini →
                             </a>
@@ -366,60 +392,101 @@
         </section>
 
         <!-- ============================================================
-             5. TESTIMONI
+             5. TESTIMONI (Desain Bento Grid)
              ============================================================ -->
-        <section class="testimonials">
+        <section class="testimonials-ref">
             <div class="container">
-                <div class="section-header">
-                    <span class="section-label">Testimoni</span>
-                    <h2 class="section-title">Apa Kata Klien Kami</h2>
+                <div class="testi-header-ref">
+                    <div>
+                        <span class="section-label">TESTIMONI</span>
+                        <h2 class="section-title">Apa Kata Orang-orang tentang <span class="text-accent">Gunsin Creativa</span></h2>
+                    </div>
+                    <div class="testi-badges">
+                        <span class="badge-pill"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>Customer Says</span>
+                    </div>
                 </div>
 
-                <div class="testimonials-grid">
-                    <figure class="testimonial-card">
-                        <div class="stars">★★★★★</div>
-                        <blockquote>
-                            "Hasil websitenya rapi dan cepat. Siswa-siswa senang dengan tampilan barunya. 
-                            Recommended untuk sekolah yang mau go digital."
-                        </blockquote>
-                        <figcaption>
-                            <div class="avatar" style="background: #7c3aed;">BS</div>
-                            <div>
-                                <strong>Bu Sari</strong>
-                                <small>Kepala Sekolah SMA</small>
-                            </div>
-                        </figcaption>
-                    </figure>
+                <div class="testi-grid-ref">
+                    <!-- KOLOM KIRI: SLIDER TESTIMONI -->
+                    <div class="testi-left">
+                        <div class="testi-slider-wrapper">
+                            <div class="testi-slider-track" id="testiTrack">
+                                <article class="testimonial-item">
+                                    <div class="testi-counter"><span>1/3</span> <div class="counter-line"></div></div>
+                                    <blockquote>"Hasil websitenya rapi dan cepat. Siswa-siswa senang dengan tampilan barunya. Recommended untuk sekolah yang mau go digital."</blockquote>
+                                    <div class="testi-rating">★★★★★ <span>5.0</span></div>
+                                    <div class="testi-author">
+                                        <div class="avatar" style="background: #7c3aed; color: white;">BS</div>
+                                        <div class="author-info">
+                                            <strong>Bu Sari</strong>
+                                            <small>Kepala Sekolah SMA</small>
+                                        </div>
+                                    </div>
+                                </article>
 
-                    <figure class="testimonial-card">
-                        <div class="stars">★★★★★</div>
-                        <blockquote>
-                            "Desain logo dan banner kami langsung jadi dalam 3 hari. 
-                            Hasilnya sesuai banget sama konsep warung kami."
-                        </blockquote>
-                        <figcaption>
-                            <div class="avatar" style="background: #a3e635; color: #0a0a1a;">AR</div>
-                            <div>
-                                <strong>Pak Andi</strong>
-                                <small>Owner Warung Kopi</small>
-                            </div>
-                        </figcaption>
-                    </figure>
+                                <article class="testimonial-item">
+                                    <div class="testi-counter"><span>2/3</span> <div class="counter-line"></div></div>
+                                    <blockquote>"Desain logo dan banner kami langsung jadi dalam 3 hari. Hasilnya sesuai banget sama konsep warung kami."</blockquote>
+                                    <div class="testi-rating">★★★★★ <span>5.0</span></div>
+                                    <div class="testi-author">
+                                        <div class="avatar" style="background: #a3e635; color: #0a0a1a;">AR</div>
+                                        <div class="author-info">
+                                            <strong>Pak Andi</strong>
+                                            <small>Owner Warung Kopi</small>
+                                        </div>
+                                    </div>
+                                </article>
 
-                    <figure class="testimonial-card">
-                        <div class="stars">★★★★★</div>
-                        <blockquote>
-                            "Render 3D rumah saya bikin klien puas dan langsung deal. 
-                            Komunikasi enak, revisi cepat. Terima kasih!"
-                        </blockquote>
-                        <figcaption>
-                            <div class="avatar" style="background: #6366f1;">RF</div>
-                            <div>
-                                <strong>Mas Rifqi</strong>
-                                <small>Kontraktor</small>
+                                <article class="testimonial-item">
+                                    <div class="testi-counter"><span>3/3</span> <div class="counter-line"></div></div>
+                                    <blockquote>"Render 3D rumah saya bikin klien puas dan langsung deal. Komunikasi enak, revisi cepat. Terima kasih!"</blockquote>
+                                    <div class="testi-rating">★★★★★ <span>5.0</span></div>
+                                    <div class="testi-author">
+                                        <div class="avatar" style="background: #6366f1; color: white;">RF</div>
+                                        <div class="author-info">
+                                            <strong>Mas Rifqi</strong>
+                                            <small>Kontraktor</small>
+                                        </div>
+                                    </div>
+                                </article>
                             </div>
-                        </figcaption>
-                    </figure>
+                        </div>
+                        
+                        <!-- Tombol Navigasi Slider -->
+                        <div class="testi-controls">
+                            <button class="testi-btn" id="testiPrev" aria-label="Testimoni Sebelumnya">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                            </button>
+                            <button class="testi-btn" id="testiNext" aria-label="Testimoni Selanjutnya">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- KOLOM KANAN: KARTU PROMO GRAPHIC DESIGN -->
+                    <div class="promo-card-right">
+                        <div class="promo-top">
+                            <span class="badge-pill" style="background: rgba(255,255,255,0.2); border-color: transparent; color: white;">
+                                <span class="dot" style="background: white;"></span> Promo Spesial
+                            </span>
+                            <span class="promo-date">OKTOBER – NOVEMBER</span>
+                        </div>
+                        
+                        <div class="promo-content">
+                            <h3>Diskon 25%</h3>
+                            <p>Semua Paket Desain Grafis</p>
+                        </div>
+
+                        <div class="promo-bottom">
+                            <div class="promo-price">
+                                <span class="promo-label">Mulai dari</span>
+                                <span class="promo-price-value">Rp 15.000</span>
+                            </div>
+                            <a href="graphic-design.html" class="promo-btn-arrow" aria-label="Lihat Promo Desain Grafis">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -453,6 +520,66 @@
     <script src="data/site-config.js"></script>
     <script src="components/header.js" defer></script>
     <script src="components/footer.js" defer></script>
+    <script src="assets/js/theme.js"></script>
     <script src="assets/js/main.js" defer></script>
+        <script>
+        /* ============================================================
+           TESTIMONI SLIDER LOGIC
+           ============================================================ */
+        (function () {
+            const track = document.getElementById('testiTrack');
+            const prevBtn = document.getElementById('testiPrev');
+            const nextBtn = document.getElementById('testiNext');
+            const items = track ? track.children : [];
+            
+            if (!track || items.length === 0) return;
+
+            let currentIndex = 0;
+            let autoPlayInterval;
+            const totalItems = items.length;
+
+            function updateSlider() {
+                track.style.transform = `translateX(-${currentIndex * 100}%)`;
+            }
+
+            function nextSlide() {
+                currentIndex = (currentIndex + 1) % totalItems;
+                updateSlider();
+            }
+
+            function prevSlide() {
+                currentIndex = (currentIndex - 1 + totalItems) % totalItems;
+                updateSlider();
+            }
+
+            function startAutoPlay() {
+                autoPlayInterval = setInterval(nextSlide, 5000); // Ganti card tiap 5 detik
+            }
+
+            function stopAutoPlay() {
+                clearInterval(autoPlayInterval);
+            }
+
+            // Event Listener Tombol
+            nextBtn.addEventListener('click', () => {
+                stopAutoPlay();
+                nextSlide();
+                startAutoPlay(); // Restart timer saat diklik manual
+            });
+
+            prevBtn.addEventListener('click', () => {
+                stopAutoPlay();
+                prevSlide();
+                startAutoPlay();
+            });
+
+            // Pause saat mouse hover di area slider
+            track.parentElement.addEventListener('mouseenter', stopAutoPlay);
+            track.parentElement.addEventListener('mouseleave', startAutoPlay);
+
+            // Mulai AutoPlay saat halaman dimuat
+            startAutoPlay();
+        })();
+    </script>
 </body>
 </html>

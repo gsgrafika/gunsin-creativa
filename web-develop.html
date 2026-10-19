@@ -24,7 +24,8 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Stack+Sans+Headline:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Stack+Sans+Headline:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- Favicon -->
     <link rel="icon" href="assets/img/brand/favicon.ico" sizes="any">
@@ -33,6 +34,20 @@
     <link rel="apple-touch-icon" sizes="180x180" href="assets/img/brand/favicon/apple-touch-icon.png">
     <link rel="manifest" href="assets/img/brand/favicon/site.webmanifest">
     <meta name="theme-color" content="#7c3aed">
+
+    <!-- Anti-flash theme (harus sebelum CSS) -->
+    <script>
+        (function() {
+            try {
+                const saved = localStorage.getItem('gunsin-theme');
+                const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                const theme = saved || (systemDark ? 'dark' : 'light');
+                document.documentElement.setAttribute('data-theme', theme);
+            } catch (e) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+            }
+        })();
+    </script>
 
     <link rel="stylesheet" href="assets/css/reset.css">
     <link rel="stylesheet" href="assets/css/variables.css">
@@ -186,6 +201,66 @@
         </section>
 
         <!-- ============================================================
+             TECH BADGES — Tools & Teknologi yang Kami Gunakan
+             ============================================================ -->
+        <section class="tech-badges" aria-label="Tools dan teknologi yang kami gunakan">
+            <div class="container">
+                <p class="tech-badges-label">Tools &amp; Teknologi yang Kami Gunakan</p>
+            </div>
+
+            <div class="tech-badges-viewport">
+                <div class="tech-badges-track" id="techTrack">
+
+                    <div class="tech-badge">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                        <span>WordPress</span>
+                    </div>
+
+                    <div class="tech-badge">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M17.5 19a4.5 4.5 0 1 0 0-9 6 6 0 1 0-11.5 1.5A4 4 0 0 0 6.5 19z"/></svg>
+                        <span>Cloudflare CDN</span>
+                    </div>
+
+                    <div class="tech-badge">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="m12 2 9 5v10l-9 5-9-5V7z"/><path d="m12 12 9-5M12 12 3 7M12 12v10"/></svg>
+                        <span>SketchUp 3D</span>
+                    </div>
+
+                    <div class="tech-badge">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg>
+                        <span>Figma Design</span>
+                    </div>
+
+                    <div class="tech-badge">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"/></svg>
+                        <span>Adobe Suite</span>
+                    </div>
+
+                    <div class="tech-badge">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18M8 4v16"/></svg>
+                        <span>Canva Pro</span>
+                    </div>
+
+                    <div class="tech-badge">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                        <span>HTML · CSS · JS</span>
+                    </div>
+
+                    <div class="tech-badge">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+                        <span>Google Analytics</span>
+                    </div>
+
+                    <div class="tech-badge">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="18" r="3"/><circle cx="6" cy="6" r="3"/><path d="M6 21V9a9 9 0 0 0 9 9"/></svg>
+                        <span>GitHub</span>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================
              3. PROMO ARTIST LANDING PAGE
              ============================================================ -->
         <section class="artist-promo" id="artist">
@@ -200,13 +275,6 @@
                                  loading="lazy"
                                  onerror="this.style.opacity='0'">
                         </div>
-                        <div class="artist-badge">
-                            <span class="artist-badge-emoji">🎨</span>
-                            <div>
-                                <strong>Khusus Artist</strong>
-                                <span>Musisi, ilustrator, fotografer, content creator</span>
-                            </div>
-                        </div>
                     </div>
 
                     <div class="artist-promo-content">
@@ -216,8 +284,8 @@
                         </h2>
                         <p class="edustarz-desc">
                             Banyak yang mengira website itu mahal. <strong>Faktanya tidak.</strong> 
-                            Gunsin Creativa memberikan promo khusus untuk Anda para artist 
-                            (musisi, ilustrator, fotografer, dan content creator). Kami sediakan 
+                            Gunsin Creativa memberikan promo khusus untuk para artist independen mulai dari
+                            musisi, ilustrator, fotografer, dan content creator. Kami sediakan 
                             landing page profesional dengan harga sangat terjangkau.
                         </p>
 
@@ -275,66 +343,70 @@
         </section>
 
         <!-- ============================================================
-             4. JENIS WEBSITE
+             4. JENIS WEBSITE — Auto-Scroll Slider
              ============================================================ -->
         <section class="section">
             <div class="container">
                 <div class="section-header">
-                    <span class="section-label">Jenis Website</span>
-                    <h2 class="section-title">Website Apa yang Anda Butuhkan?</h2>
+                    <h2 class="section-title"><span class="text-accent">Jenis Website</span> Apa yang Anda butuhkan?</h2>
                     <p class="section-subtitle">
                         Kami melayani berbagai jenis website sesuai kebutuhan Anda.
                     </p>
                 </div>
+            </div>
 
-                <div class="web-types-grid">
-                    <article class="web-type-card">
+            <!-- Viewport slider -->
+            <div class="web-types-viewport">
+                <div class="web-types-track" id="webTypesTrack">
+
+                    <article class="web-type-card" data-num="01">
                         <div class="web-type-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9h18M9 21V9"/><path d="M3 5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z"/></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9h18M9 21V9"/><path d="M3 5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z"/></svg>
                         </div>
                         <h3>Company Profile</h3>
                         <p>Website profil sekolah, instansi, atau perusahaan dengan halaman berita, galeri, dan kontak.</p>
                     </article>
 
-                    <article class="web-type-card">
+                    <article class="web-type-card" data-num="02">
                         <div class="web-type-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>
                         </div>
                         <h3>Toko Online</h3>
                         <p>E-commerce dengan keranjang belanja, pembayaran, dan manajemen produk.</p>
                     </article>
 
-                    <article class="web-type-card">
+                    <article class="web-type-card" data-num="03">
                         <div class="web-type-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
                         </div>
                         <h3>Landing Page</h3>
                         <p>Halaman promosi produk atau event, dirancang untuk konversi maksimal.</p>
                     </article>
 
-                    <article class="web-type-card">
+                    <article class="web-type-card" data-num="04">
                         <div class="web-type-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
                         </div>
                         <h3>Sistem Informasi Sekolah</h3>
                         <p>PPDB online, nilai siswa, absensi, dan portal informasi sekolah.</p>
                     </article>
 
-                    <article class="web-type-card">
+                    <article class="web-type-card" data-num="05">
                         <div class="web-type-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
                         </div>
                         <h3>Blog / Portal Berita</h3>
                         <p>Platform publikasi artikel dengan kategori, tag, dan pencarian.</p>
                     </article>
 
-                    <article class="web-type-card">
+                    <article class="web-type-card" data-num="06">
                         <div class="web-type-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/></svg>
                         </div>
                         <h3>Web Aplikasi Custom</h3>
                         <p>Sistem sesuai kebutuhan khusus: inventaris, booking, dashboard, dan lainnya.</p>
                     </article>
+
                 </div>
             </div>
         </section>
@@ -386,221 +458,385 @@
         </section>
 
         <!-- ============================================================
-             6. PRICELIST WEBSITE SEKOLAH
+             6. PRICELIST (TABS: Pendidikan, Bisnis, Pribadi, UMKM)
              ============================================================ -->
-        <section class="section" id="sekolah">
+        <section class="section pricing-section" id="sekolah">
+
+            <!-- ---------- TAB STICKY ---------- -->
+            <div class="pricing-tabs-sticky">
+                <div class="container">
+                    <div class="pricing-tabs" role="tablist" aria-label="Kategori paket">
+                        <button class="pricing-tab active" data-tab="pendidikan" role="tab" aria-selected="true">Pendidikan</button>
+                        <button class="pricing-tab" data-tab="bisnis" role="tab" aria-selected="false">Bisnis</button>
+                        <button class="pricing-tab" data-tab="pribadi" role="tab" aria-selected="false">Pribadi</button>
+                        <button class="pricing-tab" data-tab="umkm" role="tab" aria-selected="false">UMKM</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ---------- KONTEN ---------- -->
             <div class="container">
+
                 <div class="section-header">
-                    <span class="section-label">Paket Website Sekolah</span>
-                    <h2 class="section-title">Pilih Paket Sesuai Kebutuhan Sekolah</h2>
+                    <h2 class="section-title">Pilih <span class="text-accent">Paket Website</span> Sesuai Kebutuhan</h2>
                     <p class="section-subtitle">
-                        Semua paket sudah termasuk domain <strong>sch.id</strong> resmi dan free maintenance 1 bulan.
-                        <br><strong>Diskon 25% khusus sekolah</strong> - kuota terbatas!
+                        Semua paket sudah termasuk domain resmi, hosting, dan free maintenance 1 bulan.<strong> Diskon 25%</strong> - kuota terbatas!
                     </p>
                 </div>
 
-                <div class="pricing-grid pricing-school">
+                <!-- ============================================================
+                     PANEL 1: PENDIDIKAN
+                     ============================================================ -->
+                <div class="pricing-panel active" data-panel="pendidikan">
+                    <div class="pricing-grid">
 
-                    <!-- EduFreez -->
-                    <article class="pricing-card">
-                        <h3 class="pricing-name">EduFreez</h3>
-                        <p class="pricing-desc">Cocok untuk sekolah yang baru mulai go-digital</p>
-                        <div class="pricing-price">
-                            <span class="price-currency">Rp</span>
-                            <span class="price-value">500.000</span>
-                        </div>
-                        <ul class="pricing-features">
-                            <li>
-                                <span>3-5 halaman statis</span>
-                                <span class="feature-tooltip">Cukup untuk profil, sambutan kepala sekolah, galeri, dan kontak.</span>
-                            </li>
-                            <li>
-                                <span>Domain sch.id</span>
-                                <span class="feature-tooltip">Domain resmi .sch.id khusus sekolah, lebih terpercaya di mata orang tua.</span>
-                            </li>
-                            <li>
-                                <span>Hosting gratis</span>
-                                <span class="feature-tooltip">Hosting gratis dengan performa cukup untuk traffic sekolah skala kecil.</span>
-                            </li>
-                            <li>
-                                <span>Desain responsif</span>
-                                <span class="feature-tooltip">Tampil sempurna di HP, tablet, dan desktop.</span>
-                            </li>
-                            <li>
-                                <span>Form kontak WhatsApp</span>
-                                <span class="feature-tooltip">Pengunjung bisa langsung chat ke WhatsApp sekolah dengan 1 klik.</span>
-                            </li>
-                            <li>
-                                <span>SSL Certificate</span>
-                                <span class="feature-tooltip">Keamanan HTTPS gratis agar website tidak ditandai "Not Secure" oleh browser.</span>
-                            </li>
-                            <li>
-                                <span>Free maintenance 1 bulan</span>
-                                <span class="feature-tooltip">Update konten minor dan perbaikan bug gratis selama 1 bulan pertama.</span>
-                            </li>
-                        </ul>
-                        <a href="https://wa.me/6285113133060?text=Halo%2C%20saya%20tertarik%20paket%20EduFreez%20untuk%20website%20sekolah"
-                           class="btn btn-outline btn-block" target="_blank" rel="noopener">
-                            Pilih EduFreez
-                        </a>
-                    </article>
+                        <article class="pricing-card">
+                            <h3 class="pricing-name">EduFreez</h3>
+                            <p class="pricing-desc">Sekolah baru mulai go-digital</p>
+                            <div class="pricing-price-block">
+                                <div class="pricing-price"><span class="price-currency">Rp</span><span class="price-value">675.000</span></div>
+                                <div class="pricing-meta"><span class="price-strike">Rp 900.000</span><span class="price-discount">Diskon 25%</span></div>
+                            </div>
+                            <div class="pricing-duration"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><span><strong>3–7 hari</strong> kerja</span></div>
+                            <ul class="pricing-features">
+                                <li><span>3–5 halaman statis</span><span class="feature-tooltip">Profil, sambutan kepala sekolah, galeri, kontak.</span></li>
+                                <li><span>Domain sch.id resmi</span><span class="feature-tooltip">Lebih terpercaya di mata orang tua &amp; siswa.</span></li>
+                                <li><span>Hosting gratis</span><span class="feature-tooltip">Cukup untuk traffic sekolah skala kecil.</span></li>
+                                <li><span>Form kontak WhatsApp</span><span class="feature-tooltip">Pengunjung bisa chat langsung dengan 1 klik.</span></li>
+                                <li><span>SSL Certificate</span><span class="feature-tooltip">Keamanan HTTPS gratis.</span></li>
+                                <li><span>Free maintenance 1 bulan</span><span class="feature-tooltip">Update konten minor &amp; bug fix gratis.</span></li>
+                            </ul>
+                            <a href="https://wa.me/6285113133060?text=Halo%2C%20saya%20tertarik%20paket%20EduFreez" class="btn btn-outline btn-block" target="_blank" rel="noopener">Konsultasi Paket Ini →</a>
+                        </article>
 
-                    <!-- EduStarz (FEATURED) -->
-                    <article class="pricing-card pricing-featured">
-                        <span class="pricing-badge">Paling Populer</span>
-                        <h3 class="pricing-name">EduStarz</h3>
-                        <p class="pricing-desc">Pilihan favorit sekolah untuk tampil profesional</p>
-                        <div class="pricing-price">
-                            <span class="price-currency">Rp</span>
-                            <span class="price-value">750.000</span>
-                        </div>
-                        <p class="pricing-strike">
-                            <span class="strike-label">Normal</span>
-                            <span class="strike-value">Rp 1.000.000</span>
-                            <span class="strike-tag">Diskon 25%</span>
-                        </p>
-                        <ul class="pricing-features">
-                            <li>
-                                <span>Semua fitur EduFreez</span>
-                                <span class="feature-tooltip">Semua yang ada di paket EduFreez, plus fitur tambahan di bawah.</span>
-                            </li>
-                            <li>
-                                <span>5-10 halaman dinamis</span>
-                                <span class="feature-tooltip">Halaman bisa diupdate sendiri tanpa coding — profil, berita, prestasi, guru, dll.</span>
-                            </li>
-                            <li>
-                                <span>Blog &amp; berita sekolah</span>
-                                <span class="feature-tooltip">Publikasi kegiatan sekolah, pengumuman, dan artikel pendidikan.</span>
-                            </li>
-                            <li>
-                                <span>Galeri foto kegiatan</span>
-                                <span class="feature-tooltip">Album foto dengan kategori — kegiatan, ekstrakurikuler, prestasi.</span>
-                            </li>
-                            <li>
-                                <span>PPDB online sederhana</span>
-                                <span class="feature-tooltip">Form pendaftaran siswa baru dengan notifikasi WhatsApp otomatis.</span>
-                            </li>
-                            <li>
-                                <span>SEO dasar</span>
-                                <span class="feature-tooltip">Struktur SEO-friendly agar sekolah mudah ditemukan di Google.</span>
-                            </li>
-                            <li>
-                                <span>Google Analytics</span>
-                                <span class="feature-tooltip">Pantau statistik pengunjung website sekolah Anda.</span>
-                            </li>
-                            <li>
-                                <span>Free maintenance 1 bulan</span>
-                                <span class="feature-tooltip">Dukungan gratis update konten &amp; perbaikan bug selama 1 bulan.</span>
-                            </li>
-                        </ul>
-                        <a href="https://wa.me/6285113133060?text=Halo%2C%20saya%20tertarik%20paket%20EduStarz%20untuk%20website%20sekolah"
-                           class="btn btn-primary btn-block" target="_blank" rel="noopener">
-                            Pilih EduStarz
-                        </a>
-                    </article>
+                        <article class="pricing-card pricing-featured">
+                            <span class="pricing-badge">Paling Populer</span>
+                            <h3 class="pricing-name">EduStarz</h3>
+                            <p class="pricing-desc">Favorit sekolah untuk tampil profesional</p>
+                            <div class="pricing-price-block">
+                                <div class="pricing-price"><span class="price-currency">Rp</span><span class="price-value">1.125.000</span></div>
+                                <div class="pricing-meta"><span class="price-strike">Rp 1.500.000</span><span class="price-discount">Diskon 25%</span></div>
+                            </div>
+                            <div class="pricing-duration"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><span><strong>1–2 minggu</strong></span></div>
+                            <ul class="pricing-features">
+                                <li><span>Semua fitur EduFreez</span><span class="feature-tooltip">Plus fitur-fitur di bawah.</span></li>
+                                <li><span>5–10 halaman dinamis</span><span class="feature-tooltip">Update sendiri tanpa coding.</span></li>
+                                <li><span>Blog &amp; berita sekolah</span><span class="feature-tooltip">Publikasi kegiatan &amp; pengumuman.</span></li>
+                                <li><span>Galeri foto kegiatan</span><span class="feature-tooltip">Album dengan kategori.</span></li>
+                                <li><span>PPDB online sederhana</span><span class="feature-tooltip">Form pendaftaran + notifikasi WhatsApp.</span></li>
+                                <li><span>SEO dasar + Google Analytics</span><span class="feature-tooltip">Mudah ditemukan di Google.</span></li>
+                                <li><span>Free maintenance 1 bulan</span><span class="feature-tooltip">Update konten &amp; bug fix gratis.</span></li>
+                            </ul>
+                            <a href="https://wa.me/6285113133060?text=Halo%2C%20saya%20tertarik%20paket%20EduStarz" class="btn btn-primary btn-block" target="_blank" rel="noopener">Pesan Paket EduStarz →</a>
+                        </article>
 
-                    <!-- EduProz -->
-                    <article class="pricing-card">
-                        <h3 class="pricing-name">EduProz</h3>
-                        <p class="pricing-desc">Untuk sekolah dengan kebutuhan lebih kompleks</p>
-                        <div class="pricing-price">
-                            <span class="price-currency">Rp</span>
-                            <span class="price-value">1.500.000</span>
-                        </div>
-                        <ul class="pricing-features">
-                            <li>
-                                <span>Semua fitur EduStarz</span>
-                                <span class="feature-tooltip">Semua fitur EduStarz plus tambahan di bawah ini.</span>
-                            </li>
-                            <li>
-                                <span>10-15 halaman</span>
-                                <span class="feature-tooltip">Cukup untuk sekolah besar dengan banyak divisi &amp; program.</span>
-                            </li>
-                            <li>
-                                <span>PPDB online lengkap</span>
-                                <span class="feature-tooltip">Form pendaftaran multi-step, upload dokumen, dan dashboard admin.</span>
-                            </li>
-                            <li>
-                                <span>Multi bahasa (ID/EN)</span>
-                                <span class="feature-tooltip">Website bisa diakses dalam Bahasa Indonesia &amp; Inggris.</span>
-                            </li>
-                            <li>
-                                <span>Email bisnis sekolah</span>
-                                <span class="feature-tooltip">Email profesional dengan domain sekolah (info@sekolah.sch.id).</span>
-                            </li>
-                            <li>
-                                <span>Integrasi media sosial</span>
-                                <span class="feature-tooltip">Feed Instagram, YouTube, dan Facebook otomatis tampil di website.</span>
-                            </li>
-                            <li>
-                                <span>Revisi 4x</span>
-                                <span class="feature-tooltip">Revisi desain &amp; konten hingga 4 kali selama proses.</span>
-                            </li>
-                            <li>
-                                <span>Free maintenance 1 bulan</span>
-                                <span class="feature-tooltip">Dukungan gratis update konten &amp; perbaikan bug selama 1 bulan.</span>
-                            </li>
-                        </ul>
-                        <a href="https://wa.me/6285113133060?text=Halo%2C%20saya%20tertarik%20paket%20EduProz%20untuk%20website%20sekolah"
-                           class="btn btn-outline btn-block" target="_blank" rel="noopener">
-                            Pilih EduProz
-                        </a>
-                    </article>
+                        <article class="pricing-card">
+                            <h3 class="pricing-name">EduProz</h3>
+                            <p class="pricing-desc">Untuk sekolah dengan kebutuhan kompleks</p>
+                            <div class="pricing-price-block">
+                                <div class="pricing-price"><span class="price-currency">Rp</span><span class="price-value">1.875.000</span></div>
+                                <div class="pricing-meta"><span class="price-strike">Rp 2.500.000</span><span class="price-discount">Diskon 25%</span></div>
+                            </div>
+                            <div class="pricing-duration"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><span><strong>2–3 minggu</strong></span></div>
+                            <ul class="pricing-features">
+                                <li><span>Semua fitur EduStarz</span><span class="feature-tooltip">Plus fitur tambahan.</span></li>
+                                <li><span>10–15 halaman</span><span class="feature-tooltip">Untuk sekolah besar dengan banyak divisi.</span></li>
+                                <li><span>PPDB online lengkap</span><span class="feature-tooltip">Multi-step + upload dokumen + dashboard.</span></li>
+                                <li><span>Multi bahasa (ID/EN)</span><span class="feature-tooltip">Bisa diakses dua bahasa.</span></li>
+                                <li><span>Email bisnis sekolah</span><span class="feature-tooltip">info@sekolah.sch.id.</span></li>
+                                <li><span>Integrasi media sosial</span><span class="feature-tooltip">Feed IG, YouTube, FB otomatis.</span></li>
+                                <li><span>Revisi 4x + maintenance 1 bulan</span><span class="feature-tooltip">Revisi desain &amp; konten hingga 4 kali.</span></li>
+                            </ul>
+                            <a href="https://wa.me/6285113133060?text=Halo%2C%20saya%20tertarik%20paket%20EduProz" class="btn btn-outline btn-block" target="_blank" rel="noopener">Pesan Paket EduProz →</a>
+                        </article>
 
-                    <!-- EduByond -->
-                    <article class="pricing-card">
-                        <h3 class="pricing-name">EduByond</h3>
-                        <p class="pricing-desc">Sistem sekolah digital terintegrasi penuh</p>
-                        <div class="pricing-price">
-                            <span class="price-currency">Rp</span>
-                            <span class="price-value">3.500.000</span>
-                        </div>
-                        <ul class="pricing-features">
-                            <li>
-                                <span>Semua fitur EduProz</span>
-                                <span class="feature-tooltip">Semua fitur EduProz plus sistem manajemen lengkap.</span>
-                            </li>
-                            <li>
-                                <span>Halaman tak terbatas</span>
-                                <span class="feature-tooltip">Bebas membuat halaman sesuai kebutuhan sekolah.</span>
-                            </li>
-                            <li>
-                                <span>Sistem login (siswa/guru/admin)</span>
-                                <span class="feature-tooltip">Portal khusus dengan akses berbeda untuk tiap peran.</span>
-                            </li>
-                            <li>
-                                <span>Database nilai &amp; absensi</span>
-                                <span class="feature-tooltip">Sistem nilai &amp; absensi online yang bisa diakses siswa &amp; orang tua.</span>
-                            </li>
-                            <li>
-                                <span>Dashboard admin lengkap</span>
-                                <span class="feature-tooltip">Panel admin untuk kelola seluruh konten &amp; data sekolah.</span>
-                            </li>
-                            <li>
-                                <span>Integrasi pembayaran</span>
-                                <span class="feature-tooltip">Pembayaran SPP atau PPDB online via transfer &amp; e-wallet.</span>
-                            </li>
-                            <li>
-                                <span>Support 6 bulan</span>
-                                <span class="feature-tooltip">Pendampingan prioritas selama 6 bulan setelah launch.</span>
-                            </li>
-                            <li>
-                                <span>Free maintenance 1 bulan</span>
-                                <span class="feature-tooltip">Dukungan gratis update konten &amp; perbaikan bug selama 1 bulan.</span>
-                            </li>
-                        </ul>
-                        <a href="https://wa.me/6285113133060?text=Halo%2C%20saya%20tertarik%20paket%20EduByond%20untuk%20website%20sekolah"
-                           class="btn btn-outline btn-block" target="_blank" rel="noopener">
-                            Pilih EduByond
-                        </a>
-                    </article>
+                        <article class="pricing-card">
+                            <h3 class="pricing-name">EduByonz</h3>
+                            <p class="pricing-desc">Sistem sekolah digital terintegrasi</p>
+                            <div class="pricing-price-block">
+                                <div class="pricing-price"><span class="price-currency">Rp</span><span class="price-value">3.375.000</span></div>
+                                <div class="pricing-meta"><span class="price-strike">Rp 4.500.000</span><span class="price-discount">Diskon 25%</span></div>
+                            </div>
+                            <div class="pricing-duration"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><span><strong>3–6 minggu</strong></span></div>
+                            <ul class="pricing-features">
+                                <li><span>Semua fitur EduProz</span><span class="feature-tooltip">Plus sistem manajemen lengkap.</span></li>
+                                <li><span>Halaman tak terbatas</span><span class="feature-tooltip">Bebas sesuai kebutuhan sekolah.</span></li>
+                                <li><span>Sistem login (siswa/guru/admin)</span><span class="feature-tooltip">Portal khusus dengan akses berbeda.</span></li>
+                                <li><span>Database nilai &amp; absensi</span><span class="feature-tooltip">Akses siswa &amp; orang tua.</span></li>
+                                <li><span>Dashboard admin lengkap</span><span class="feature-tooltip">Kelola seluruh konten &amp; data.</span></li>
+                                <li><span>Integrasi pembayaran</span><span class="feature-tooltip">SPP/PPDB online via transfer &amp; e-wallet.</span></li>
+                                <li><span>Support 6 bulan + maintenance 1 bulan</span><span class="feature-tooltip">Pendampingan prioritas.</span></li>
+                            </ul>
+                            <a href="https://wa.me/6285113133060?text=Halo%2C%20saya%20tertarik%20paket%20EduByonz" class="btn btn-outline btn-block" target="_blank" rel="noopener">Konsultasi Paket Ini →</a>
+                        </article>
 
+                    </div>
+                </div>
+
+                <!-- ============================================================
+                     PANEL 2: BISNIS
+                     ============================================================ -->
+                <div class="pricing-panel" data-panel="bisnis">
+                    <div class="pricing-grid">
+
+                        <article class="pricing-card">
+                            <h3 class="pricing-name">BisFreez</h3>
+                            <p class="pricing-desc">Bisnis baru mulai tampil online</p>
+                            <div class="pricing-price-block">
+                                <div class="pricing-price"><span class="price-currency">Rp</span><span class="price-value">675.000</span></div>
+                                <div class="pricing-meta"><span class="price-strike">Rp 900.000</span><span class="price-discount">Diskon 25%</span></div>
+                            </div>
+                            <div class="pricing-duration"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><span><strong>3–7 hari</strong> kerja</span></div>
+                            <ul class="pricing-features">
+                                <li><span>3–5 halaman statis</span><span class="feature-tooltip">Home, About, Services, Contact.</span></li>
+                                <li><span>Domain .com / .id</span><span class="feature-tooltip">Domain resmi untuk bisnis.</span></li>
+                                <li><span>Hosting 1 tahun</span><span class="feature-tooltip">Hosting cepat &amp; handal.</span></li>
+                                <li><span>Desain responsif</span><span class="feature-tooltip">Sempurna di semua perangkat.</span></li>
+                                <li><span>Form kontak WhatsApp</span><span class="feature-tooltip">Chat langsung 1 klik.</span></li>
+                                <li><span>Free maintenance 1 bulan</span><span class="feature-tooltip">Bug fix &amp; update konten minor.</span></li>
+                            </ul>
+                            <a href="https://wa.me/6285113133060?text=Halo%2C%20saya%20tertarik%20paket%20BisFreez" class="btn btn-outline btn-block" target="_blank" rel="noopener">Konsultasi Paket Ini →</a>
+                        </article>
+
+                        <article class="pricing-card pricing-featured">
+                            <span class="pricing-badge">Paling Populer</span>
+                            <h3 class="pricing-name">BisStarz</h3>
+                            <p class="pricing-desc">Company profile profesional</p>
+                            <div class="pricing-price-block">
+                                <div class="pricing-price"><span class="price-currency">Rp</span><span class="price-value">1.125.000</span></div>
+                                <div class="pricing-meta"><span class="price-strike">Rp 1.500.000</span><span class="price-discount">Diskon 25%</span></div>
+                            </div>
+                            <div class="pricing-duration"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><span><strong>1–2 minggu</strong></span></div>
+                            <ul class="pricing-features">
+                                <li><span>Semua fitur BisFreez</span><span class="feature-tooltip">Plus fitur di bawah.</span></li>
+                                <li><span>5–10 halaman dinamis</span><span class="feature-tooltip">Update sendiri tanpa coding.</span></li>
+                                <li><span>Blog &amp; berita perusahaan</span><span class="feature-tooltip">Publikasi update bisnis.</span></li>
+                                <li><span>Galeri produk / portfolio</span><span class="feature-tooltip">Showcase hasil kerja.</span></li>
+                                <li><span>SEO dasar + Google Analytics</span><span class="feature-tooltip">Mudah ditemukan Google.</span></li>
+                                <li><span>Email bisnis</span><span class="feature-tooltip">info@perusahaan.com.</span></li>
+                                <li><span>Free maintenance 1 bulan</span><span class="feature-tooltip">Update &amp; bug fix gratis.</span></li>
+                            </ul>
+                            <a href="https://wa.me/6285113133060?text=Halo%2C%20saya%20tertarik%20paket%20BisStarz" class="btn btn-primary btn-block" target="_blank" rel="noopener">Pesan Paket BisStarz →</a>
+                        </article>
+
+                        <article class="pricing-card">
+                            <h3 class="pricing-name">BisProz</h3>
+                            <p class="pricing-desc">Bisnis dengan toko online</p>
+                            <div class="pricing-price-block">
+                                <div class="pricing-price"><span class="price-currency">Rp</span><span class="price-value">1.875.000</span></div>
+                                <div class="pricing-meta"><span class="price-strike">Rp 2.500.000</span><span class="price-discount">Diskon 25%</span></div>
+                            </div>
+                            <div class="pricing-duration"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><span><strong>2–3 minggu</strong></span></div>
+                            <ul class="pricing-features">
+                                <li><span>Semua fitur BisStarz</span><span class="feature-tooltip">Plus fitur toko online.</span></li>
+                                <li><span>10–15 halaman</span><span class="feature-tooltip">Untuk bisnis berkembang.</span></li>
+                                <li><span>Toko online / katalog produk</span><span class="feature-tooltip">Kelola produk sendiri.</span></li>
+                                <li><span>Pembayaran online</span><span class="feature-tooltip">Transfer bank &amp; e-wallet.</span></li>
+                                <li><span>Integrasi media sosial</span><span class="feature-tooltip">Feed IG &amp; FB otomatis.</span></li>
+                                <li><span>Revisi 4x + maintenance 1 bulan</span><span class="feature-tooltip">Revisi desain hingga 4 kali.</span></li>
+                            </ul>
+                            <a href="https://wa.me/6285113133060?text=Halo%2C%20saya%20tertarik%20paket%20BisProz" class="btn btn-outline btn-block" target="_blank" rel="noopener">Pesan Paket BisProz →</a>
+                        </article>
+
+                        <article class="pricing-card">
+                            <h3 class="pricing-name">BisByonz</h3>
+                            <p class="pricing-desc">Sistem bisnis lengkap &amp; custom</p>
+                            <div class="pricing-price-block">
+                                <div class="pricing-price"><span class="price-currency">Rp</span><span class="price-value">3.375.000</span></div>
+                                <div class="pricing-meta"><span class="price-strike">Rp 4.500.000</span><span class="price-discount">Diskon 25%</span></div>
+                            </div>
+                            <div class="pricing-duration"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><span><strong>3–6 minggu</strong></span></div>
+                            <ul class="pricing-features">
+                                <li><span>Semua fitur BisProz</span><span class="feature-tooltip">Plus sistem manajemen.</span></li>
+                                <li><span>Halaman tak terbatas</span><span class="feature-tooltip">Bebas sesuai kebutuhan.</span></li>
+                                <li><span>Sistem login / member</span><span class="feature-tooltip">Akses berbeda untuk tiap peran.</span></li>
+                                <li><span>Database &amp; dashboard admin</span><span class="feature-tooltip">Kelola seluruh data.</span></li>
+                                <li><span>Integrasi API &amp; pembayaran</span><span class="feature-tooltip">Payment gateway lengkap.</span></li>
+                                <li><span>Support 6 bulan + maintenance 1 bulan</span><span class="feature-tooltip">Pendampingan prioritas.</span></li>
+                            </ul>
+                            <a href="https://wa.me/6285113133060?text=Halo%2C%20saya%20tertarik%20paket%20BisByonz" class="btn btn-outline btn-block" target="_blank" rel="noopener">Konsultasi Paket Ini →</a>
+                        </article>
+
+                    </div>
+                </div>
+
+                <!-- ============================================================
+                     PANEL 3: PRIBADI
+                     ============================================================ -->
+                <div class="pricing-panel" data-panel="pribadi">
+                    <div class="pricing-grid">
+
+                        <article class="pricing-card">
+                            <h3 class="pricing-name">PerFreez</h3>
+                            <p class="pricing-desc">Landing page personal simple</p>
+                            <div class="pricing-price-block">
+                                <div class="pricing-price"><span class="price-currency">Rp</span><span class="price-value">375.000</span></div>
+                                <div class="pricing-meta"><span class="price-strike">Rp 500.000</span><span class="price-discount">Diskon 25%</span></div>
+                            </div>
+                            <div class="pricing-duration"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><span><strong>2–4 hari</strong> kerja</span></div>
+                            <ul class="pricing-features">
+                                <li><span>1 halaman landing</span><span class="feature-tooltip">Personal branding dalam 1 halaman.</span></li>
+                                <li><span>Gratis domain my.id 1 tahun</span><span class="feature-tooltip">Domain gratis untuk start.</span></li>
+                                <li><span>Desain responsif</span><span class="feature-tooltip">Sempurna di HP &amp; desktop.</span></li>
+                                <li><span>Tombol WhatsApp</span><span class="feature-tooltip">Order langsung via WA.</span></li>
+                                <li><span>SSL Certificate</span><span class="feature-tooltip">Koneksi aman HTTPS.</span></li>
+                                <li><span>Free maintenance 1 bulan</span><span class="feature-tooltip">Bug fix &amp; update minor.</span></li>
+                            </ul>
+                            <a href="https://wa.me/6285113133060?text=Halo%2C%20saya%20tertarik%20paket%20PerFreez" class="btn btn-outline btn-block" target="_blank" rel="noopener">Konsultasi Paket Ini →</a>
+                        </article>
+
+                        <article class="pricing-card pricing-featured">
+                            <span class="pricing-badge">Paling Populer</span>
+                            <h3 class="pricing-name">PerStarz</h3>
+                            <p class="pricing-desc">Portfolio profesional</p>
+                            <div class="pricing-price-block">
+                                <div class="pricing-price"><span class="price-currency">Rp</span><span class="price-value">675.000</span></div>
+                                <div class="pricing-meta"><span class="price-strike">Rp 900.000</span><span class="price-discount">Diskon 25%</span></div>
+                            </div>
+                            <div class="pricing-duration"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><span><strong>5–7 hari</strong> kerja</span></div>
+                            <ul class="pricing-features">
+                                <li><span>Semua fitur PerFreez</span><span class="feature-tooltip">Plus fitur di bawah.</span></li>
+                                <li><span>3–5 halaman portfolio</span><span class="feature-tooltip">Showcase karya dengan rapi.</span></li>
+                                <li><span>Galeri karya</span><span class="feature-tooltip">Album dengan kategori.</span></li>
+                                <li><span>Form kontak</span><span class="feature-tooltip">Klien bisa kirim inquiry.</span></li>
+                                <li><span>SEO dasar + Google Analytics</span><span class="feature-tooltip">Mudah ditemukan di Google.</span></li>
+                                <li><span>Free maintenance 1 bulan</span><span class="feature-tooltip">Update konten gratis.</span></li>
+                            </ul>
+                            <a href="https://wa.me/6285113133060?text=Halo%2C%20saya%20tertarik%20paket%20PerStarz" class="btn btn-primary btn-block" target="_blank" rel="noopener">Pesan Paket PerStarz →</a>
+                        </article>
+
+                        <article class="pricing-card">
+                            <h3 class="pricing-name">PerProz</h3>
+                            <p class="pricing-desc">Personal brand berkembang</p>
+                            <div class="pricing-price-block">
+                                <div class="pricing-price"><span class="price-currency">Rp</span><span class="price-value">1.125.000</span></div>
+                                <div class="pricing-meta"><span class="price-strike">Rp 1.500.000</span><span class="price-discount">Diskon 25%</span></div>
+                            </div>
+                            <div class="pricing-duration"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><span><strong>1–2 minggu</strong></span></div>
+                            <ul class="pricing-features">
+                                <li><span>Semua fitur PerStarz</span><span class="feature-tooltip">Plus fitur tambahan.</span></li>
+                                <li><span>5–8 halaman</span><span class="feature-tooltip">Untuk personal brand serius.</span></li>
+                                <li><span>Blog pribadi</span><span class="feature-tooltip">Publish artikel &amp; insight.</span></li>
+                                <li><span>Multi bahasa (ID/EN)</span><span class="feature-tooltip">Jangkau audiens global.</span></li>
+                                <li><span>Integrasi sosial media</span><span class="feature-tooltip">Feed IG &amp; YouTube.</span></li>
+                                <li><span>Revisi 4x + maintenance 1 bulan</span><span class="feature-tooltip">Revisi desain hingga 4x.</span></li>
+                            </ul>
+                            <a href="https://wa.me/6285113133060?text=Halo%2C%20saya%20tertarik%20paket%20PerProz" class="btn btn-outline btn-block" target="_blank" rel="noopener">Pesan Paket PerProz →</a>
+                        </article>
+
+                        <article class="pricing-card">
+                            <h3 class="pricing-name">PerByonz</h3>
+                            <p class="pricing-desc">Full personal brand ecosystem</p>
+                            <div class="pricing-price-block">
+                                <div class="pricing-price"><span class="price-currency">Rp</span><span class="price-value">1.875.000</span></div>
+                                <div class="pricing-meta"><span class="price-strike">Rp 2.500.000</span><span class="price-discount">Diskon 25%</span></div>
+                            </div>
+                            <div class="pricing-duration"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><span><strong>2–4 minggu</strong></span></div>
+                            <ul class="pricing-features">
+                                <li><span>Semua fitur PerProz</span><span class="feature-tooltip">Plus sistem lengkap.</span></li>
+                                <li><span>Halaman tak terbatas</span><span class="feature-tooltip">Bebas berkreasi.</span></li>
+                                <li><span>Sistem member / subscription</span><span class="feature-tooltip">Untuk konten premium.</span></li>
+                                <li><span>Pembayaran online</span><span class="feature-tooltip">Jual produk digital langsung.</span></li>
+                                <li><span>Dashboard analytics</span><span class="feature-tooltip">Pantau performa konten.</span></li>
+                                <li><span>Support 3 bulan + maintenance 1 bulan</span><span class="feature-tooltip">Pendampingan prioritas.</span></li>
+                            </ul>
+                            <a href="https://wa.me/6285113133060?text=Halo%2C%20saya%20tertarik%20paket%20PerByonz" class="btn btn-outline btn-block" target="_blank" rel="noopener">Konsultasi Paket Ini →</a>
+                        </article>
+
+                    </div>
+                </div>
+
+                <!-- ============================================================
+                     PANEL 4: UMKM
+                     ============================================================ -->
+                <div class="pricing-panel" data-panel="umkm">
+                    <div class="pricing-grid">
+
+                        <article class="pricing-card">
+                            <h3 class="pricing-name">UmkFreez</h3>
+                            <p class="pricing-desc">Toko online simple untuk UMKM</p>
+                            <div class="pricing-price-block">
+                                <div class="pricing-price"><span class="price-currency">Rp</span><span class="price-value">450.000</span></div>
+                                <div class="pricing-meta"><span class="price-strike">Rp 600.000</span><span class="price-discount">Diskon 25%</span></div>
+                            </div>
+                            <div class="pricing-duration"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><span><strong>3–5 hari</strong> kerja</span></div>
+                            <ul class="pricing-features">
+                                <li><span>3 halaman statis</span><span class="feature-tooltip">Home, Produk, Kontak.</span></li>
+                                <li><span>Gratis domain my.id 1 tahun</span><span class="feature-tooltip">Domain gratis untuk start.</span></li>
+                                <li><span>Hosting gratis</span><span class="feature-tooltip">Cukup untuk UMKM pemula.</span></li>
+                                <li><span>Katalog produk (max 10)</span><span class="feature-tooltip">Showcase produk unggulan.</span></li>
+                                <li><span>Tombol order WhatsApp</span><span class="feature-tooltip">Order langsung via WA.</span></li>
+                                <li><span>Free maintenance 1 bulan</span><span class="feature-tooltip">Bug fix &amp; update minor.</span></li>
+                            </ul>
+                            <a href="https://wa.me/6285113133060?text=Halo%2C%20saya%20tertarik%20paket%20UmkFreez" class="btn btn-outline btn-block" target="_blank" rel="noopener">Konsultasi Paket Ini →</a>
+                        </article>
+
+                        <article class="pricing-card pricing-featured">
+                            <span class="pricing-badge">Paling Populer</span>
+                            <h3 class="pricing-name">UmkStarz</h3>
+                            <p class="pricing-desc">Toko online + dashboard admin</p>
+                            <div class="pricing-price-block">
+                                <div class="pricing-price"><span class="price-currency">Rp</span><span class="price-value">750.000</span></div>
+                                <div class="pricing-meta"><span class="price-strike">Rp 1.000.000</span><span class="price-discount">Diskon 25%</span></div>
+                            </div>
+                            <div class="pricing-duration"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><span><strong>1 minggu</strong></span></div>
+                            <ul class="pricing-features">
+                                <li><span>Semua fitur UmkFreez</span><span class="feature-tooltip">Plus fitur di bawah.</span></li>
+                                <li><span>5 halaman dinamis</span><span class="feature-tooltip">Update produk sendiri.</span></li>
+                                <li><span>Katalog produk unlimited</span><span class="feature-tooltip">Tanpa batas jumlah produk.</span></li>
+                                <li><span>Keranjang &amp; checkout</span><span class="feature-tooltip">Pengalaman belanja lengkap.</span></li>
+                                <li><span>SEO dasar + Google Analytics</span><span class="feature-tooltip">Mudah ditemukan Google.</span></li>
+                                <li><span>Free maintenance 1 bulan</span><span class="feature-tooltip">Update konten gratis.</span></li>
+                            </ul>
+                            <a href="https://wa.me/6285113133060?text=Halo%2C%20saya%20tertarik%20paket%20UmkStarz" class="btn btn-primary btn-block" target="_blank" rel="noopener">Pesan Paket UmkStarz →</a>
+                        </article>
+
+                        <article class="pricing-card">
+                            <h3 class="pricing-name">UmkProz</h3>
+                            <p class="pricing-desc">Toko online + pembayaran otomatis</p>
+                            <div class="pricing-price-block">
+                                <div class="pricing-price"><span class="price-currency">Rp</span><span class="price-value">1.350.000</span></div>
+                                <div class="pricing-meta"><span class="price-strike">Rp 1.800.000</span><span class="price-discount">Diskon 25%</span></div>
+                            </div>
+                            <div class="pricing-duration"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><span><strong>2 minggu</strong></span></div>
+                            <ul class="pricing-features">
+                                <li><span>Semua fitur UmkStarz</span><span class="feature-tooltip">Plus fitur pembayaran.</span></li>
+                                <li><span>8–10 halaman</span><span class="feature-tooltip">Untuk UMKM berkembang.</span></li>
+                                <li><span>Payment gateway</span><span class="feature-tooltip">QRIS, transfer bank, e-wallet.</span></li>
+                                <li><span>Manajemen inventory</span><span class="feature-tooltip">Kelola stok otomatis.</span></li>
+                                <li><span>Email bisnis</span><span class="feature-tooltip">order@tokoanda.com.</span></li>
+                                <li><span>Revisi 4x + maintenance 1 bulan</span><span class="feature-tooltip">Revisi desain hingga 4x.</span></li>
+                            </ul>
+                            <a href="https://wa.me/6285113133060?text=Halo%2C%20saya%20tertarik%20paket%20UmkProz" class="btn btn-outline btn-block" target="_blank" rel="noopener">Pesan Paket UmkProz →</a>
+                        </article>
+
+                        <article class="pricing-card">
+                            <h3 class="pricing-name">UmkByonz</h3>
+                            <p class="pricing-desc">Sistem bisnis UMKM lengkap</p>
+                            <div class="pricing-price-block">
+                                <div class="pricing-price"><span class="price-currency">Rp</span><span class="price-value">2.250.000</span></div>
+                                <div class="pricing-meta"><span class="price-strike">Rp 3.000.000</span><span class="price-discount">Diskon 25%</span></div>
+                            </div>
+                            <div class="pricing-duration"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><span><strong>3–4 minggu</strong></span></div>
+                            <ul class="pricing-features">
+                                <li><span>Semua fitur UmkProz</span><span class="feature-tooltip">Plus sistem lengkap.</span></li>
+                                <li><span>Halaman tak terbatas</span><span class="feature-tooltip">Bebas sesuai kebutuhan.</span></li>
+                                <li><span>Sistem member / loyalty</span><span class="feature-tooltip">Program repeat order.</span></li>
+                                <li><span>Dashboard analytics</span><span class="feature-tooltip">Pantau penjualan &amp; traffic.</span></li>
+                                <li><span>Multi bahasa</span><span class="feature-tooltip">Jangkau pasar lebih luas.</span></li>
+                                <li><span>Support 3 bulan + maintenance 1 bulan</span><span class="feature-tooltip">Pendampingan prioritas.</span></li>
+                            </ul>
+                            <a href="https://wa.me/6285113133060?text=Halo%2C%20saya%20tertarik%20paket%20UmkByonz" class="btn btn-outline btn-block" target="_blank" rel="noopener">Konsultasi Paket Ini →</a>
+                        </article>
+
+                    </div>
                 </div>
 
                 <p class="pricing-note">
-                    Harga sudah termasuk <strong>diskon 25% khusus sekolah</strong>. 
+                    Harga sudah termasuk <strong>diskon 25%</strong>.
                     <a href="kontak.html">Hubungi kami</a> untuk penawaran khusus atau kebutuhan custom.
                 </p>
+
             </div>
         </section>
 
@@ -611,13 +847,14 @@
             <div class="container container-narrow">
                 <div class="section-header">
                     <span class="section-label">FAQ</span>
-                    <h2 class="section-title">Pertanyaan Umum</h2>
+                    <h2 class="section-title">Pertanyaan Umum Seputar <span class="text-accent">Web Development</span></h2>
+                    <p class="section-subtitle">Temukan jawaban dari pertanyan yang sering ditanyakan mengenai paket pengembangan website</p>
                 </div>
 
                 <div class="faq-list">
                     <details class="faq-item">
                         <summary>Berapa lama proses pembuatan website?</summary>
-                        <p>Untuk paket EduFreez: 3-7 hari. Paket EduStarz: 1-2 minggu. Paket EduProz: 2-3 minggu. Paket EduByond: 3-6 minggu, tergantung kompleksitas fitur.</p>
+                        <p>Untuk paket EduFreez: 3-7 hari. Paket EduStarz: 1-2 minggu. Paket EduProz: 2-3 minggu. Paket EduByondz: 3-6 minggu, tergantung kompleksitas fitur.</p>
                     </details>
                     <details class="faq-item">
                         <summary>Apakah saya mendapat domain sch.id dan hosting?</summary>
@@ -648,9 +885,9 @@
         </section>
 
         <!-- ============================================================
-             8. CTA FINAL
-             ============================================================ -->
-        <section class="section">
+        8. CTA FINAL
+        ============================================================ -->
+        <section class="section section-alt">
             <div class="container">
                 <div class="cta-box">
                     <div class="cta-content">
@@ -673,6 +910,159 @@
     <script src="data/site-config.js"></script>
     <script src="components/header.js" defer></script>
     <script src="components/footer.js" defer></script>
+    <script src="assets/js/theme.js"></script>
     <script src="assets/js/main.js" defer></script>
+    <script>
+    // PRICING TABS
+    (function () {
+        const tabs = document.querySelectorAll('.pricing-tab');
+        const panels = document.querySelectorAll('.pricing-panel');
+        if (!tabs.length || !panels.length) return;
+
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                const target = tab.dataset.tab;
+
+                // Update active state on tabs
+                tabs.forEach(t => {
+                    const isActive = t === tab;
+                    t.classList.toggle('active', isActive);
+                    t.setAttribute('aria-selected', isActive ? 'true' : 'false');
+                });
+
+                // Update active panel
+                panels.forEach(p => {
+                    p.classList.toggle('active', p.dataset.panel === target);
+                });
+            });
+        });
+    })();
+    </script>
+    <script>
+    /* ============================================================
+       TECH BADGES — Auto-Slide (step by step, bukan continuous)
+       ============================================================ */
+    (function () {
+        const track = document.getElementById('techTrack');
+        if (!track) return;
+
+        const items = track.children;
+        const total = items.length;
+        let index = 0;
+        let intervalId;
+
+        function getStepWidth() {
+            const firstItem = items[0];
+            if (!firstItem) return 0;
+            const gap = parseFloat(getComputedStyle(track).gap) || 16;
+            return firstItem.offsetWidth + gap;
+        }
+
+        function getMaxIndex() {
+            const step = getStepWidth();
+            if (!step) return 0;
+            const viewport = track.parentElement.offsetWidth;
+            const visibleCount = Math.max(1, Math.floor(viewport / step));
+            return Math.max(0, total - visibleCount);
+        }
+
+        function step() {
+            const stepWidth = getStepWidth();
+            const maxIndex = getMaxIndex();
+
+            index++;
+            if (index > maxIndex) index = 0;
+
+            track.style.transform = `translateX(-${index * stepWidth}px)`;
+        }
+
+        function start() {
+            intervalId = setInterval(step, 2500); // 2.5 detik per langkah
+        }
+
+        function stop() {
+            clearInterval(intervalId);
+        }
+
+        // Pause saat hover
+        track.parentElement.addEventListener('mouseenter', stop);
+        track.parentElement.addEventListener('mouseleave', start);
+
+        // Reset saat resize
+        let resizeTimer;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(() => {
+                index = 0;
+                track.style.transform = 'translateX(0)';
+            }, 200);
+        });
+
+        start();
+    })();
+    </script>
+    <script>
+    /* ============================================================
+       JENIS WEBSITE — Auto-Slide (step by step)
+       ============================================================ */
+    (function () {
+        const track = document.getElementById('webTypesTrack');
+        if (!track) return;
+
+        const items = track.children;
+        const total = items.length;
+        let index = 0;
+        let intervalId;
+
+        function getStepWidth() {
+            const firstItem = items[0];
+            if (!firstItem) return 0;
+            const gap = parseFloat(getComputedStyle(track).gap) || 24;
+            return firstItem.offsetWidth + gap;
+        }
+
+        function getMaxIndex() {
+            const step = getStepWidth();
+            if (!step) return 0;
+            const viewport = track.parentElement.offsetWidth;
+            const visibleCount = Math.max(1, Math.floor(viewport / step));
+            return Math.max(0, total - visibleCount);
+        }
+
+        function step() {
+            const stepWidth = getStepWidth();
+            const maxIndex = getMaxIndex();
+
+            index++;
+            if (index > maxIndex) index = 0;
+
+            track.style.transform = `translateX(-${index * stepWidth}px)`;
+        }
+
+        function start() {
+            intervalId = setInterval(step, 3000); // 3 detik per langkah
+        }
+
+        function stop() {
+            clearInterval(intervalId);
+        }
+
+        // Pause saat hover
+        track.parentElement.addEventListener('mouseenter', stop);
+        track.parentElement.addEventListener('mouseleave', start);
+
+        // Reset saat resize
+        let resizeTimer;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(() => {
+                index = 0;
+                track.style.transform = 'translateX(0)';
+            }, 200);
+        });
+
+        start();
+    })();
+    </script>
 </body>
 </html>

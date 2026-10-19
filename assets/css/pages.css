@@ -1,11 +1,10 @@
 /* ============================================================
    PAGES.CSS — Gunsin Creativa
-   Berisi style untuk semua halaman
    ============================================================ */
 
 
 /* ============================================================
-   SECTION HEADER (reusable untuk semua section)
+   SECTION HEADER (reusable)
    ============================================================ */
 .section-header {
     text-align: center;
@@ -14,16 +13,28 @@
 }
 
 .section-label {
-    display: inline-block;
-    padding: 0.35rem 1rem;
-    background: color-mix(in srgb, var(--accent-secondary) 15%, transparent);
-    color: var(--accent-secondary);
-    border-radius: var(--radius-full);
-    font-size: 0.8rem;
-    font-weight: 700;
-    letter-spacing: 0.05em;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    background: transparent;
+    color: var(--text-primary);
+    padding: 0;
+    border-radius: 0;
+    font-size: 0.85rem;
+    font-weight: 800;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
     margin-bottom: var(--space-md);
+}
+
+.section-label::before {
+    content: '';
+    display: block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: var(--accent-primary);
+    flex-shrink: 0;
 }
 
 .section-title {
@@ -87,7 +98,6 @@
     padding-bottom: var(--space-2xl);
 }
 
-/* ---------- BADGE ---------- */
 .hero-badge {
     display: inline-flex;
     align-items: center;
@@ -119,7 +129,6 @@
     100% { box-shadow: 0 0 0 0 rgba(163, 230, 53, 0); }
 }
 
-/* ---------- TITLE ---------- */
 .hero-title {
     font-size: clamp(2.25rem, 5.5vw, 3.75rem);
     font-weight: 800;
@@ -145,7 +154,6 @@
     margin-bottom: var(--space-xl);
 }
 
-/* ---------- CTA ---------- */
 .hero-cta {
     display: flex;
     gap: var(--space-md);
@@ -167,7 +175,6 @@
     color: #ffffff;
 }
 
-/* ---------- STATS ---------- */
 .hero-stats {
     display: flex;
     align-items: center;
@@ -216,7 +223,7 @@
 
 
 /* ============================================================
-   2. SERVICES (Image Background + Overlay)
+   2. SERVICES
    ============================================================ */
 .services {
     padding: var(--space-3xl) 0;
@@ -230,7 +237,6 @@
     align-items: stretch;
 }
 
-/* ---------- CARD ---------- */
 .service-card {
     position: relative;
     display: flex;
@@ -427,7 +433,7 @@
 
 
 /* ============================================================
-   3. WHY US (Horizontal Compact)
+   3. WHY US
    ============================================================ */
 .why-us {
     padding: var(--space-3xl) 0;
@@ -542,7 +548,6 @@
     align-items: center;
 }
 
-/* ---------- KIRI: CONTENT ---------- */
 .edustarz-content {
     padding-top: var(--space-sm);
 }
@@ -613,7 +618,6 @@
     font-weight: 700;
 }
 
-/* ---------- FEATURE LIST ---------- */
 .edustarz-features {
     display: flex;
     flex-direction: column;
@@ -645,7 +649,6 @@
     margin-top: 3px;
 }
 
-/* ---------- NOTE (disclaimer dengan ikon kunci) ---------- */
 .edustarz-note {
     display: flex;
     align-items: flex-start;
@@ -672,7 +675,6 @@
     font-weight: 700;
 }
 
-/* ---------- KANAN: VISUAL ---------- */
 .edustarz-visual {
     position: relative;
     display: flex;
@@ -695,7 +697,6 @@
     pointer-events: none;
 }
 
-/* Photo wrapper sebagai anchor untuk price box */
 .edustarz-photo-wrap {
     position: relative;
     z-index: 1;
@@ -723,7 +724,6 @@
     object-position: center top;
 }
 
-/* ---------- FLOATING PRICE BOX ---------- */
 .edustarz-pricebox {
     position: absolute;
     left: var(--space-md);
@@ -819,7 +819,6 @@
     color: rgba(255, 255, 255, 0.65);
 }
 
-/* ---------- CTA ---------- */
 .edustarz-cta {
     position: relative;
     z-index: 1;
@@ -834,135 +833,6 @@
     justify-content: center;
 }
 
-/* ---------- RESPONSIVE ---------- */
-@media (max-width: 1024px) {
-    .edustarz-grid {
-        grid-template-columns: 1fr;
-        gap: var(--space-xl);
-    }
-
-    .edustarz-content {
-        padding-top: 0;
-    }
-
-    .edustarz-visual {
-        max-width: 560px;
-        margin: 0 auto;
-        width: 100%;
-    }
-}
-
-@media (max-width: 640px) {
-    .edustarz {
-        padding: var(--space-2xl) 0;
-    }
-
-    .edustarz-title {
-        font-size: 1.55rem;
-    }
-
-    .edustarz-desc,
-    .edustarz-desc-2 {
-        font-size: 0.9rem;
-    }
-
-    .edustarz-note {
-        font-size: 0.78rem;
-    }
-
-    .edustarz-visual {
-        max-width: 100%;
-        gap: var(--space-md);
-    }
-
-    .edustarz-photo {
-        border-radius: var(--radius-lg);
-    }
-
-    .edustarz-photo img {
-        object-position: center center;
-    }
-
-    /* Price box mobile: kompak 1 baris */
-    .edustarz-pricebox {
-        left: var(--space-sm);
-        right: var(--space-sm);
-        bottom: var(--space-sm);
-        padding: 0.6rem 0.85rem;
-        border-radius: var(--radius-md);
-    }
-
-    .edustarz-pricebox-label {
-        font-size: 0.6rem;
-        margin-bottom: 0.25rem;
-        gap: 0.4rem;
-    }
-
-    .pricebox-tag {
-        padding: 0.1rem 0.4rem;
-        font-size: 0.55rem;
-    }
-
-    .edustarz-pricebox-row {
-        display: flex;
-        align-items: baseline;
-        justify-content: space-between;
-        gap: 0.5rem;
-        flex-wrap: nowrap;
-    }
-
-    .pricebox-left {
-        gap: 0.15rem;
-        flex-shrink: 0;
-    }
-
-    .pricebox-currency {
-        font-size: 0.85rem;
-    }
-
-    .pricebox-value {
-        font-size: 1.65rem;
-        line-height: 1;
-    }
-
-    .pricebox-ribu {
-        font-size: 1.1rem;
-        margin-left: 1px;
-    }
-
-    .pricebox-right {
-        text-align: right;
-        flex-direction: row;
-        align-items: baseline;
-        gap: 0.4rem;
-        flex-wrap: nowrap;
-    }
-
-    .pricebox-label {
-        font-size: 0.72rem;
-        white-space: nowrap;
-    }
-
-    .pricebox-sublabel {
-        font-size: 0.68rem;
-        white-space: nowrap;
-        opacity: 0.7;
-    }
-
-    .pricebox-sublabel::before {
-        content: '·';
-        margin-right: 0.4rem;
-        opacity: 0.5;
-    }
-
-    .edustarz-cta {
-        flex-direction: column;
-    }
-
-    .edustarz-cta .btn {
-        width: 100%;
-    }
-}
 
 /* ============================================================
    5. PORTFOLIO
@@ -1232,8 +1102,6 @@
 /* ============================================================
    RESPONSIVE — BERANDA
    ============================================================ */
-
-/* ---------- Tablet Landscape ---------- */
 @media (max-width: 1024px) {
     :root {
         --space-3xl: 3.5rem;
@@ -1243,7 +1111,6 @@
     .hero-subtitle { max-width: 100%; }
 }
 
-/* ---------- Tablet Portrait ---------- */
 @media (max-width: 768px) {
     :root {
         --space-3xl: 3rem;
@@ -1255,14 +1122,11 @@
         padding: 0 var(--space-md);
     }
 
-    /* HERO */
     .hero {
         padding: var(--space-2xl) 0 0;
     }
 
-    .hero-content {
-        padding-bottom: var(--space-xl);
-    }
+    .hero-content { padding-bottom: var(--space-xl); }
 
     .hero-title {
         font-size: clamp(2rem, 8.5vw, 2.75rem);
@@ -1309,13 +1173,8 @@
         flex: none;
     }
 
-    .hero-stat strong {
-        font-size: 1.65rem;
-    }
-
-    .hero-stat strong span {
-        font-size: 1.15rem;
-    }
+    .hero-stat strong { font-size: 1.65rem; }
+    .hero-stat strong span { font-size: 1.15rem; }
 
     .hero-stat span.stat-label {
         font-size: 0.7rem;
@@ -1323,48 +1182,27 @@
         line-height: 1.3;
     }
 
-    .hero-stat-divider {
-        display: none;
-    }
+    .hero-stat-divider { display: none; }
 
-    /* SECTION */
-    .section-header {
-        margin-bottom: var(--space-xl);
-    }
+    .section-header { margin-bottom: var(--space-xl); }
+    .section-title { font-size: clamp(1.5rem, 6vw, 1.9rem); }
+    .section-subtitle { font-size: 0.95rem; }
 
-    .section-title {
-        font-size: clamp(1.5rem, 6vw, 1.9rem);
-    }
-
-    .section-subtitle {
-        font-size: 0.95rem;
-    }
-
-    /* SERVICES */
-    .services {
-        padding: var(--space-2xl) 0;
-    }
+    .services { padding: var(--space-2xl) 0; }
 
     .services-grid {
         grid-template-columns: 1fr;
         gap: var(--space-md);
     }
 
-    .service-card {
-        min-height: 340px;
-    }
+    .service-card { min-height: 340px; }
 
     .service-card-content {
         padding: var(--space-lg) var(--space-md) var(--space-md);
     }
 
-    .service-title {
-        font-size: 1.15rem;
-    }
-
-    .service-desc {
-        font-size: 0.82rem;
-    }
+    .service-title { font-size: 1.15rem; }
+    .service-desc { font-size: 0.82rem; }
 
     .service-icon-badge {
         width: 42px;
@@ -1384,7 +1222,6 @@
         height: 36px;
     }
 
-    /* WHY US */
     .features-grid {
         grid-template-columns: 1fr;
         gap: var(--space-sm);
@@ -1406,38 +1243,24 @@
         height: 20px;
     }
 
-    .feature-card h3 {
-        font-size: 0.95rem;
-    }
+    .feature-card h3 { font-size: 0.95rem; }
+    .feature-card p { font-size: 0.8rem; }
 
-    .feature-card p {
-        font-size: 0.8rem;
-    }
-
-    /* PORTFOLIO */
-    .portfolio-grid {
-        gap: var(--space-md);
-    }
+    .portfolio-grid { gap: var(--space-md); }
 
     .portfolio-body {
         padding: var(--space-sm) var(--space-md);
     }
 
-    .portfolio-title {
-        font-size: 0.95rem;
-    }
+    .portfolio-title { font-size: 0.95rem; }
 
-    /* TESTIMONIALS */
     .testimonials-grid {
         grid-template-columns: 1fr;
         gap: var(--space-md);
     }
 
-    .testimonial-card {
-        padding: var(--space-lg);
-    }
+    .testimonial-card { padding: var(--space-lg); }
 
-    /* CTA */
     .cta-box {
         grid-template-columns: 1fr;
         text-align: center;
@@ -1450,171 +1273,132 @@
         width: 100%;
     }
 
-    .cta-actions .btn {
-        width: 100%;
+    .cta-actions .btn { width: 100%; }
+
+    /* EDUSTARZ mobile */
+    .edustarz { padding: var(--space-2xl) 0; }
+    .edustarz-title { font-size: 1.55rem; }
+
+    .edustarz-desc,
+    .edustarz-desc-2 { font-size: 0.9rem; }
+
+    .edustarz-note { font-size: 0.78rem; }
+
+    .edustarz-visual {
+        max-width: 100%;
+        gap: var(--space-md);
     }
+
+    .edustarz-photo {
+        border-radius: var(--radius-lg);
+    }
+
+    .edustarz-photo img {
+        object-position: center center;
+    }
+
+    /* Price box mobile kompak */
+    .edustarz-pricebox {
+        left: var(--space-sm);
+        right: var(--space-sm);
+        bottom: var(--space-sm);
+        padding: 0.6rem 0.85rem;
+        border-radius: var(--radius-md);
+    }
+
+    .edustarz-pricebox-label {
+        font-size: 0.6rem;
+        margin-bottom: 0.25rem;
+        gap: 0.4rem;
+    }
+
+    .pricebox-tag {
+        padding: 0.1rem 0.4rem;
+        font-size: 0.55rem;
+    }
+
+    .edustarz-pricebox-row {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 0.5rem;
+        flex-wrap: nowrap;
+    }
+
+    .pricebox-left { gap: 0.15rem; flex-shrink: 0; }
+    .pricebox-currency { font-size: 0.85rem; }
+    .pricebox-value { font-size: 1.65rem; line-height: 1; }
+    .pricebox-ribu { font-size: 1.1rem; margin-left: 1px; }
+
+    .pricebox-right {
+        text-align: right;
+        flex-direction: row;
+        align-items: baseline;
+        gap: 0.4rem;
+        flex-wrap: nowrap;
+    }
+
+    .pricebox-label { font-size: 0.72rem; white-space: nowrap; }
+
+    .pricebox-sublabel {
+        font-size: 0.68rem;
+        white-space: nowrap;
+        opacity: 0.7;
+    }
+
+    .pricebox-sublabel::before {
+        content: '·';
+        margin-right: 0.4rem;
+        opacity: 0.5;
+    }
+
+    .edustarz-cta { flex-direction: column; }
+    .edustarz-cta .btn { width: 100%; }
 }
 
-/* ---------- Mobile Kecil ---------- */
 @media (max-width: 480px) {
     :root {
         --space-3xl: 2.5rem;
         --space-2xl: 1.75rem;
     }
 
-    .hero-stats {
-        gap: var(--space-xs);
-    }
-
-    .hero-stat strong {
-        font-size: 1.5rem;
-    }
-
-    .hero-stat span.stat-label {
-        font-size: 0.65rem;
-    }
-
-    .section-title {
-        font-size: 1.4rem;
-    }
-
-    .cta-content h2 {
-        font-size: 1.3rem;
-    }
-
-    .cta-content p {
-        font-size: 0.9rem;
-    }
-
-    .service-card {
-        min-height: 320px;
-    }
+    .hero-stats { gap: var(--space-xs); }
+    .hero-stat strong { font-size: 1.5rem; }
+    .hero-stat span.stat-label { font-size: 0.65rem; }
+    .section-title { font-size: 1.4rem; }
+    .cta-content h2 { font-size: 1.3rem; }
+    .cta-content p { font-size: 0.9rem; }
+    .service-card { min-height: 320px; }
 }
 
-/* ---------- Tablet Tengah (grid 2 kolom) ---------- */
 @media (min-width: 769px) and (max-width: 1100px) {
-    .services-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .features-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
+    .services-grid { grid-template-columns: repeat(2, 1fr); }
+    .features-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
 
 /* ============================================================
-   EDUSTARZ — RESPONSIVE
+   RESPONSIVE PORTFOLIO — FORCE 1 KOLOM DI MOBILE
    ============================================================ */
-@media (max-width: 1024px) {
-    .edustarz-grid {
-        grid-template-columns: 1fr;
-        gap: var(--space-xl);
+@media (max-width: 768px) {
+    .portfolio-grid {
+        grid-template-columns: 1fr !important;
+        gap: var(--space-md) !important;
     }
 
-    .edustarz-content {
-        padding-top: 0;
-    }
-
-    .edustarz-visual {
-        max-width: 560px;
-        margin: 0 auto;
-        width: 100%;
-        padding: var(--space-md);
-    }
+    .portfolio-item { width: 100% !important; }
 }
 
 @media (max-width: 640px) {
-    .edustarz {
-        padding: var(--space-2xl) 0;
-    }
-
-    .edustarz-title {
-        font-size: 1.5rem;
-    }
-
-    .edustarz-visual {
-        max-width: 100%;
-        padding: 0;
-        gap: var(--space-md);
-    }
-
-    .edustarz-photo {
-        border-radius: var(--radius-lg);
-    }
-
-    .edustarz-photo img {
-        object-position: center center;
-    }
-
-    .edustarz-pricebox {
-        padding: var(--space-md);
-    }
-
-    .edustarz-pricebox-row {
-        gap: var(--space-sm);
-    }
-
-    .pricebox-value {
-        font-size: 2.25rem;
-    }
-
-    .pricebox-ribu {
-        font-size: 1.5rem;
-    }
-
-    .pricebox-right {
-        text-align: left;
-        width: 100%;
-        padding-top: var(--space-sm);
-        border-top: 1px dashed rgba(255, 255, 255, 0.08);
-    }
-
-    .edustarz-cta {
-        flex-direction: column;
-    }
-
-    .edustarz-cta .btn {
-        width: 100%;
-    }
-}
-
-    .edustarz-visual {
-        max-width: 100%;
-        padding: 0;
-    }
-
-    .edustarz-photo {
-        max-width: 100%;
-        border-radius: var(--radius-lg);
-    }
-
-    .edustarz-photo img {
-        object-position: center center;
-    }
-}
-
-
-/* ============================================================
-   RESPONSIVE — PORTFOLIO & EDUSTARZ GRID
-   ============================================================ */
-@media (max-width: 640px) {
-    .portfolio {
-        padding: var(--space-2xl) 0;
-    }
+    .portfolio { padding: var(--space-2xl) 0; }
 
     .portfolio-grid {
         grid-template-columns: 1fr;
         gap: var(--space-md);
     }
 
-    .portfolio-body {
-        padding: var(--space-md);
-    }
-
-    .portfolio-title {
-        font-size: 0.95rem;
-    }
+    .portfolio-body { padding: var(--space-md); }
+    .portfolio-title { font-size: 0.95rem; }
 
     .portfolio-arrow {
         width: 32px;
@@ -1626,7 +1410,6 @@
 /* ============================================================
    HALAMAN: LAYANAN (Web Develop, Graphic Design, Sketchup)
    ============================================================ */
-
 .section {
     padding: var(--space-3xl) 0;
 }
@@ -1639,7 +1422,6 @@
     max-width: 800px;
 }
 
-/* ---------- PAGE HERO ---------- */
 .page-hero {
     padding: var(--space-2xl) 0 var(--space-3xl);
     text-align: center;
@@ -1676,13 +1458,8 @@
     margin-bottom: var(--space-lg);
 }
 
-.breadcrumb a {
-    color: var(--text-secondary);
-}
-
-.breadcrumb a:hover {
-    color: var(--accent-secondary);
-}
+.breadcrumb a { color: var(--text-secondary); }
+.breadcrumb a:hover { color: var(--accent-secondary); }
 
 .page-hero-title {
     font-size: clamp(1.75rem, 4.5vw, 3rem);
@@ -1738,87 +1515,577 @@
     flex-shrink: 0;
 }
 
-/* ---------- WEB TYPES GRID ---------- */
-.web-types-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: var(--space-lg);
+/* ============================================================
+   JENIS WEBSITE — Auto-Scroll Slider dengan Card Kaya
+   ============================================================ */
+
+/* Viewport: area terlihat, dengan fade di tepi */
+.web-types-viewport {
+    overflow: hidden;
+    width: 100%;
+    padding: var(--space-lg) 0;
+    mask-image: linear-gradient(
+        90deg,
+        transparent 0%,
+        black 5%,
+        black 95%,
+        transparent 100%
+    );
+    -webkit-mask-image: linear-gradient(
+        90deg,
+        transparent 0%,
+        black 5%,
+        black 95%,
+        transparent 100%
+    );
 }
 
+/* Track: baris card yang akan digeser */
+.web-types-track {
+    display: flex;
+    gap: var(--space-lg);
+    padding: 0 var(--space-2xl);
+    width: max-content;
+    transition: transform 800ms cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: transform;
+}
+
+/* ---------- CARD ---------- */
 .web-type-card {
+    position: relative;
+    flex-shrink: 0;
+    width: 300px;
+    min-height: 280px;
     padding: var(--space-xl);
-    background: var(--bg-elevated);
+    background:
+        linear-gradient(135deg,
+            color-mix(in srgb, var(--bg-elevated) 95%, var(--accent-primary)) 0%,
+            var(--bg-elevated) 100%);
     border: 1px solid var(--border-color);
     border-radius: var(--radius-lg);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
     transition: all var(--transition-base);
+    isolation: isolate;
+}
+
+/* Nomor besar sebagai watermark */
+.web-type-card::before {
+    content: attr(data-num);
+    position: absolute;
+    top: -10px;
+    right: -5px;
+    font-family: var(--font-display);
+    font-size: 5rem;
+    font-weight: 900;
+    line-height: 1;
+    color: var(--accent-primary);
+    opacity: 0.08;
+    z-index: -1;
+    pointer-events: none;
+    transition: opacity var(--transition-base), transform var(--transition-base);
+}
+
+/* Garis aksen atas (muncul saat hover) */
+.web-type-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #7c3aed 0%, #a3e635 100%);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform var(--transition-base);
 }
 
 .web-type-card:hover {
-    transform: translateY(-4px);
+    transform: translateY(-6px);
     border-color: var(--accent-primary);
-    box-shadow: var(--shadow-lg);
+    box-shadow:
+        0 16px 40px rgba(0, 0, 0, 0.35),
+        0 0 0 1px var(--accent-primary),
+        0 0 40px rgba(124, 58, 237, 0.15);
 }
 
+.web-type-card:hover::before {
+    opacity: 0.18;
+    transform: scale(1.05);
+}
+
+.web-type-card:hover::after {
+    transform: scaleX(1);
+}
+
+/* ---------- ICON ---------- */
 .web-type-icon {
     display: inline-flex;
     align-items: center;
     justify-content: center;
     width: 52px;
     height: 52px;
-    background: color-mix(in srgb, var(--accent-primary) 12%, transparent);
-    border-radius: var(--radius-md);
-    color: var(--accent-primary);
-    margin-bottom: var(--space-md);
+    background: linear-gradient(135deg,
+        rgba(124, 58, 237, 0.15) 0%,
+        rgba(163, 230, 53, 0.15) 100%);
+    border: 1px solid rgba(163, 230, 53, 0.2);
+    border-radius: 14px;
+    color: var(--accent-secondary);
+    margin-bottom: var(--space-sm);
+    flex-shrink: 0;
+    transition: all var(--transition-base);
 }
 
 .web-type-icon svg {
     width: 26px;
     height: 26px;
+    stroke-width: 1.75;
 }
 
+.web-type-card:hover .web-type-icon {
+    background: linear-gradient(135deg, #7c3aed 0%, #a3e635 100%);
+    color: #ffffff;
+    border-color: transparent;
+    transform: rotate(-6deg) scale(1.08);
+    box-shadow: 0 8px 20px rgba(124, 58, 237, 0.35);
+}
+
+/* ---------- TEKS ---------- */
 .web-type-card h3 {
-    font-size: 1.05rem;
-    margin-bottom: var(--space-sm);
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0;
+    line-height: 1.3;
+    letter-spacing: -0.01em;
+    position: relative;
+    z-index: 1;
 }
 
 .web-type-card p {
     color: var(--text-secondary);
-    font-size: 0.9rem;
+    font-size: 0.875rem;
+    line-height: 1.6;
+    margin: 0;
+    position: relative;
+    z-index: 1;
 }
 
-/* ---------- PROCESS ---------- */
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 1024px) {
+    .web-type-card {
+        width: 280px;
+    }
+}
+
+@media (max-width: 768px) {
+    .web-types-track {
+        gap: var(--space-md);
+        padding: 0 var(--space-xl);
+    }
+
+    .web-type-card {
+        width: 260px;
+        min-height: 260px;
+        padding: var(--space-lg);
+    }
+
+    .web-type-card::before {
+        font-size: 4rem;
+    }
+
+    .web-type-icon {
+        width: 46px;
+        height: 46px;
+    }
+
+    .web-type-icon svg {
+        width: 22px;
+        height: 22px;
+    }
+
+    .web-type-card h3 {
+        font-size: 1rem;
+    }
+
+    .web-type-card p {
+        font-size: 0.82rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .web-type-card {
+        width: 240px;
+        min-height: 240px;
+    }
+}
+
+/* ============================================================
+   WEB DEVELOP — WHY WEBSITE
+   ============================================================ */
+.why-website {
+    padding: var(--space-3xl) 0;
+    background: var(--bg-primary);
+    position: relative;
+}
+
+.why-website-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: var(--space-2xl);
+    align-items: center;
+}
+
+.why-website-content {
+    max-width: 620px;
+}
+
+
+/* ============================================================
+   WEB DEVELOP — ARTIST PROMO
+   ============================================================ */
+.artist-promo {
+    padding: var(--space-3xl) 0;
+    background:
+        radial-gradient(circle at 15% 20%, rgba(236, 72, 153, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 85% 80%, rgba(163, 230, 53, 0.08) 0%, transparent 50%),
+        var(--bg-secondary);
+    position: relative;
+    overflow: hidden;
+}
+
+.artist-promo::before,
+.artist-promo::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent 0%, var(--accent-primary) 50%, transparent 100%);
+    opacity: 0.4;
+}
+
+.artist-promo::before { top: 0; }
+.artist-promo::after { bottom: 0; }
+
+.artist-promo-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    gap: var(--space-2xl);
+    align-items: center;
+}
+
+.artist-promo-visual { position: relative; }
+
+.artist-badge {
+    position: absolute;
+    left: var(--space-md);
+    bottom: var(--space-md);
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    padding: 0.6rem 1rem;
+    background: rgba(15, 10, 35, 0.85);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1.5px solid rgba(236, 72, 153, 0.35);
+    border-radius: var(--radius-md);
+    color: #ffffff;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
+}
+
+.artist-badge-emoji { font-size: 1.5rem; line-height: 1; }
+
+.artist-badge strong {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 700;
+}
+
+.artist-badge span:not(.artist-badge-emoji) {
+    display: block;
+    font-size: 0.7rem;
+    color: rgba(255, 255, 255, 0.65);
+    margin-top: 2px;
+}
+
+.artist-price-highlight {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    padding: 0.75rem var(--space-md);
+    background: linear-gradient(135deg, rgba(236, 72, 153, 0.12) 0%, rgba(163, 230, 53, 0.1) 100%);
+    border: 1.5px dashed rgba(163, 230, 53, 0.5);
+    border-radius: var(--radius-md);
+    margin: var(--space-md) 0 var(--space-lg);
+}
+
+.artist-price-main {
+    display: flex;
+    align-items: baseline;
+    gap: 0.2rem;
+    flex-shrink: 0;
+    line-height: 1;
+}
+
+.artist-price-currency {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #bef264;
+}
+
+.artist-price-value {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    font-weight: 900;
+    color: #ffffff;
+    letter-spacing: -0.03em;
+    line-height: 1;
+}
+
+.artist-price-ribu {
+    color: #bef264;
+    font-size: 1.35rem;
+    font-weight: 800;
+    margin-left: 2px;
+}
+
+.artist-price-divider {
+    width: 1px;
+    height: 32px;
+    background: rgba(163, 230, 53, 0.3);
+    flex-shrink: 0;
+}
+
+.artist-price-side {
+    display: flex;
+    flex-direction: column;
+    gap: 0.1rem;
+    min-width: 0;
+}
+
+.artist-price-note {
+    font-size: 0.62rem;
+    color: rgba(255, 255, 255, 0.55);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.artist-price-side-value {
+    font-family: var(--font-display);
+    font-size: 0.95rem;
+    font-weight: 800;
+    color: #bef264;
+    line-height: 1.2;
+}
+
+.artist-price-sub {
+    font-size: 0.68rem;
+    color: rgba(255, 255, 255, 0.55);
+    line-height: 1.2;
+}
+
+.artist-tnc-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    margin-bottom: var(--space-lg);
+    padding: 0.4rem 0.75rem;
+    background: rgba(163, 230, 53, 0.08);
+    border: 1px solid rgba(163, 230, 53, 0.25);
+    border-radius: var(--radius-full);
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--accent-secondary);
+    text-decoration: none;
+    transition: all var(--transition-fast);
+    align-self: flex-start;
+    width: fit-content;
+}
+
+.artist-tnc-link:hover {
+    background: rgba(163, 230, 53, 0.15);
+    border-color: var(--accent-secondary);
+    transform: translateX(3px);
+    color: var(--accent-secondary);
+}
+
+.artist-tnc-link svg { flex-shrink: 0; }
+
+.artist-promo-content .edustarz-cta {
+    margin-top: var(--space-xs);
+}
+
+
+/* ============================================================
+   WEB DEVELOP — PROCESS GRID
+   ============================================================ */
 .process-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    grid-template-columns: repeat(4, 1fr);
     gap: var(--space-lg);
     position: relative;
+    align-items: stretch;
 }
 
 .process-step {
-    padding: var(--space-xl);
+    position: relative;
+    display: grid;
+    grid-template-columns: 48px 1fr;
+    grid-template-rows: auto auto;
+    column-gap: var(--space-md);
+    row-gap: 0.35rem;
+    align-items: start;
+    padding: var(--space-lg);
     background: var(--bg-elevated);
     border: 1px solid var(--border-color);
     border-radius: var(--radius-lg);
-    position: relative;
     transition: all var(--transition-base);
+    z-index: 1;
 }
 
 .process-step:hover {
     border-color: var(--accent-secondary);
     transform: translateY(-4px);
+    background: var(--bg-hover);
 }
 
-.process-step h3 {
-    font-size: 1.05rem;
-    margin-bottom: var(--space-sm);
+.process-number {
+    background-image: none;
+    -webkit-background-clip: border-box;
+    background-clip: border-box;
+    -webkit-text-fill-color: currentColor;
+
+    grid-column: 1;
+    grid-row: 1 / span 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border-radius: var(--radius-md);
+    background: linear-gradient(135deg, rgba(124, 58, 237, 0.2) 0%, rgba(163, 230, 53, 0.2) 100%);
+    border: 1px solid rgba(163, 230, 53, 0.25);
+    font-family: var(--font-display);
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: var(--accent-secondary);
+    line-height: 1;
+    flex-shrink: 0;
+    transition: all var(--transition-base);
 }
 
-.process-step p {
+.process-step:hover .process-number {
+    background: linear-gradient(135deg, #7c3aed 0%, #a3e635 100%);
+    color: #ffffff;
+    border-color: transparent;
+    transform: rotate(-4deg) scale(1.05);
+}
+
+.process-body {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+}
+
+.process-body h3 {
+    font-family: var(--font-display);
+    font-size: 0.95rem;
+    font-weight: 700;
+    line-height: 1.25;
+    margin: 0;
+    color: var(--text-primary);
+}
+
+.process-body p {
     color: var(--text-secondary);
-    font-size: 0.9rem;
+    font-size: 0.82rem;
+    line-height: 1.5;
+    margin: 0;
 }
 
-/* ---------- PRICING ---------- */
+@media (min-width: 769px) {
+    .process-step:not(:last-child)::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        right: calc(-1 * var(--space-lg) + 4px);
+        width: calc(var(--space-lg) - 8px);
+        height: 2px;
+        background-image: linear-gradient(
+            to right,
+            var(--accent-secondary) 0,
+            var(--accent-secondary) 4px,
+            transparent 4px,
+            transparent 8px
+        );
+        background-size: 8px 2px;
+        background-repeat: repeat-x;
+        transform: translateY(-50%);
+        z-index: 0;
+        opacity: 0.6;
+        pointer-events: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .process-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-md);
+    }
+
+    .process-step:not(:last-child)::after {
+        content: '';
+        position: absolute;
+        left: 50%;
+        bottom: calc(-1 * var(--space-md) + 4px);
+        width: 2px;
+        height: calc(var(--space-md) - 8px);
+        background-image: linear-gradient(
+            to bottom,
+            var(--accent-secondary) 0,
+            var(--accent-secondary) 4px,
+            transparent 4px,
+            transparent 8px
+        );
+        background-size: 2px 8px;
+        background-repeat: repeat-y;
+        transform: translateX(-50%);
+        z-index: 0;
+        opacity: 0.6;
+        pointer-events: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .process-step {
+        grid-template-columns: 42px 1fr;
+        padding: var(--space-md);
+        column-gap: var(--space-sm);
+    }
+
+    .process-number {
+        width: 42px;
+        height: 42px;
+        font-size: 1rem;
+    }
+
+    .process-body h3 { font-size: 0.9rem; }
+    .process-body p { font-size: 0.78rem; }
+}
+
+
+/* ============================================================
+   PRICING (base) — untuk pricing card di halaman layanan
+   ============================================================ */
 .pricing-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -1948,63 +2215,383 @@
     text-decoration: underline;
 }
 
-/* ---------- FAQ ---------- */
+
+/* ============================================================
+   PRICING SCHOOL — UPGRADE (harga coret + durasi + renewal)
+   ============================================================ */
+.pricing-price-block {
+    padding-bottom: var(--space-md);
+    margin-bottom: var(--space-md);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.pricing-price-block .pricing-price {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.25rem;
+    margin: 0 0 0.5rem;
+    padding: 0;
+    border: none;
+}
+
+.pricing-meta {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    flex-wrap: wrap;
+}
+
+.price-strike {
+    font-family: var(--font-display);
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    text-decoration: line-through;
+    text-decoration-color: #ef4444;
+    text-decoration-thickness: 1.5px;
+}
+
+.price-discount {
+    display: inline-block;
+    padding: 0.2rem 0.55rem;
+    background: #ef4444;
+    color: #ffffff;
+    border-radius: var(--radius-sm);
+    font-size: 0.65rem;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    line-height: 1;
+}
+
+.pricing-duration {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.4rem 0.75rem;
+    background: rgba(163, 230, 53, 0.08);
+    border: 1px solid rgba(163, 230, 53, 0.2);
+    border-radius: var(--radius-full);
+    font-size: 0.78rem;
+    color: var(--text-secondary);
+    margin-bottom: var(--space-md);
+    width: fit-content;
+}
+
+.pricing-duration svg {
+    color: var(--accent-secondary);
+    flex-shrink: 0;
+}
+
+.pricing-duration strong {
+    color: var(--accent-secondary);
+    font-weight: 700;
+}
+
+.pricing-featured .pricing-duration {
+    background: rgba(163, 230, 53, 0.12);
+    border-color: rgba(163, 230, 53, 0.35);
+}
+
+.pricing-card .btn-block {
+    margin-top: auto;
+}
+
+
+/* ============================================================
+   PRICING SECTION — TABS STICKY (VERSI FINAL)
+   ============================================================ */
+.pricing-section {
+    padding-top: var(--space-2xl);
+}
+
+.pricing-tabs-sticky {
+    position: sticky;
+    top: 88px;                          
+    z-index: 40;
+    padding: var(--space-md) 0;
+    margin-bottom: var(--space-xl);
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    pointer-events: none;
+}
+
+.pricing-tabs-sticky .container {
+    pointer-events: auto;
+}
+
+.pricing-tabs {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.25rem;
+    padding: 0.35rem;
+    background: var(--bg-elevated);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-full);
+    width: fit-content;                  
+    max-width: 100%;
+    margin: 0 auto;                      
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+    overflow-x: auto;
+    overflow-y: hidden;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.pricing-tabs::-webkit-scrollbar {
+    display: none;
+}
+
+.pricing-tab {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.6rem 1.35rem;
+    background: transparent;
+    border: none;
+    border-radius: var(--radius-full);
+    color: var(--text-secondary);
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    white-space: nowrap;
+    line-height: 1;
+    transition: all var(--transition-fast);
+    flex-shrink: 0;
+}
+
+.pricing-tab:hover {
+    color: var(--text-primary);
+    background: var(--bg-hover);
+}
+
+.pricing-tab.active {
+    background: var(--accent-primary);
+    color: #ffffff;
+    box-shadow: 0 4px 12px rgba(124, 58, 237, 0.35);
+}
+
+.pricing-panel {
+    display: none;
+}
+
+.pricing-panel.active {
+    display: block;
+    animation: fadeInPanel 0.35s ease;
+}
+
+@keyframes fadeInPanel {
+    from { opacity: 0; transform: translateY(8px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 768px) {
+    .pricing-tabs-sticky {
+        top: 80px;                      
+        padding: var(--space-sm) 0;
+        margin-bottom: var(--space-lg);
+    }
+}
+
+@media (max-width: 640px) {
+    .pricing-section {
+        padding-top: var(--space-xl);
+    }
+
+    .pricing-tabs-sticky .container {
+        padding: 0 var(--space-md);
+        max-width: 100%;
+    }
+
+    .pricing-tabs {
+        width: fit-content;              
+        max-width: 100%;
+        margin: 0 auto;                  
+        justify-content: center;
+        padding: 0.3rem;
+        gap: 0.15rem;
+    }
+
+    .pricing-tab {
+        padding: 0.5rem 0.85rem;
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .pricing-tabs-sticky {
+        top: 76px;                      
+    }
+
+    .pricing-tab {
+        padding: 0.45rem 0.7rem;
+        font-size: 0.78rem;
+    }
+}
+
+
+/* ============================================================
+   PRICING TOOLTIP (hover fitur)
+   ============================================================ */
+.pricing-features li {
+    position: relative;
+}
+
+.pricing-features li > span:first-child {
+    position: relative;
+    z-index: 1;
+}
+
+.feature-tooltip {
+    position: absolute;
+    left: 0;
+    bottom: calc(100% + 6px);
+    min-width: 220px;
+    max-width: 280px;
+    padding: 0.6rem 0.85rem;
+    background: var(--bg-primary);
+    border: 1px solid var(--accent-secondary);
+    border-radius: var(--radius-md);
+    font-size: 0.78rem;
+    line-height: 1.5;
+    color: var(--text-secondary);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
+    z-index: 20;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(4px);
+    transition: opacity var(--transition-fast), transform var(--transition-fast), visibility var(--transition-fast);
+    pointer-events: none;
+}
+
+.feature-tooltip::after {
+    content: '';
+    position: absolute;
+    bottom: -6px;
+    left: 16px;
+    width: 10px;
+    height: 10px;
+    background: var(--bg-primary);
+    border-right: 1px solid var(--accent-secondary);
+    border-bottom: 1px solid var(--accent-secondary);
+    transform: rotate(45deg);
+}
+
+.pricing-features li:hover .feature-tooltip {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+@media (max-width: 480px) {
+    .feature-tooltip {
+        min-width: 180px;
+        max-width: 240px;
+        font-size: 0.72rem;
+    }
+}
+
+
+/* ============================================================
+   FAQ — Minimal Clean Style
+   ============================================================ */
 .faq-list {
     display: flex;
     flex-direction: column;
-    gap: var(--space-md);
+    border-top: 1px solid var(--border-color);
 }
 
 .faq-item {
-    background: var(--bg-elevated);
-    border: 1px solid var(--border-color);
-    border-radius: var(--radius-md);
-    padding: var(--space-lg);
-    transition: all var(--transition-fast);
-}
-
-.faq-item[open] {
-    border-color: var(--accent-primary);
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid var(--border-color);
+    border-radius: 0;
+    padding: 0;
+    transition: none;
 }
 
 .faq-item summary {
     cursor: pointer;
-    font-weight: 600;
-    font-size: 1rem;
     list-style: none;
     display: flex;
     justify-content: space-between;
     align-items: center;
     gap: var(--space-md);
+    padding: var(--space-lg) 0;
+    font-family: var(--font-sans);
+    font-size: 1.05rem;
+    font-weight: 500;
+    line-height: 1.4;
     color: var(--text-primary);
+    transition: color var(--transition-fast);
 }
 
 .faq-item summary::-webkit-details-marker { display: none; }
+
+.faq-item summary:hover {
+    color: var(--accent-secondary);
+}
 
 .faq-item summary::after {
     content: '+';
     font-size: 1.5rem;
     font-weight: 300;
-    color: var(--accent-secondary);
-    transition: transform var(--transition-fast);
     line-height: 1;
+    color: var(--text-primary);
     flex-shrink: 0;
+    transition: transform var(--transition-fast), color var(--transition-fast);
+    width: 1.5rem;
+    text-align: center;
+}
+
+.faq-item summary:hover::after {
+    color: var(--accent-secondary);
 }
 
 .faq-item[open] summary::after {
-    transform: rotate(45deg);
+    content: '−';                 
+    color: var(--accent-secondary);
+    transform: none;              
+}
+
+.faq-item[open] summary {
+    color: var(--accent-secondary);
 }
 
 .faq-item p {
-    margin-top: var(--space-md);
+    margin: 0;
+    padding: 0 0 var(--space-lg) 0;
     color: var(--text-secondary);
     font-size: 0.95rem;
     line-height: 1.7;
+    max-width: 75ch;
+}
+
+@media (max-width: 640px) {
+    .faq-item summary {
+        padding: var(--space-md) 0;
+        font-size: 0.95rem;
+        gap: var(--space-sm);
+    }
+
+    .faq-item summary::after {
+        font-size: 1.35rem;
+        width: 1.35rem;
+    }
+
+    .faq-item p {
+        padding-bottom: var(--space-md);
+        font-size: 0.88rem;
+        line-height: 1.65;
+    }
 }
 
 
 /* ============================================================
-   GALERI (Halaman Graphic Design)
+   GALERI (Graphic Design)
    ============================================================ */
 .gallery-grid {
     display: grid;
@@ -2063,7 +2650,7 @@
 
 
 /* ============================================================
-   PRICELIST (Halaman Graphic Design)
+   PRICELIST (Graphic Design)
    ============================================================ */
 .pricelist-grid {
     display: grid;
@@ -2105,7 +2692,7 @@
 
 .price-item-value {
     font-family: var(--font-display);
-    font-size: 1.1rem;
+    font-size: 1.25rem;
     font-weight: 800;
     color: var(--accent-secondary);
     white-space: nowrap;
@@ -2114,7 +2701,7 @@
 
 
 /* ============================================================
-   PORTOFOLIO 3D (Halaman Sketchup)
+   PORTOFOLIO 3D (Sketchup)
    ============================================================ */
 .portfolio-3d-grid {
     display: grid;
@@ -2385,843 +2972,6 @@
 
 
 /* ============================================================
-   RESPONSIVE — HALAMAN LAYANAN & KONTAK
-   ============================================================ */
-@media (max-width: 900px) {
-    .contact-grid {
-        grid-template-columns: 1fr;
-        gap: var(--space-xl);
-    }
-
-    .contact-form-wrap {
-        position: static;
-    }
-}
-
-@media (max-width: 768px) {
-    .page-hero {
-        padding: var(--space-xl) 0 var(--space-2xl);
-    }
-
-    .page-hero-cta {
-        flex-direction: column;
-        width: 100%;
-    }
-
-    .page-hero-cta .btn { width: 100%; }
-
-    .page-hero-features {
-        grid-template-columns: 1fr;
-        padding: var(--space-md);
-    }
-
-    .ph-feature { font-size: 0.82rem; }
-
-    .pricing-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .process-grid {
-        grid-template-columns: 1fr;
-    }
-}
-
-@media (max-width: 480px) {
-    .pricelist-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .price-item {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: var(--space-sm);
-    }
-
-    .gallery-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .gallery-emoji { font-size: 2rem; }
-    .gallery-label { font-size: 0.75rem; }
-
-    .portfolio-3d-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .portfolio-emoji { font-size: 3rem; }
-
-    .contact-card {
-        padding: var(--space-md);
-        gap: var(--space-sm);
-    }
-
-    .contact-card-icon {
-        width: 40px;
-        height: 40px;
-    }
-
-    .contact-card-icon svg {
-        width: 18px;
-        height: 18px;
-    }
-
-    .contact-form-card {
-        padding: var(--space-lg);
-    }
-}
-
-
-/* ============================================================
-   PENCEGAHAN OVERFLOW HORIZONTAL
-   ============================================================ */
-html {
-    overflow-x: clip;
-}
-
-body {
-    overflow-x: clip;
-    max-width: 100%;
-}
-
-
-/* ============================================================
-   SENTUHAN HALUS DI LAYAR SENTUH
-   ============================================================ */
-@media (hover: none) {
-    .service-card:hover,
-    .portfolio-item:hover,
-    .portfolio-card:hover,
-    .feature-card:hover,
-    .testimonial-card:hover {
-        transform: none;
-    }
-}
-
-
-/* ============================================================
-   SERVICE CARD — FORCE KONTRAS DI SEMUA TEMA
-   ============================================================ */
-.service-card .service-title {
-    color: #ffffff !important;
-}
-
-.service-card .service-desc {
-    color: rgba(255, 255, 255, 0.72) !important;
-}
-
-.service-card .price-label {
-    color: rgba(255, 255, 255, 0.6) !important;
-}
-
-.service-card .price-value {
-    color: #bef264 !important;
-}
-
-.service-card .service-icon-badge {
-    color: #bef264 !important;
-}
-
-.service-card .service-price-row {
-    border-top-color: rgba(255, 255, 255, 0.15) !important;
-}
-
-/* ============================================================
-   FIX: PORTFOLIO MOBILE — 1 KOLOM
-   Force override untuk memastikan portfolio menumpuk vertikal
-   di layar kecil.
-   ============================================================ */
-@media (max-width: 768px) {
-    .portfolio-grid {
-        grid-template-columns: 1fr !important;
-        gap: var(--space-md) !important;
-    }
-
-    .portfolio-item {
-        width: 100% !important;
-    }
-}
-
-@media (max-width: 480px) {
-    .portfolio-grid {
-        grid-template-columns: 1fr !important;
-    }
-
-    .portfolio-body {
-        padding: var(--space-sm) var(--space-md) !important;
-    }
-
-    .portfolio-title {
-        font-size: 0.95rem !important;
-    }
-}
-
-/* ============================================================
-   FIX: UKURAN HARGA DI CARD LAYANAN & PRICING
-   Fix bug harga kecil karena konflik rule .price-value
-   ============================================================ */
-
-/* Harga di service card (beranda) — BESAR & MENCOLOK */
-.service-card .price-value {
-    font-size: 1.75rem !important;
-    font-weight: 800 !important;
-    line-height: 1 !important;
-    letter-spacing: -0.02em !important;
-    color: #bef264 !important;
-}
-
-/* Harga di pricing card (halaman layanan: web-develop, dll) */
-.pricing-card .price-value {
-    font-size: 2rem !important;
-    font-weight: 800 !important;
-    line-height: 1 !important;
-    color: var(--text-primary) !important;
-}
-
-/* Harga di pricelist Graphic Design (pakai .price-item-value) */
-.price-item-value {
-    font-size: 1.25rem !important;
-    font-weight: 800 !important;
-}
-
-/* ---------- RESPONSIVE ---------- */
-@media (max-width: 768px) {
-    /* Service card mobile: sedikit lebih kecil tapi tetap besar */
-    .service-card .price-value {
-        font-size: 1.4rem !important;
-    }
-
-    .pricing-card .price-value {
-        font-size: 1.75rem !important;
-    }
-
-    .price-item-value {
-        font-size: 1.15rem !important;
-    }
-}
-
-@media (max-width: 480px) {
-    .service-card .price-value {
-        font-size: 1.25rem !important;
-    }
-}
-
-/* ============================================================
-   WEB DEVELOP — WHY WEBSITE SECTION
-   ============================================================ */
-.why-website {
-    padding: var(--space-3xl) 0;
-    background: var(--bg-primary);
-    position: relative;
-}
-
-.why-website-grid {
-    display: grid;
-    grid-template-columns: 1.1fr 1fr;
-    gap: var(--space-2xl);
-    align-items: center;
-}
-
-.why-website-content {
-    max-width: 620px;
-}
-
-/* ============================================================
-   WEB DEVELOP — ARTIST PROMO SECTION
-   ============================================================ */
-.artist-promo {
-    padding: var(--space-3xl) 0;
-    background:
-        radial-gradient(circle at 15% 20%, rgba(236, 72, 153, 0.08) 0%, transparent 50%),
-        radial-gradient(circle at 85% 80%, rgba(163, 230, 53, 0.08) 0%, transparent 50%),
-        var(--bg-secondary);
-    position: relative;
-    overflow: hidden;
-}
-
-.artist-promo::before,
-.artist-promo::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    right: 0;
-    height: 1px;
-    background: linear-gradient(90deg, transparent 0%, var(--accent-primary) 50%, transparent 100%);
-    opacity: 0.4;
-}
-
-.artist-promo::before { top: 0; }
-.artist-promo::after { bottom: 0; }
-
-.artist-promo-grid {
-    display: grid;
-    grid-template-columns: 1fr 1.1fr;
-    gap: var(--space-2xl);
-    align-items: center;
-}
-
-.artist-promo-visual {
-    position: relative;
-}
-
-.artist-badge {
-    position: absolute;
-    left: var(--space-md);
-    bottom: var(--space-md);
-    z-index: 2;
-    display: flex;
-    align-items: center;
-    gap: var(--space-sm);
-    padding: 0.6rem 1rem;
-    background: rgba(15, 10, 35, 0.85);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border: 1.5px solid rgba(236, 72, 153, 0.35);
-    border-radius: var(--radius-md);
-    color: #ffffff;
-    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
-}
-
-.artist-badge-emoji {
-    font-size: 1.5rem;
-    line-height: 1;
-}
-
-.artist-badge strong {
-    display: block;
-    font-size: 0.85rem;
-    font-weight: 700;
-}
-
-.artist-badge span:not(.artist-badge-emoji) {
-    display: block;
-    font-size: 0.7rem;
-    color: rgba(255, 255, 255, 0.65);
-    margin-top: 2px;
-}
-
-/* ---------- PRICE HIGHLIGHT (compact 1 baris) ---------- */
-.artist-price-highlight {
-    display: flex;
-    align-items: center;
-    gap: var(--space-md);
-    padding: 0.75rem var(--space-md);
-    background: linear-gradient(135deg, rgba(236, 72, 153, 0.12) 0%, rgba(163, 230, 53, 0.1) 100%);
-    border: 1.5px dashed rgba(163, 230, 53, 0.5);
-    border-radius: var(--radius-md);
-    margin: var(--space-md) 0 var(--space-lg);
-}
-
-.artist-price-main {
-    display: flex;
-    align-items: baseline;
-    gap: 0.2rem;
-    flex-shrink: 0;
-    line-height: 1;
-}
-
-.artist-price-currency {
-    font-size: 0.95rem;
-    font-weight: 700;
-    color: #bef264;
-}
-
-.artist-price-value {
-    font-family: var(--font-display);
-    font-size: 2rem;
-    font-weight: 900;
-    color: #ffffff;
-    letter-spacing: -0.03em;
-    line-height: 1;
-}
-
-.artist-price-ribu {
-    color: #bef264;
-    font-size: 1.35rem;
-    font-weight: 800;
-    margin-left: 2px;
-}
-
-.artist-price-divider {
-    width: 1px;
-    height: 32px;
-    background: rgba(163, 230, 53, 0.3);
-    flex-shrink: 0;
-}
-
-.artist-price-side {
-    display: flex;
-    flex-direction: column;
-    gap: 0.1rem;
-    min-width: 0;
-}
-
-.artist-price-note {
-    font-size: 0.62rem;
-    color: rgba(255, 255, 255, 0.55);
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    font-weight: 700;
-    line-height: 1;
-}
-
-.artist-price-side-value {
-    font-family: var(--font-display);
-    font-size: 0.95rem;
-    font-weight: 800;
-    color: #bef264;
-    line-height: 1.2;
-}
-
-.artist-price-sub {
-    font-size: 0.68rem;
-    color: rgba(255, 255, 255, 0.55);
-    line-height: 1.2;
-}
-
-/* ---------- LINK S&K (dengan ikon info) ---------- */
-.artist-tnc-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.4rem;
-    margin-bottom: var(--space-lg);
-    padding: 0.4rem 0.75rem;
-    background: rgba(163, 230, 53, 0.08);
-    border: 1px solid rgba(163, 230, 53, 0.25);
-    border-radius: var(--radius-full);
-    font-size: 0.78rem;
-    font-weight: 600;
-    color: var(--accent-secondary);
-    text-decoration: none;
-    transition: all var(--transition-fast);
-    align-self: flex-start;
-    width: fit-content;
-}
-
-.artist-tnc-link:hover {
-    background: rgba(163, 230, 53, 0.15);
-    border-color: var(--accent-secondary);
-    transform: translateX(3px);
-    color: var(--accent-secondary);
-}
-
-.artist-tnc-link svg {
-    flex-shrink: 0;
-}
-
-/* ---------- Fix tombol CTA tidak nempel ---------- */
-.artist-promo-content .edustarz-cta {
-    margin-top: var(--space-xs);
-}
-
-/* ---------- Responsive ---------- */
-@media (max-width: 1024px) {
-    .artist-promo-grid {
-        grid-template-columns: 1fr;
-        gap: var(--space-xl);
-    }
-
-    .artist-promo-visual {
-        order: 2;
-        max-width: 560px;
-        margin: 0 auto;
-        width: 100%;
-    }
-
-    .artist-promo-content {
-        order: 1;
-    }
-}
-
-@media (max-width: 640px) {
-    .artist-promo {
-        padding: var(--space-2xl) 0;
-    }
-
-    .artist-price-highlight {
-        padding: 0.65rem var(--space-sm);
-        gap: var(--space-sm);
-    }
-
-    .artist-price-value {
-        font-size: 1.65rem;
-    }
-
-    .artist-price-ribu {
-        font-size: 1.1rem;
-    }
-
-    .artist-price-divider {
-        height: 26px;
-    }
-
-    .artist-price-side-value {
-        font-size: 0.85rem;
-    }
-
-    .artist-price-sub {
-        font-size: 0.65rem;
-    }
-
-    .artist-tnc-link {
-        font-size: 0.72rem;
-    }
-}
-
-/* ============================================================
-   WEB DEVELOP — PROCESS GRID (2 kolom + dashed connector)
-   ============================================================ */
-.process-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: var(--space-lg);
-    position: relative;
-    align-items: stretch;
-}
-
-.process-step {
-    position: relative;
-    display: grid;
-    grid-template-columns: 48px 1fr;
-    grid-template-rows: auto auto;
-    column-gap: var(--space-md);
-    row-gap: 0.35rem;
-    align-items: start;
-    padding: var(--space-lg);
-    background: var(--bg-elevated);
-    border: 1px solid var(--border-color);
-    border-radius: var(--radius-lg);
-    transition: all var(--transition-base);
-    z-index: 1;
-}
-
-.process-step:hover {
-    border-color: var(--accent-secondary);
-    transform: translateY(-4px);
-    background: var(--bg-hover);
-}
-
-/* ---------- ANGKA (grid item, bukan text gradient) ---------- */
-.process-number {
-    /* Reset properti konflik dari CSS lama */
-    background-image: none;
-    -webkit-background-clip: border-box;
-    background-clip: border-box;
-    -webkit-text-fill-color: currentColor;
-    
-    /* Gaya baru: kotak rounded dengan gradient background */
-    grid-column: 1;
-    grid-row: 1 / span 2;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 48px;
-    height: 48px;
-    border-radius: var(--radius-md);
-    background: linear-gradient(135deg, rgba(124, 58, 237, 0.2) 0%, rgba(163, 230, 53, 0.2) 100%);
-    border: 1px solid rgba(163, 230, 53, 0.25);
-    font-family: var(--font-display);
-    font-size: 1.15rem;
-    font-weight: 800;
-    color: var(--accent-secondary);
-    line-height: 1;
-    flex-shrink: 0;
-    transition: all var(--transition-base);
-}
-
-.process-step:hover .process-number {
-    background: linear-gradient(135deg, #7c3aed 0%, #a3e635 100%);
-    color: #ffffff;
-    border-color: transparent;
-    transform: rotate(-4deg) scale(1.05);
-}
-
-.process-body {
-    grid-column: 2;
-    grid-row: 1 / span 2;
-    display: flex;
-    flex-direction: column;
-    gap: 0.35rem;
-}
-
-.process-body h3 {
-    font-family: var(--font-display);
-    font-size: 0.95rem;
-    font-weight: 700;
-    line-height: 1.25;
-    margin: 0;
-    color: var(--text-primary);
-}
-
-.process-body p {
-    color: var(--text-secondary);
-    font-size: 0.82rem;
-    line-height: 1.5;
-    margin: 0;
-}
-
-/* ---------- GARIS DASHED PENGHUBUNG ---------- */
-
-/* Desktop: horizontal, hanya di gap antar card */
-@media (min-width: 769px) {
-    .process-step:not(:last-child)::after {
-        content: '';
-        position: absolute;
-        top: 50%;
-        right: calc(-1 * var(--space-lg) + 4px);  /* mulai 4px dari tepi kanan card */
-        width: calc(var(--space-lg) - 8px);        /* 20px, hanya di tengah gap */
-        height: 2px;
-        background-image: linear-gradient(
-            to right,
-            var(--accent-secondary) 0,
-            var(--accent-secondary) 4px,
-            transparent 4px,
-            transparent 8px
-        );
-        background-size: 8px 2px;
-        background-repeat: repeat-x;
-        transform: translateY(-50%);
-        z-index: 0;
-        opacity: 0.6;
-        pointer-events: none;
-    }
-}
-
-/* Mobile: vertikal, hanya di gap atas-bawah */
-@media (max-width: 768px) {
-    .process-grid {
-        grid-template-columns: 1fr;
-        gap: var(--space-md);
-    }
-
-    .process-step:not(:last-child)::after {
-        content: '';
-        position: absolute;
-        left: 50%;
-        bottom: calc(-1 * var(--space-md) + 4px);  /* mulai 4px dari tepi bawah card */
-        width: 2px;
-        height: calc(var(--space-md) - 8px);        /* 8px, hanya di tengah gap */
-        background-image: linear-gradient(
-            to bottom,
-            var(--accent-secondary) 0,
-            var(--accent-secondary) 4px,
-            transparent 4px,
-            transparent 8px
-        );
-        background-size: 2px 8px;
-        background-repeat: repeat-y;
-        transform: translateX(-50%);
-        z-index: 0;
-        opacity: 0.6;
-        pointer-events: none;
-    }
-}
-
-/* ---------- Responsive mobile kecil ---------- */
-@media (max-width: 480px) {
-    .process-step {
-        grid-template-columns: 42px 1fr;
-        padding: var(--space-md);
-        column-gap: var(--space-sm);
-    }
-
-    .process-number {
-        width: 42px;
-        height: 42px;
-        font-size: 1rem;
-    }
-
-    .process-body h3 {
-        font-size: 0.9rem;
-    }
-
-    .process-body p {
-        font-size: 0.78rem;
-    }
-}
-
-/* ============================================================
-   WEB DEVELOP — PRICING SCHOOL (4 paket + tooltip)
-   ============================================================ */
-.pricing-grid.pricing-school {
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: var(--space-md);
-    align-items: stretch;
-}
-
-.pricing-strike {
-    display: flex;
-    align-items: center;
-    gap: var(--space-sm);
-    font-size: 0.75rem;
-    margin: -0.5rem 0 var(--space-md);
-    flex-wrap: wrap;
-}
-
-.strike-label {
-    color: var(--text-muted);
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    font-weight: 600;
-}
-
-.strike-value {
-    color: var(--text-muted);
-    text-decoration: line-through;
-    text-decoration-color: #ef4444;
-    text-decoration-thickness: 2px;
-}
-
-.strike-tag {
-    padding: 0.15rem 0.5rem;
-    background: #ef4444;
-    color: white;
-    border-radius: var(--radius-sm);
-    font-size: 0.65rem;
-    font-weight: 800;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-}
-
-/* ---------- TOOLTIP pada pricing features ---------- */
-.pricing-features li {
-    position: relative;
-}
-
-.pricing-features li > span:first-child {
-    position: relative;
-    z-index: 1;
-}
-
-.feature-tooltip {
-    position: absolute;
-    left: 0;
-    bottom: calc(100% + 6px);
-    min-width: 220px;
-    max-width: 280px;
-    padding: 0.6rem 0.85rem;
-    background: var(--bg-primary);
-    border: 1px solid var(--accent-secondary);
-    border-radius: var(--radius-md);
-    font-size: 0.78rem;
-    line-height: 1.5;
-    color: var(--text-secondary);
-    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
-    z-index: 20;
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(4px);
-    transition: opacity var(--transition-fast), transform var(--transition-fast), visibility var(--transition-fast);
-    pointer-events: none;
-}
-
-.feature-tooltip::after {
-    content: '';
-    position: absolute;
-    bottom: -6px;
-    left: 16px;
-    width: 10px;
-    height: 10px;
-    background: var(--bg-primary);
-    border-right: 1px solid var(--accent-secondary);
-    border-bottom: 1px solid var(--accent-secondary);
-    transform: rotate(45deg);
-}
-
-.pricing-features li:hover .feature-tooltip {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-}
-
-/* ============================================================
-   RESPONSIVE — WEB DEVELOP
-   ============================================================ */
-@media (max-width: 1024px) {
-    .why-website-grid,
-    .artist-promo-grid {
-        grid-template-columns: 1fr;
-        gap: var(--space-xl);
-    }
-
-    .why-website-content {
-        max-width: 100%;
-    }
-
-    .why-website .edustarz-visual,
-    .artist-promo-visual {
-        max-width: 560px;
-        margin: 0 auto;
-        width: 100%;
-    }
-
-    .artist-promo-visual {
-        order: 2;
-    }
-
-    .artist-promo-content {
-        order: 1;
-    }
-}
-
-@media (max-width: 768px) {
-    .why-website,
-    .artist-promo {
-        padding: var(--space-2xl) 0;
-    }
-
-    .artist-price-highlight {
-        padding: var(--space-sm) var(--space-md);
-    }
-
-    .artist-price-value {
-        font-size: 2rem;
-    }
-
-    .artist-price-ribu {
-        font-size: 1.4rem;
-    }
-
-    .artist-price-detail {
-        text-align: left;
-        width: 100%;
-        padding-top: var(--space-sm);
-        border-top: 1px dashed rgba(255, 255, 255, 0.1);
-    }
-}
-
-@media (max-width: 480px) {
-    .process-step {
-        grid-template-columns: 42px 1fr;
-        padding: var(--space-md);
-        column-gap: var(--space-sm);
-    }
-
-    .process-number {
-        width: 42px;
-        height: 42px;
-        font-size: 1rem;
-    }
-
-    .process-body h3 {
-        font-size: 0.9rem;
-    }
-
-    .process-body p {
-        font-size: 0.78rem;
-    }
-
-    .artist-price-value {
-        font-size: 1.75rem;
-    }
-
-    .feature-tooltip {
-        min-width: 180px;
-        max-width: 240px;
-        font-size: 0.72rem;
-    }
-}
-
-/* ============================================================
    HALAMAN PROMO ARTIST — S&K
    ============================================================ */
 .tnc-intro {
@@ -3253,7 +3003,6 @@ body {
     font-weight: 700;
 }
 
-/* ---------- TNC LIST ---------- */
 .tnc-list {
     display: flex;
     flex-direction: column;
@@ -3323,9 +3072,7 @@ body {
     margin-bottom: var(--space-sm);
 }
 
-.tnc-body p:last-child {
-    margin-bottom: 0;
-}
+.tnc-body p:last-child { margin-bottom: 0; }
 
 .tnc-body strong {
     color: var(--text-primary);
@@ -3384,7 +3131,6 @@ body {
     border-radius: 50%;
 }
 
-/* ---------- CTA BOX ---------- */
 .tnc-cta-box {
     text-align: center;
     padding: var(--space-2xl);
@@ -3438,17 +3184,187 @@ body {
     border-color: white;
 }
 
-/* ---------- RESPONSIVE ---------- */
+
+/* ============================================================
+   RESPONSIVE — HALAMAN LAYANAN, KONTAK, TNC
+   ============================================================ */
+@media (max-width: 1024px) {
+    .why-website-grid,
+    .artist-promo-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-xl);
+    }
+
+    .why-website-content {
+        max-width: 100%;
+    }
+
+    .why-website .edustarz-visual,
+    .artist-promo-visual {
+        max-width: 560px;
+        margin: 0 auto;
+        width: 100%;
+    }
+
+    .artist-promo-visual { order: 2; }
+    .artist-promo-content { order: 1; }
+
+    .edustarz-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-xl);
+    }
+
+    .edustarz-content { padding-top: 0; }
+
+    .edustarz-visual {
+        max-width: 560px;
+        margin: 0 auto;
+        width: 100%;
+        padding: var(--space-md);
+    }
+}
+
+@media (max-width: 900px) {
+    .contact-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-xl);
+    }
+
+    .contact-form-wrap { position: static; }
+}
+
+@media (max-width: 768px) {
+    .page-hero {
+        padding: var(--space-xl) 0 var(--space-2xl);
+    }
+
+    .page-hero-cta {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .page-hero-cta .btn { width: 100%; }
+
+    .page-hero-features {
+        grid-template-columns: 1fr;
+        padding: var(--space-md);
+    }
+
+    .ph-feature { font-size: 0.82rem; }
+
+    .pricing-grid { grid-template-columns: 1fr; }
+    .process-grid { grid-template-columns: 1fr; }
+
+    .why-website,
+    .artist-promo { padding: var(--space-2xl) 0; }
+
+    .artist-price-highlight {
+        padding: var(--space-sm) var(--space-md);
+    }
+
+    .artist-price-value { font-size: 2rem; }
+    .artist-price-ribu { font-size: 1.4rem; }
+
+    .artist-price-detail {
+        text-align: left;
+        width: 100%;
+        padding-top: var(--space-sm);
+        border-top: 1px dashed rgba(255, 255, 255, 0.1);
+    }
+}
+
 @media (max-width: 640px) {
+    .edustarz {
+        padding: var(--space-2xl) 0;
+    }
+
+    .edustarz-title { font-size: 1.5rem; }
+
+    .edustarz-visual {
+        max-width: 100%;
+        padding: 0;
+        gap: var(--space-md);
+    }
+
+    .edustarz-photo { border-radius: var(--radius-lg); }
+    .edustarz-photo img { object-position: center center; }
+
+    .edustarz-pricebox {
+        left: var(--space-sm);
+        right: var(--space-sm);
+        bottom: var(--space-sm);
+        padding: 0.6rem 0.85rem;
+        border-radius: var(--radius-md);
+    }
+
+    .edustarz-pricebox-label {
+        font-size: 0.6rem;
+        margin-bottom: 0.25rem;
+        gap: 0.4rem;
+    }
+
+    .pricebox-tag {
+        padding: 0.1rem 0.4rem;
+        font-size: 0.55rem;
+    }
+
+    .edustarz-pricebox-row {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 0.5rem;
+        flex-wrap: nowrap;
+    }
+
+    .pricebox-left { gap: 0.15rem; flex-shrink: 0; }
+    .pricebox-currency { font-size: 0.85rem; }
+    .pricebox-value { font-size: 1.65rem; line-height: 1; }
+    .pricebox-ribu { font-size: 1.1rem; margin-left: 1px; }
+
+    .pricebox-right {
+        text-align: right;
+        flex-direction: row;
+        align-items: baseline;
+        gap: 0.4rem;
+        flex-wrap: nowrap;
+    }
+
+    .pricebox-label { font-size: 0.72rem; white-space: nowrap; }
+
+    .pricebox-sublabel {
+        font-size: 0.68rem;
+        white-space: nowrap;
+        opacity: 0.7;
+    }
+
+    .pricebox-sublabel::before {
+        content: '·';
+        margin-right: 0.4rem;
+        opacity: 0.5;
+    }
+
+    .edustarz-cta { flex-direction: column; }
+    .edustarz-cta .btn { width: 100%; }
+
+    .pricing-strike { font-size: 0.82rem; }
+
+    .price-discount {
+        font-size: 0.6rem;
+        padding: 0.15rem 0.45rem;
+    }
+
+    .pricing-duration {
+        font-size: 0.72rem;
+        padding: 0.35rem 0.6rem;
+    }
+
     .tnc-intro {
         flex-direction: column;
         padding: var(--space-lg);
         gap: var(--space-md);
     }
 
-    .tnc-intro-icon {
-        font-size: 2rem;
-    }
+    .tnc-intro-icon { font-size: 2rem; }
 
     .tnc-item {
         grid-template-columns: 44px 1fr;
@@ -3462,24 +3378,1127 @@ body {
         font-size: 1rem;
     }
 
-    .tnc-body h2 {
-        font-size: 1.05rem;
-    }
+    .tnc-body h2 { font-size: 1.05rem; }
 
     .tnc-body p,
-    .tnc-body ul li {
-        font-size: 0.88rem;
-    }
+    .tnc-body ul li { font-size: 0.88rem; }
 
-    .tnc-cta-box {
-        padding: var(--space-xl) var(--space-lg);
-    }
+    .tnc-cta-box { padding: var(--space-xl) var(--space-lg); }
 
     .tnc-cta-actions {
         flex-direction: column;
     }
 
-    .tnc-cta-actions .btn {
-        width: 100%;
+    .tnc-cta-actions .btn { width: 100%; }
+}
+
+@media (max-width: 480px) {
+    .pricelist-grid { grid-template-columns: 1fr; }
+
+    .price-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--space-sm);
     }
+
+    .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+    .gallery-emoji { font-size: 2rem; }
+    .gallery-label { font-size: 0.75rem; }
+
+    .portfolio-3d-grid { grid-template-columns: 1fr; }
+    .portfolio-emoji { font-size: 3rem; }
+
+    .contact-card {
+        padding: var(--space-md);
+        gap: var(--space-sm);
+    }
+
+    .contact-card-icon {
+        width: 40px;
+        height: 40px;
+    }
+
+    .contact-card-icon svg {
+        width: 18px;
+        height: 18px;
+    }
+
+    .contact-form-card { padding: var(--space-lg); }
+
+    .process-step {
+        grid-template-columns: 42px 1fr;
+        padding: var(--space-md);
+        column-gap: var(--space-sm);
+    }
+
+    .process-number {
+        width: 42px;
+        height: 42px;
+        font-size: 1rem;
+    }
+
+    .process-body h3 { font-size: 0.9rem; }
+    .process-body p { font-size: 0.78rem; }
+
+    .artist-price-value { font-size: 1.75rem; }
+
+    .feature-tooltip {
+        min-width: 180px;
+        max-width: 240px;
+        font-size: 0.72rem;
+    }
+}
+
+
+/* ============================================================
+   PENCEGAHAN OVERFLOW HORIZONTAL
+   ============================================================ */
+html {
+    overflow-x: clip;
+}
+
+body {
+    overflow-x: clip;
+    max-width: 100%;
+}
+
+
+/* ============================================================
+   SENTUHAN HALUS DI LAYAR SENTUH
+   ============================================================ */
+@media (hover: none) {
+    .service-card:hover,
+    .portfolio-item:hover,
+    .portfolio-card:hover,
+    .feature-card:hover,
+    .testimonial-card:hover {
+        transform: none;
+    }
+}
+
+
+/* ============================================================
+   SERVICE CARD — FORCE KONTRAS DI SEMUA TEMA
+   ============================================================ */
+.service-card .service-title {
+    color: #ffffff !important;
+}
+
+.service-card .service-desc {
+    color: rgba(255, 255, 255, 0.72) !important;
+}
+
+.service-card .price-label {
+    color: rgba(255, 255, 255, 0.6) !important;
+}
+
+.service-card .price-value {
+    font-size: 1.75rem !important;
+    font-weight: 800 !important;
+    line-height: 1 !important;
+    letter-spacing: -0.02em !important;
+    color: #bef264 !important;
+}
+
+.service-card .service-icon-badge {
+    color: #bef264 !important;
+}
+
+.service-card .service-price-row {
+    border-top-color: rgba(255, 255, 255, 0.15) !important;
+}
+
+
+/* ============================================================
+   PRICING CARD — HARGA BESAR
+   ============================================================ */
+.pricing-card .price-value {
+    font-size: 2rem !important;
+    font-weight: 800 !important;
+    line-height: 1 !important;
+    color: var(--text-primary) !important;
+}
+
+@media (max-width: 768px) {
+    .service-card .price-value {
+        font-size: 1.4rem !important;
+    }
+
+    .pricing-card .price-value {
+        font-size: 1.75rem !important;
+    }
+
+    .price-item-value {
+        font-size: 1.15rem !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .service-card .price-value {
+        font-size: 1.25rem !important;
+    }
+}
+
+/* ============================================================
+   FIX GAP — Pricelist → CTA → FAQ → Footer
+   ============================================================ */
+
+/* 1. Kurangi padding bawah section pricelist */
+.pricing-section {
+    padding-bottom: var(--space-lg);
+}
+
+/* 2. Pricelist note: kurangi margin */
+.pricing-note {
+    margin-top: var(--space-md);
+}
+
+/* 3. CTA section: kurangi padding atas & bawah */
+.pricing-section + .section {
+    padding-top: var(--space-lg);
+    padding-bottom: var(--space-lg);
+}
+
+/* 4. FAQ section: kurangi padding bawah */
+.section-alt + .section-alt,
+section.section-alt:has(.faq-list) {
+    padding-bottom: var(--space-lg);
+}
+
+/* 5. Footer: hapus margin-top (sudah ada padding dari section atasnya) */
+.site-footer {
+    margin-top: 0;
+}
+
+/* ============================================================
+   RESPONSIVE — Gap lebih rapat di mobile
+   ============================================================ */
+@media (max-width: 768px) {
+    .pricing-section {
+        padding-bottom: var(--space-md);
+    }
+
+    .pricing-note {
+        margin-top: var(--space-sm);
+    }
+
+    .pricing-section + .section {
+        padding-top: var(--space-md);
+        padding-bottom: var(--space-md);
+    }
+
+    section.section-alt:has(.faq-list) {
+        padding-bottom: var(--space-md);
+    }
+}
+
+/* ============================================================
+   TECH BADGES — Tools & Teknologi
+   ============================================================ */
+.tech-badges {
+    padding: var(--space-2xl) 0;
+    background: var(--bg-secondary);
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+    overflow: hidden;
+}
+
+.tech-badges-label {
+    text-align: center;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin: 0 0 var(--space-lg);
+}
+
+/* Viewport: area terlihat, dengan fade di kiri-kanan */
+.tech-badges-viewport {
+    overflow: hidden;
+    width: 100%;
+    mask-image: linear-gradient(
+        90deg,
+        transparent 0%,
+        black 8%,
+        black 92%,
+        transparent 100%
+    );
+    -webkit-mask-image: linear-gradient(
+        90deg,
+        transparent 0%,
+        black 8%,
+        black 92%,
+        transparent 100%
+    );
+}
+
+/* Track: baris badge yang akan di-geser */
+.tech-badges-track {
+    display: flex;
+    gap: var(--space-md);
+    padding: 0 var(--space-lg);
+    width: max-content;
+    transition: transform 700ms cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: transform;
+}
+
+/* Badge individual: pill dengan ikon + teks */
+.tech-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.75rem 1.25rem;
+    background: var(--bg-elevated);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-full);
+    color: var(--text-secondary);
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+    font-weight: 600;
+    white-space: nowrap;
+    flex-shrink: 0;
+    transition: all var(--transition-fast);
+}
+
+.tech-badge:hover {
+    border-color: var(--accent-secondary);
+    color: var(--text-primary);
+    background: var(--bg-hover);
+    transform: translateY(-2px);
+}
+
+.tech-badge svg {
+    width: 20px;
+    height: 20px;
+    color: var(--accent-secondary);
+    flex-shrink: 0;
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 640px) {
+    .tech-badges {
+        padding: var(--space-xl) 0;
+    }
+
+    .tech-badges-label {
+        font-size: 0.78rem;
+        margin-bottom: var(--space-md);
+    }
+
+    .tech-badges-track {
+        gap: 0.6rem;
+        padding: 0 var(--space-md);
+    }
+
+    .tech-badge {
+        padding: 0.6rem 1rem;
+        font-size: 0.82rem;
+        gap: 0.5rem;
+    }
+
+    .tech-badge svg {
+        width: 18px;
+        height: 18px;
+    }
+
+    .tech-badges-viewport {
+        mask-image: linear-gradient(
+            90deg,
+            transparent 0%,
+            black 5%,
+            black 95%,
+            transparent 100%
+        );
+        -webkit-mask-image: linear-gradient(
+            90deg,
+            transparent 0%,
+            black 5%,
+            black 95%,
+            transparent 100%
+        );
+    }
+}
+
+/* ============================================================
+   FIX MOBILE — Foto di Atas Konten (why-website & artist-promo)
+   ============================================================ */
+@media (max-width: 640px) {
+
+    /* ---------- KENAPA HARUS PUNYA WEBSITE ---------- */
+    .why-website .edustarz-visual {
+        order: -1;                       
+        max-width: 100%;
+        padding: 0;
+        margin-bottom: var(--space-md);
+    }
+
+    .why-website-content {
+        order: 0;
+    }
+
+    /* ---------- PROMO ARTIST ---------- */
+    .artist-promo-visual {
+        order: -1 !important;            
+        max-width: 100%;
+        padding: 0;
+        margin-bottom: var(--space-md);
+    }
+
+    .artist-promo-content {
+        order: 0 !important;
+    }
+
+    /* ---------- Sesuaikan ukuran foto mobile ---------- */
+    .why-website .edustarz-photo,
+    .artist-promo-visual .edustarz-photo {
+        border-radius: var(--radius-lg);
+    }
+
+    .why-website .edustarz-photo img,
+    .artist-promo-visual .edustarz-photo img {
+        object-position: center center;
+    }
+}
+
+/* ============================================================
+   HALAMAN KONTAK — POLISH + FIX MAP ASPECT RATIO
+   ============================================================ */
+
+/* ---------- Map: paksa landscape di semua ukuran ---------- */
+.map-wrap iframe {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    height: auto;
+    min-height: 0;
+}
+
+@media (max-width: 768px) {
+    .map-wrap iframe {
+        aspect-ratio: 16 / 10;
+    }
+}
+
+/* ---------- Contact card: featured (WhatsApp) ---------- */
+.contact-card-featured {
+    border-color: color-mix(in srgb, #25D366 40%, transparent);
+    background:
+        linear-gradient(135deg,
+            color-mix(in srgb, var(--bg-elevated) 95%, #25D366) 0%,
+            var(--bg-elevated) 100%);
+    box-shadow: 0 8px 24px rgba(37, 211, 102, 0.08);
+}
+
+.contact-card-featured:hover {
+    border-color: #25D366;
+    box-shadow: 0 12px 32px rgba(37, 211, 102, 0.15);
+}
+
+/* ---------- Contact link primary (WhatsApp) ---------- */
+.contact-link-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.5rem 0.9rem;
+    background: color-mix(in srgb, #25D366 12%, transparent);
+    border: 1px solid color-mix(in srgb, #25D366 35%, transparent);
+    border-radius: var(--radius-full);
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: #25D366;
+    text-decoration: none;
+    transition: all var(--transition-fast);
+    margin-top: var(--space-sm);
+}
+
+.contact-link-primary:hover {
+    background: #25D366;
+    color: #ffffff;
+    border-color: #25D366;
+    transform: translateX(3px);
+    box-shadow: 0 6px 16px rgba(37, 211, 102, 0.3);
+}
+
+/* ---------- Contact card: hover halus ---------- */
+.contact-card {
+    transition: all var(--transition-base);
+}
+
+/* ---------- Form card: sticky hanya desktop ---------- */
+@media (max-width: 900px) {
+    .contact-form-wrap {
+        position: static;
+    }
+}
+
+/* ---------- Form submit button ---------- */
+#contact-form .btn-block {
+    width: 100%;
+    margin-top: var(--space-md);
+}
+
+/* ---------- Section header left-align (khusus kontak) ---------- */
+.contact-info .section-header {
+    margin-bottom: var(--space-lg);
+}
+
+.contact-info .section-header .section-title {
+    text-align: left;
+    margin-bottom: var(--space-sm);
+    font-size: clamp(1.5rem, 3vw, 1.85rem);
+}
+
+/* ---------- Form note ---------- */
+#contact-form + .form-note,
+form .form-note {
+    text-align: center;
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    margin-top: var(--space-md);
+    line-height: 1.5;
+}
+
+/* ---------- Responsive fine-tuning ---------- */
+@media (max-width: 640px) {
+    .contact-card-featured {
+        border-color: color-mix(in srgb, #25D366 50%, transparent);
+    }
+
+    .contact-link-primary {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .map-wrap iframe {
+        aspect-ratio: 4 / 3;
+    }
+}
+
+/* ============================================================
+   LIGHT MODE — FIX HERO SECTION (BERANDA)
+   ============================================================ */
+[data-theme="light"] .hero {
+    background: #f8fafc;
+}
+
+/* Overlay putih transparan di atas image agar tidak gelap */
+[data-theme="light"] .hero-bg {
+    background-image:
+        linear-gradient(135deg, rgba(248, 250, 252, 0.95) 0%, rgba(255, 255, 255, 0.90) 50%, rgba(248, 250, 252, 0.95) 100%),
+        url('../img/hero-bg.webp');
+}
+
+[data-theme="light"] .hero-bg::after {
+    background-image:
+        radial-gradient(circle at 15% 30%, rgba(124, 58, 237, 0.15) 0%, transparent 45%),
+        radial-gradient(circle at 85% 70%, rgba(163, 230, 53, 0.2) 0%, transparent 45%);
+}
+
+[data-theme="light"] .hero-title {
+    color: #0f172a;
+}
+
+[data-theme="light"] .hero-subtitle {
+    color: #475569;
+}
+
+[data-theme="light"] .hero-subtitle strong {
+    color: #0f172a;
+}
+
+[data-theme="light"] .hero-badge {
+    background: rgba(124, 58, 237, 0.08);
+    color: #6d28d9;
+    border-color: rgba(124, 58, 237, 0.25);
+}
+
+[data-theme="light"] .hero-stat strong {
+    color: #0f172a;
+}
+
+[data-theme="light"] .hero-stat span.stat-label {
+    color: #64748b;
+}
+
+[data-theme="light"] .hero-stats {
+    border-top-color: #e2e8f0;
+}
+
+[data-theme="light"] .hero-stat-divider {
+    background: #e2e8f0;
+}
+
+[data-theme="light"] .hero-cta .btn-outline {
+    border-color: #cbd5e1;
+    color: #0f172a;
+    background: rgba(255, 255, 255, 0.8);
+}
+
+[data-theme="light"] .hero-cta .btn-outline:hover {
+    background: #f1f5f9;
+    border-color: #6d28d9;
+    color: #6d28d9;
+}
+
+/* ============================================================
+   LIGHT MODE — FIX PAGE HERO (Halaman Layanan)
+   ============================================================ */
+[data-theme="light"] .page-hero {
+    background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
+}
+
+[data-theme="light"] .page-hero::before {
+    background: #7c3aed;
+    opacity: 0.08;
+}
+
+[data-theme="light"] .breadcrumb,
+[data-theme="light"] .breadcrumb a {
+    color: #64748b;
+}
+
+[data-theme="light"] .breadcrumb a:hover {
+    color: #6d28d9;
+}
+
+[data-theme="light"] .page-hero-title {
+    color: #0f172a;
+}
+
+[data-theme="light"] .page-hero-title .text-accent {
+    background: linear-gradient(135deg, #6d28d9 0%, #65a30d 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+[data-theme="light"] .page-hero-subtitle {
+    color: #475569;
+}
+
+[data-theme="light"] .page-hero-features {
+    background: #ffffff;
+    border-color: #e2e8f0;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+[data-theme="light"] .ph-feature {
+    color: #475569;
+}
+
+[data-theme="light"] .ph-feature svg {
+    color: #65a30d;
+}
+
+/* ============================================================
+   LIGHT MODE — FIX KONTRAS EDUSTARZ & ARTIST PROMO
+   ============================================================ */
+
+/* --- 1. Section EduStarz --- */
+[data-theme="light"] .edustarz {
+    background:
+        radial-gradient(circle at 20% 20%, rgba(124, 58, 237, 0.06) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(163, 230, 53, 0.08) 0%, transparent 50%),
+        #ffffff;
+}
+
+[data-theme="light"] .edustarz-eyebrow {
+    color: #dc2626; /* Merah lebih gelap agar terbaca di putih */
+}
+
+[data-theme="light"] .edustarz-eyebrow::before {
+    background: #dc2626;
+}
+
+[data-theme="light"] .edustarz-title .edustarz-price-highlight {
+    background: linear-gradient(135deg, #6d28d9 0%, #65a30d 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+[data-theme="light"] .edustarz-note {
+    background: rgba(101, 163, 13, 0.06);
+    border-color: rgba(101, 163, 13, 0.25);
+    color: #475569;
+}
+
+/* --- 2. Section Artist Promo --- */
+[data-theme="light"] .artist-promo {
+    background:
+        radial-gradient(circle at 15% 20%, rgba(236, 72, 153, 0.06) 0%, transparent 50%),
+        radial-gradient(circle at 85% 80%, rgba(163, 230, 53, 0.06) 0%, transparent 50%),
+        #f8fafc;
+}
+
+/* Kotak harga promo Artist */
+[data-theme="light"] .artist-price-highlight {
+    background: linear-gradient(135deg, rgba(236, 72, 153, 0.08) 0%, rgba(101, 163, 13, 0.08) 100%);
+    border-color: rgba(101, 163, 13, 0.4);
+}
+
+/* Mengubah teks putih/neon menjadi gelap/hijau tua */
+[data-theme="light"] .artist-price-value {
+    color: #0f172a;
+}
+
+[data-theme="light"] .artist-price-currency,
+[data-theme="light"] .artist-price-ribu,
+[data-theme="light"] .artist-price-side-value {
+    color: #65a30d;
+}
+
+[data-theme="light"] .artist-price-note,
+[data-theme="light"] .artist-price-sub {
+    color: #64748b;
+}
+
+[data-theme="light"] .artist-price-divider {
+    background: rgba(101, 163, 13, 0.3);
+}
+
+[data-theme="light"] .artist-tnc-link {
+    background: rgba(101, 163, 13, 0.08);
+    border-color: rgba(101, 163, 13, 0.3);
+    color: #65a30d;
+}
+
+[data-theme="light"] .artist-tnc-link:hover {
+    background: rgba(101, 163, 13, 0.15);
+    border-color: #65a30d;
+}
+
+/* ============================================================
+   LANGKAH 4 — POLISH LIGHT MODE (Kontras & Section Alt)
+   ============================================================ */
+[data-theme="light"] .section-alt {
+    background: var(--bg-secondary);
+    border-top: 1px solid #e2e8f0;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+/* Pastikan badge tech (Tools & Teknologi) di light mode kontras */
+[data-theme="light"] .tech-badge {
+    background: #ffffff;
+    color: #475569;
+}
+[data-theme="light"] .tech-badge:hover {
+    background: #f8fafc;
+    color: #0f172a;
+}
+
+/* Pastikan Tab Harga (Pendidikan/Bisnis) kontras */
+[data-theme="light"] .pricing-tabs {
+    background: #ffffff;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+/* ============================================================
+   TESTIMONI REDESIGN (BENTO GRID + SLIDER)
+   ============================================================ */
+.testimonials-ref {
+    padding: var(--space-3xl) 0;
+    width: 100%;
+    overflow: hidden; /* Mengunci agar tidak ada elemen bocor ke kanan */
+}
+
+.testi-header-ref {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: var(--space-2xl);
+    gap: var(--space-lg);
+    flex-wrap: wrap;
+    width: 100%;
+    min-width: 0; /* Penting untuk flexbox */
+}
+
+.testi-header-ref .section-title {
+    margin-bottom: 0;
+    max-width: 600px;
+    word-wrap: break-word;
+}
+
+.testi-badges {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+    align-items: flex-end;
+}
+
+.badge-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.4rem 0.8rem;
+    background: var(--bg-elevated);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-full);
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.badge-pill .dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent-primary);
+}
+
+/* --- GRID UTAMA: 2 KOLOM SAMA BESAR --- */
+.testi-grid-ref {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-lg);
+    align-items: stretch;
+    width: 100%;
+    min-width: 0;
+}
+
+/* --- KIRI: WRAPPER SLIDER --- */
+.testi-left {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+    position: relative;
+    min-width: 0; /* Mencegah flexbox melebar */
+    width: 100%;
+}
+
+.testi-slider-wrapper {
+    overflow: hidden;
+    border-radius: var(--radius-xl);
+    flex-grow: 1;
+    width: 100%;
+    min-width: 0;
+}
+
+.testi-slider-track {
+    display: flex;
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    height: 100%;
+    width: 100%;
+}
+
+.testimonial-item {
+    flex: 0 0 100%; /* Memaksa lebar pas 100% dan tidak bisa mengecil/membesar */
+    max-width: 100%;
+    box-sizing: border-box;
+    background: var(--bg-elevated);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-xl);
+    padding: var(--space-xl);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow-wrap: break-word;
+    word-break: break-word;
+}
+
+.testi-counter {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--accent-primary);
+    margin-bottom: var(--space-lg);
+}
+
+.counter-line {
+    flex-grow: 1;
+    height: 1px;
+    background: var(--border-color);
+}
+
+.testimonial-item blockquote {
+    font-size: 1.25rem; /* Teks lebih besar */
+    font-weight: 500;
+    color: var(--text-primary);
+    line-height: 1.6;
+    margin-bottom: var(--space-lg);
+    flex-grow: 1;
+    overflow-wrap: break-word;
+}
+
+.testi-rating {
+    color: #f59e0b;
+    font-size: 1rem;
+    margin-bottom: var(--space-lg);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.testi-rating span {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    font-weight: 700;
+}
+
+.testi-author {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    padding-top: var(--space-lg);
+    border-top: 1px solid var(--border-color);
+}
+
+.testi-author .avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+}
+
+.author-info strong {
+    display: block;
+    font-size: 1.1rem;
+    color: var(--text-primary);
+    margin-bottom: 2px;
+}
+
+.author-info small {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+/* Tombol Navigasi Slider */
+.testi-controls {
+    display: flex;
+    gap: var(--space-sm);
+    justify-content: flex-end;
+}
+
+.testi-btn {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--bg-elevated);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.testi-btn:hover {
+    background: var(--accent-primary);
+    color: #ffffff;
+    border-color: var(--accent-primary);
+}
+
+.testi-btn svg {
+    width: 20px;
+    height: 20px;
+}
+
+/* --- KANAN: KARTU PROMO (RASIO 1:1) --- */
+.promo-card-right {
+    background: linear-gradient(135deg, #7c3aed 0%, #a3e635 100%);
+    border-radius: var(--radius-xl);
+    padding: var(--space-xl);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: #ffffff;
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 1 / 1;
+    min-width: 0;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.promo-card-right::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle at 80% 20%, rgba(255,255,255,0.2) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+.promo-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    position: relative;
+    z-index: 1;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.promo-date {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    opacity: 0.9;
+}
+
+.promo-content {
+    position: relative;
+    z-index: 1;
+}
+
+.promo-content h3 {
+    font-size: clamp(2.5rem, 4vw, 3.5rem);
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -0.03em;
+    color: #ffffff;
+    margin-bottom: 0.5rem;
+}
+
+.promo-content p {
+    font-size: 1.1rem;
+    font-weight: 500;
+    opacity: 0.9;
+}
+
+.promo-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    position: relative;
+    z-index: 1;
+}
+
+.promo-label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    opacity: 0.8;
+    margin-bottom: 0.25rem;
+}
+
+.promo-price {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
+
+.promo-price-value {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #ffffff;
+    line-height: 1;
+}
+
+.promo-btn-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 56px;
+    height: 56px;
+    background: #ffffff;
+    color: #7c3aed;
+    border-radius: 50%;
+    transition: all var(--transition-fast);
+    flex-shrink: 0;
+}
+
+.promo-btn-arrow:hover {
+    transform: scale(1.1);
+    background: #f8fafc;
+}
+
+.promo-btn-arrow svg {
+    width: 24px;
+    height: 24px;
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 1024px) {
+    .testi-grid-ref {
+        grid-template-columns: 1fr; 
+    }
+    
+    .promo-card-right {
+        aspect-ratio: auto;
+        min-height: 400px;
+    }
+}
+
+@media (max-width: 768px) {
+    .testi-header-ref {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .testi-badges {
+        flex-direction: row;
+        align-items: flex-start;
+    }
+    
+    .testimonial-item {
+        padding: var(--space-lg); 
+    }
+
+    .testimonial-item blockquote {
+        font-size: 1.1rem; 
+    }
+    
+    .promo-card-right {
+        min-height: 300px;
+        padding: var(--space-lg);
+    }
+}
+
+/* ============================================================
+   HERO BADGES (Fitur Tambahan di bawah Subtitle)
+   ============================================================ */
+.hero-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-lg);
+    margin-top: calc(-1 * var(--space-sm)); /* Merapatkan sedikit ke subtitle */
+    margin-bottom: var(--space-xl);
+}
+
+.h-badge {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+}
+
+.h-badge svg {
+    width: 18px;
+    height: 18px;
+    color: var(--accent-secondary); /* Ikon berwarna hijau/aksen */
+    flex-shrink: 0;
+}
+
+@media (max-width: 480px) {
+    .hero-badges {
+        gap: var(--space-sm);
+        flex-direction: column; /* Menyusun ke bawah di layar sangat kecil */
+        align-items: flex-start;
+    }
+}
+
+/* ============================================================
+   LIGHT MODE FIX — Hero Badges
+   ============================================================ */
+[data-theme="light"] .h-badge {
+    color: #475569; /* Teks abu-abu gelap agar terbaca di background terang */
+}
+
+[data-theme="light"] .h-badge svg {
+    color: #65a30d; /* Warna ikon hijau yang lebih gelap (mengikuti tema light) */
 }

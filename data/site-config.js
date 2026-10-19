@@ -57,13 +57,61 @@ const SITE = {
     },
 
     // ---------- NAVIGASI ----------
-    // Urutan menu di header & footer
     navigasi: [
-        { label: "Beranda",       href: "index.html" },
-        { label: "Web Develop",   href: "web-develop.html" },
-        { label: "Graphic Design",href: "graphic-design.html" },
-        { label: "Sketchup 3D",   href: "sketchup.html" },
-        { label: "Kontak",        href: "kontak.html" }
+        { label: "Beranda", href: "index.html" },
+        {
+            label: "Layanan",
+            dropdown: [
+                {
+                    label: "Web Development",
+                    desc: "Website modern & SEO-friendly",
+                    href: "web-develop.html",
+                    icon: "globe"
+                },
+                {
+                    label: "Graphic Design",
+                    desc: "Logo, banner, dan branding",
+                    href: "graphic-design.html",
+                    icon: "palette"
+                },
+                {
+                    label: "Sketchup 3D",
+                    desc: "Visualisasi rumah & gedung",
+                    href: "sketchup.html",
+                    icon: "home"
+                }
+            ]
+        },
+        {
+            label: "Solusi",
+            dropdown: [
+                {
+                    label: "Untuk Sekolah",
+                    desc: "Website profil & PPDB online",
+                    href: "web-develop.html#sekolah",
+                    icon: "school"
+                },
+                {
+                    label: "Untuk UMKM",
+                    desc: "Toko online & branding",
+                    href: "web-develop.html#sekolah",
+                    icon: "store"
+                },
+                {
+                    label: "Untuk Bisnis",
+                    desc: "Company profile & sistem",
+                    href: "web-develop.html#sekolah",
+                    icon: "briefcase"
+                },
+                {
+                    label: "Untuk Pribadi",
+                    desc: "Portfolio & personal brand",
+                    href: "web-develop.html#sekolah",
+                    icon: "user"
+                }
+            ]
+        },
+        { label: "Kontak", href: "kontak.html" }
     ],
 
     // ---------- LAYANAN ----------
@@ -73,7 +121,7 @@ const SITE = {
             nama: "Web Development",
             ikonSvg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>`,
             deskripsi: "Website modern, cepat, dan SEO-friendly untuk profil, toko online, atau sistem informasi sekolah.",
-            hargaMulai: "750.000",
+            hargaMulai: "675.000",
             gambar: "assets/img/layanan/web-develop.webp",
             href: "web-develop.html"
         },
