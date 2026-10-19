@@ -4581,3 +4581,35 @@ form .form-note {
 .edu-acc-content .edustarz-features {
     margin-bottom: 0;
 }
+
+/* ============================================================
+   FOOTER LEGAL LINKS
+   ============================================================ */
+.footer-legal-links {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+}
+
+.footer-legal-links a {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    text-decoration: none;
+    transition: color var(--transition-fast);
+}
+
+.footer-legal-links a:hover {
+    color: var(--accent-secondary);
+}
+
+.footer-legal-links .separator {
+    color: var(--border-color);
+    font-size: 0.85rem;
+}
+
+@media (max-width: 640px) {
+    .footer-legal-links {
+        margin-top: var(--space-sm);
+        justify-content: center;
+    }
+}

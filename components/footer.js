@@ -120,7 +120,11 @@
 
                 <div class="footer-bottom">
                     <p><b>&copy; ${year} ${SITE.nama}</b>. All Rights Reserved.<br> Hak cipta dan sumber daya dilindungi undang-undang. Dilarang keras menyalin konten / kode tanpa izin tertulis.</p>
-                    <p class="footer-credit"><a href="kontak.html">KONTAK</p>
+                    <div class="footer-legal-links">
+                        <a href="syarat-ketentuan.html">Syarat &amp; Ketentuan</a>
+                        <span class="separator">|</span>
+                        <a href="kebijakan-privasi.html">Kebijakan Privasi</a>
+                    </div>
                 </div>
             </div>
         `;
