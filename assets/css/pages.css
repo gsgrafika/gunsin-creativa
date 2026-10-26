@@ -148,8 +148,8 @@
 
 .hero-subtitle {
     color: rgba(241, 245, 249, 0.75);
-    font-size: 1.1rem;
-    line-height: 1.7;
+    font-size: 1rem;
+    line-height: 1.25;
     max-width: 62ch;
     margin-bottom: var(--space-xl);
 }
@@ -362,7 +362,7 @@
 
 .service-desc {
     font-size: 0.85rem;
-    line-height: 1.5;
+    line-height: 1.25;
     color: rgba(255, 255, 255, 0.72);
     margin: 0;
     display: -webkit-box;
@@ -509,7 +509,7 @@
     grid-row: 2;
     color: var(--text-secondary);
     font-size: 0.85rem;
-    line-height: 1.5;
+    line-height: 1.25;
     margin: 0;
 }
 
@@ -598,14 +598,14 @@
 
 .edustarz-desc {
     font-size: 1rem;
-    line-height: 1.65;
+    line-height: 1.25;
     color: var(--text-secondary);
     margin-bottom: var(--space-sm);
 }
 
 .edustarz-desc-2 {
     font-size: 0.95rem;
-    line-height: 1.65;
+    line-height: 1.25;
     color: var(--text-secondary);
     margin-bottom: var(--space-lg);
     padding-left: var(--space-md);
@@ -1115,7 +1115,7 @@
 
     .hero-subtitle {
         font-size: 0.95rem;
-        line-height: 1.55;
+        line-height: 1.25;
         margin-bottom: var(--space-lg);
     }
 
