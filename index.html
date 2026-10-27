@@ -135,7 +135,7 @@
     <header id="site-header"></header>
 
     <main>
-        <!-- ============================================================
+<!-- ============================================================
              1. HERO
              ============================================================ -->
         <section class="hero">
@@ -143,46 +143,103 @@
             <div class="hero-bg" aria-hidden="true"></div>
 
             <div class="container">
-                <div class="hero-content">
+                <!-- Layout 2 Kolom -->
+                <div class="hero-layout">
+                    
+                    <!-- Kolom Kiri: Teks & CTA (Mirip dengan yang lama) -->
+                    <div class="hero-content">
+                        <h1 class="hero-title">
+                            Kini Giliran <span class="text-accent">Anda</span><br>
+                            yang Naik Kelas!
+                        </h1>
 
-                    <h1 class="hero-title">
-                        Kini Giliran <span class="text-accent">Anda</span><br>
-                        yang Naik Kelas!
-                    </h1>
+                        <p class="hero-subtitle">
+                            Gunsin Creativa menghadirkan solusi digital end-to-end, 
+                            mulai dari <strong>Website Modern, Identitas Visual Premium,</strong> hingga <strong>Visualisasi 3D.</strong> 
+                            Kami membantu bisnis, instansi, sekolah, UMKM, bahkan perorangan 
+                            dalam membangun kredibilitas serta memikat target pasar secara efektif.
+                        </p>
 
-                    <p class="hero-subtitle">
-                        Gunsin Creativa menghadirkan solusi digital end-to-end, 
-                        mulai dari <strong>Website Modern, Identitas Visual Premium,</strong> hingga <strong>Visualisasi 3D.</strong> 
-                        Kami membantu bisnis, instansi, sekolah, UMKM, bahkan perorangan 
-                        dalam membangun kredibilitas serta memikat target pasar secara efektif.
-                    </p>
-
-                    <!-- Hero Badges -->
-                    <div class="hero-badges">
-                        <div class="h-badge">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-                            <span>Jaminan Uang Kembali</span>
+                        <!-- Hero Badges -->
+                        <div class="hero-badges">
+                            <div class="h-badge">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                                <span>Jaminan Uang Kembali</span>
+                            </div>
+                            <div class="h-badge">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                                <span>Kualitas Terjamin</span>
+                            </div>
+                            <div class="h-badge">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                                <span>Tepat Waktu</span>
+                            </div>
                         </div>
-                        <div class="h-badge">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                            <span>Kualitas Terjamin</span>
-                        </div>
-                        <div class="h-badge">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-                            <span>Tepat Waktu</span>
+
+                        <div class="hero-cta">
+                            <a href="https://wa.me/6285113133060?text=Halo%20Gunsin%20Creativa%2C%20saya%20ingin%20konsultasi"
+                               class="btn btn-primary btn-lg" target="_blank" rel="noopener">
+                                Konsultasi Gratis →
+                            </a>
+                            <a href="#layanan" class="btn btn-outline btn-lg">
+                                Eksplorasi Layanan
+                            </a>
                         </div>
                     </div>
 
-                    <div class="hero-cta">
-                        <a href="https://wa.me/6285113133060?text=Halo%20Gunsin%20Creativa%2C%20saya%20ingin%20konsultasi"
-                           class="btn btn-primary btn-lg" target="_blank" rel="noopener">
-                            Konsultasi Gratis →
-                        </a>
-                        <a href="#layanan" class="btn btn-outline btn-lg">
-                            Eksplorasi Layanan
-                        </a>
-                    </div>
+                    <!-- Kolom Kanan: Visual Review & Testimoni -->
+                    <div class="hero-visual">
+                        
+                        <!-- Top Info Card -->
+                        <div class="hero-card info-card">
+                            <p>Lebih dari <strong>50 orang</strong> terbantu dengan kehadiran Gunsin Creativa. Mulai dari UMKM, Bisnis, Organisasi hingga individual.</p>
+                        </div>
 
+                        <!-- Rating & Avatars Row -->
+                        <div class="hero-visual-row">
+                            <div class="hero-card avatar-card">
+                                <div class="avatar-group">
+                                    <!-- Ganti src dengan file webp Anda -->
+                                    <img src="assets/img/hero/avatar-1.webp" alt="Customer 1" class="avatar-img">
+                                    <img src="assets/img/hero/avatar-2.webp" alt="Customer 2" class="avatar-img">
+                                    <img src="assets/img/hero/avatar-3.webp" alt="Customer 3" class="avatar-img">
+                                    <div class="avatar-count">50+</div>
+                                </div>
+                            </div>
+                            
+                            <div class="hero-card rating-card">
+                                <div class="stars">★★★★★</div>
+                                <div class="rating-text"><strong>4.9/5</strong> Rating</div>
+                                <div class="rating-sub">Lebih dari 50 penilaian</div>
+                            </div>
+                        </div>
+
+                        <!-- Testimoni Slider Card -->
+                        <div class="hero-card slider-card">
+                            <div class="slider-image">
+                                <!-- Menggunakan format webp sesuai permintaan -->
+                                <img src="assets/img/hero/review-1.webp" alt="Hasil Desain" loading="lazy">
+                            </div>
+                            <div class="slider-content">
+                                <blockquote>"Hasil desainnya sangat bagus. Komunikasi diawal sangat lancar dan pihak Gunsin Creativa bisa mewujudkan ide saya persis seperti yang saya mau."</blockquote>
+                                <div class="reviewer-info">
+                                    <div>
+                                        <strong>Bu Sari</strong>
+                                        <span>Pemilik UMKM</span>
+                                    </div>
+                                    <div class="slider-nav">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Bagian Bawah: Stats & Logo Klien -->
+                <div class="hero-bottom-bar">
+                    <!-- Stats Kiri -->
                     <div class="hero-stats">
                         <div class="hero-stat">
                             <strong>50<span>+</span></strong>
@@ -199,7 +256,24 @@
                             <span class="stat-label">Tahun Pengalaman</span>
                         </div>
                     </div>
+                    
+                    <!-- Slider Logo Kanan -->
+                    <div class="hero-trusted">
+                        <span class="trusted-label">Dipercaya oleh:</span>
+                        <div class="trusted-slider">
+                            <div class="trusted-track">
+                                <!-- Gambar format webp. Class 'logo-mono' akan kita buat untuk filter dark/light di Tahap 2 -->
+                                <img src="assets/img/logo-google.webp" alt="Google" class="logo-mono">
+                                <img src="assets/img/logo-cahaya-buana.webp" alt="Cahaya Buana" class="logo-mono">
+                                <img src="assets/img/logo-instansi.webp" alt="Instansi" class="logo-mono">
+                                <!-- Duplikasi untuk efek infinite scroll -->
+                                <img src="assets/img/logo-google.webp" alt="Google" class="logo-mono" aria-hidden="true">
+                                <img src="assets/img/logo-cahaya-buana.webp" alt="Cahaya Buana" class="logo-mono" aria-hidden="true">
+                            </div>
+                        </div>
+                    </div>
                 </div>
+
             </div>
         </section>
 

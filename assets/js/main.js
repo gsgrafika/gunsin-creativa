@@ -201,6 +201,91 @@
         updateVisibility();
     }
 
+    /**
+     * Slider Testimoni di Hero Section (VERSI PERBAIKAN)
+     */
+    function setupHeroSlider() {
+        const sliderCard = document.querySelector('.slider-card');
+        if (!sliderCard) return;
+
+        // Data ulasan
+        const reviews = [
+            {
+                text: '"Hasil desainnya sangat bagus. Komunikasi diawal sangat lancar dan pihak Gunsin Creativa bisa mewujudkan ide saya persis seperti yang saya mau."',
+                name: 'Bu Sari',
+                role: 'Pemilik UMKM',
+                image: 'assets/img/hero/review-1.webp'
+            },
+            {
+                text: '"Website sekolah kami jadi lebih modern dan cepat. Fitur informasinya sangat membantu sekolah di tahun ajaran baru ini. Mantap!"',
+                name: 'Pak Budi',
+                role: 'Kepala Sekolah',
+                image: 'assets/img/hero/review-2.webp'
+            },
+            {
+                text: '"Render 3D untuk proyek perumahan kami hasilnya sangat detail. Klien langsung suka dan mempercepat proses persetujuan proyek."',
+                name: 'Mas Rifqi',
+                role: 'Kontraktor',
+                image: 'assets/img/hero/review-3.webp'
+            }
+        ];
+
+        let currentIndex = 0;
+        const textEl = sliderCard.querySelector('blockquote');
+        const nameEl = sliderCard.querySelector('.reviewer-info strong');
+        const roleEl = sliderCard.querySelector('.reviewer-info span');
+        const productImgEl = sliderCard.querySelector('.slider-image img');
+        const avatarImgEl = sliderCard.querySelector('.reviewer-img');
+        const navBtn = sliderCard.querySelector('.slider-nav');
+
+        // JANGAN gunakan sliderCard.style.transition di sini, biarkan CSS yang mengatur.
+
+        function updateSlider() {
+            // 1. Tambahkan class untuk memudarkan (CSS akan menghandle transisinya)
+            sliderCard.classList.add('is-fading');
+            
+            setTimeout(() => {
+                const currentReview = reviews[currentIndex];
+                
+                // Pastikan elemen ada sebelum mengubah isinya (mencegah error)
+                if (textEl) textEl.textContent = currentReview.text;
+                if (nameEl) nameEl.textContent = currentReview.name;
+                if (roleEl) roleEl.textContent = currentReview.role;
+                if (productImgEl) productImgEl.src = currentReview.image;
+                if (avatarImgEl) avatarImgEl.src = currentReview.avatar;
+
+                // 2. Hapus class untuk memunculkan kembali kartu
+                sliderCard.classList.remove('is-fading');
+            }, 300);
+        }
+
+        function nextSlide() {
+            currentIndex = (currentIndex + 1) % reviews.length;
+            updateSlider();
+        }
+
+        // Event listener klik pada tombol panah navigasi
+        if (navBtn) {
+            navBtn.style.cursor = 'pointer';
+            navBtn.addEventListener('click', () => {
+                nextSlide();
+                resetInterval(); 
+            });
+        }
+
+        // Auto slide setiap 5 detik
+        let slideInterval = setInterval(nextSlide, 5000);
+
+        function resetInterval() {
+            clearInterval(slideInterval);
+            slideInterval = setInterval(nextSlide, 5000);
+        }
+        
+        // Hentikan auto-slide saat kursor berada di atas card ulasan
+        sliderCard.addEventListener('mouseenter', () => clearInterval(slideInterval));
+        sliderCard.addEventListener('mouseleave', resetInterval);
+    }
+
     function init() {
         renderServices();
         renderPortfolio();
@@ -208,6 +293,7 @@
         setupSmoothScroll();
         setup404Redirect();
         setupBackToTop();
+        setupHeroSlider();
     }
 
     if (document.readyState === 'loading') {
