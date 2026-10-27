@@ -5366,3 +5366,210 @@ form .form-note {
     flex-direction: column !important;
     justify-content: space-between !important;
 }
+
+/* ============================================================
+   MOBILE FIX: HERO VISUAL TETAP SEJAJAR (KIRI-KANAN)
+   ============================================================ */
+
+@media (max-width: 768px) {
+    /* 1. Batasi lebar card agar tidak terlalu melar di tablet/HP */
+    .hero-visual {
+        max-width: 480px !important;
+        margin: 0 auto !important;
+        gap: 10px !important; /* Jarak antar card lebih rapat */
+    }
+
+    /* 2. Paksa Avatar dan Rating tetap sejajar menyamping */
+    .hero-visual-row {
+        grid-template-columns: auto 1fr !important; /* Kembalikan ke kiri-kanan */
+        gap: 16px !important; /* Jarak sedikit dirapatkan */
+    }
+
+    /* 3. Garis pemisah vertikal tetap muncul */
+    .hero-card.rating-card::before {
+        display: block !important;
+        left: -8.5px !important; /* Sesuaikan posisi garis dengan gap baru */
+    }
+
+    /* 4. Kecilkan ukuran Avatar agar tidak sesak */
+    .hero-card.avatar-card {
+        padding: 8px 12px !important;
+    }
+    
+    .avatar-img, .avatar-count {
+        width: 32px !important;
+        height: 32px !important;
+        font-size: 0.65rem !important;
+    }
+
+    /* 5. Sesuaikan ukuran teks Rating */
+    .rating-text strong {
+        font-size: 1.1rem !important;
+    }
+    
+    .rating-sub {
+        font-size: 0.7rem !important;
+    }
+
+    /* 6. Paksa Card Review tetap menyamping (gambar di kiri, teks di kanan) */
+    .hero-card.slider-card {
+        flex-direction: row !important; /* Jangan ditumpuk! */
+        min-height: 130px !important; /* Sedikit lebih pendek untuk HP */
+    }
+
+    /* 7. Sesuaikan lebar gambar review di HP */
+    .slider-image {
+        width: 100px !important; /* Lebih tipis */
+    }
+
+    /* 8. Sesuaikan padding dan font teks review */
+    .slider-content {
+        padding: 12px 14px !important;
+    }
+
+    .slider-content blockquote {
+        font-size: 0.8rem !important;
+        -webkit-line-clamp: 3 !important; /* Batasi 3 baris */
+        margin-bottom: 8px !important;
+    }
+
+    /* 9. Rapikan teks nama reviewer */
+    .reviewer-info strong { font-size: 0.8rem !important; }
+    .reviewer-info span { font-size: 0.7rem !important; }
+    .slider-nav { width: 24px !important; height: 24px !important; }
+}
+
+/* Penyesuaian khusus untuk HP yang sangat kecil (di bawah 400px) */
+@media (max-width: 400px) {
+    .hero-visual-row {
+        gap: 12px !important;
+    }
+    
+    .hero-card.rating-card::before {
+        left: -6.5px !important;
+    }
+
+    .avatar-img, .avatar-count {
+        width: 28px !important;
+        height: 28px !important;
+        margin-left: -10px !important;
+    }
+
+    .slider-image {
+        width: 85px !important;
+    }
+}
+
+/* ============================================================
+   MOBILE FIX V2: UKURAN AVATAR & GAMBAR REVIEW PROPORSIONAL
+   ============================================================ */
+
+@media (max-width: 768px) {
+    /* 1. Perbesar Avatar (kembalikan ke ukuran hampir sama dengan desktop) */
+    .avatar-img, .avatar-count {
+        width: 38px !important;
+        height: 38px !important;
+        font-size: 0.75rem !important;
+        margin-left: -12px !important; /* Overlap lebih rapat */
+        border-width: 2px !important;
+    }
+    
+    .avatar-img:first-child {
+        margin-left: 0 !important;
+    }
+
+    /* Beri sedikit ruang pada card avatar agar tidak sesak */
+    .hero-card.avatar-card {
+        padding: 8px 14px !important;
+    }
+
+    /* 2. Perbaiki Garis Pemisah Vertikal (sesuaikan dengan gap baru) */
+    .hero-visual-row {
+        gap: 20px !important; /* Jarak antara avatar dan rating */
+    }
+
+    .hero-card.rating-card::before {
+        left: -10.5px !important; /* Posisi garis di tengah gap */
+    }
+
+    /* 3. Perlebar Gambar Review (agar tidak ramping) */
+    .slider-image {
+        width: 125px !important; /* Lebar gambar dikembalikan mendekati desktop (130px) */
+        min-width: 125px !important; /* Mencegah flexbox menyusutkan gambar */
+        flex-shrink: 0 !important;
+    }
+
+    /* 4. Sesuaikan teks review agar tidak terpotong akibat gambar yang lebar */
+    .slider-content {
+        padding: 12px 14px !important;
+    }
+
+    .slider-content blockquote {
+        font-size: 0.8rem !important; /* Sedikit dikecilkan agar muat */
+        line-height: 1.4 !important;
+        margin-bottom: 8px !important;
+    }
+}
+
+/* Penyesuaian khusus untuk HP sangat kecil (seperti iPhone SE) */
+@media (max-width: 400px) {
+    .avatar-img, .avatar-count {
+        width: 34px !important;
+        height: 34px !important;
+    }
+    
+    .hero-visual-row {
+        gap: 16px !important;
+    }
+
+    .hero-card.rating-card::before {
+        left: -8.5px !important;
+    }
+
+    .slider-image {
+        width: 110px !important;
+        min-width: 110px !important;
+    }
+}
+
+/* ============================================================
+   MOBILE FIX V3: LOGO CAROUSEL CENTER & SPACING
+   ============================================================ */
+
+@media (max-width: 768px) {
+    /* 1. Area 'Dipercaya oleh' dipaksa ke tengah (Center) */
+    .hero-trusted {
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        text-align: center !important;
+        width: 100% !important;
+        margin-top: var(--space-md) !important; 
+    }
+
+    /* 2. Jarak antara teks "Dipercaya oleh" dengan logonya */
+    .trusted-label {
+        margin-bottom: var(--space-sm) !important; 
+        margin-right: 0 !important;
+    }
+
+    /* 3. Batasi lebar slider logo dan pastikan berada persis di tengah */
+    .trusted-slider {
+        width: 100% !important;
+        max-width: 300px !important; /* Lebar maksimal carousel di HP */
+        margin: 0 auto !important;
+    }
+
+    /* 4. Tambahkan ruang di bawah (gap) agar tidak menempel ke section selanjutnya */
+    .hero-bottom-bar {
+        padding-bottom: var(--space-3xl) !important; /* Memberi jarak bawah yang lega */
+        align-items: center !important; /* Paksa semua konten bottom bar ke tengah */
+        gap: var(--space-xl) !important;
+    }
+
+    /* 5. Statistik (50+, 30+, 2+) juga dibuat ke tengah agar seimbang */
+    .hero-stats {
+        justify-content: center !important;
+        width: 100% !important;
+    }
+}
